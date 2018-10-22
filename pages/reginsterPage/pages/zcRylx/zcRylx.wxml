@@ -1,0 +1,70 @@
+<view class="box">
+    <!-- 引用 头部 -->
+      <!-- <include src="../template/top"/> -->
+    <!-- end 头部-->
+    <!-- title -->
+  <view class="titleSty">
+    <view class="hr"></view>
+    <view class="titleT">基本信息</view>
+  </view>
+  <!-- end  title -->
+  <!-- 注册进度 （人员类型不只是当事人时）-->
+  <view class="box_line_round">
+    <view class="lineSty">
+      <view class="lineSty_left"></view>
+      <view class="lineSty_right" style="border-bottom: 1px dashed #6dbeff;"></view> 
+    </view>
+    <view class="box_round">
+      <view class="box_r_t">
+        <view class="round" style="background: #6dbeff;">1</view>
+        <view class="textSty" style="color: #6dbeff;">步骤1</view>
+      </view>
+      <view class="box_r_t">
+        <view class="round" style="background: #6dbeff;">2</view>
+        <view class="textSty" style="color: #6dbeff;">步骤2</view>
+      </view>
+       <view class="box_r_t">
+        <view class="round" style="background: #6dbeff;">3</view>
+        <view class="textSty" style="color: #6dbeff;">步骤3</view>
+      </view> 
+    </view>
+  </view>
+  <!-- 注册进度 -->
+    <view class="bodyStyle">
+      <form bindsubmit="formSubmit">
+      <!-- mainStyle -->
+       <view class="mainStyle">
+           <block wx:for="{{type}}" wx:for-item="t" wx:for-index="tIndex" wx:key="t">
+              <!-- 企业 -->
+               <view wx:if="{{t == 'qy'}}">
+               <view class="itemSty"></view>
+                <include src="../qy/qy"/>
+              </view>
+              <!-- end 企业 -->
+
+              <!-- 人大代表-->
+              <view wx:if="{{t == 'rddb'}}">
+               <view class="itemSty"></view>
+                <include src="../rddb/rddb"/>
+              </view>
+              <!-- end 人大代表-->
+              
+              <!-- 务工人员-->
+              <view wx:if="{{t == 'wg'}}">
+                <view class="itemSty"></view>
+                <include src="../wg/wg"/>
+              </view>
+              <!-- end 务工人员-->
+           </block>
+
+        <!-- 提交按钮 -->
+      <view class="btnSubmit">
+          <button wx:if="{{showBtn == true && urlStr.length>0}}" class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">完成</button>
+      </view>
+      <!-- end 提交按钮 -->
+      </view> 
+      <!--end mainStyle-->
+      </form>
+    </view>
+    <!-- end bodyStyle -->
+</view>

@@ -1,0 +1,12 @@
+<!-- 咨询功能介绍 -->
+<view class="topSty">
+      <image src="{{urlStr}}show/images?fileName=bannerZx.png" mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"/>  
+     
+     <view class='propose' bindtap="clickFunPropose"  style="background-image: url('{{urlStr}}show/images?fileName=btnZx01.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry' && urlStr.length > 0}}">提出咨询</view>
+     <view class="propose {{rylx=='ls' || rylx=='tjy' || rylx=='zfry' ? 'posLeftSty':''}}" bindtap="clickFunYzx" style="background-image: url('{{urlStr}}show/images?fileName=btnZx02.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">我的咨询</view>
+</view>
+
+<view class='contentbottom'>
+  <image src='{{urlStr}}show/images?fileName=zxindex.png'  wx:if="{{urlStr.length > 0}}"></image>
+</view>
+

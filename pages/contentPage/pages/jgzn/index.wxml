@@ -1,0 +1,27 @@
+<view class="box">
+  <view class="boxItems">
+    <view class="tj">
+      <form bindsubmit="queryByBt">
+        <view class="tjInputSty"><input type="text" name="bt"/></view>
+        <view class="tjButtonSty"><button formType="submit">查询</button></view>
+      </form>
+    </view>
+
+    <block wx:if="{{arr != null}}" wx:for="{{arr}}" wx:for-item="a" wx:for-index="aIndex" wx:key="a">
+      <wxs module="util">
+        var sub = function(val) {
+          return val.substring(0, 18)
+        }
+        module.exports.sub = sub;
+      </wxs>
+
+      <view wx:if="{{a.xxid == checkedId}}" class="item itemActive" bindtap="checkFun" data-id="{{a.xxid}}">{{util.sub(a.bt)}}<label wx:if="{{a.bt.length > 18}}">...</label></view>
+
+      <view wx:if="{{a.xxid != checkedId}}" class="item" bindtap="checkFun" data-id="{{a.xxid}}">{{util.sub(a.bt)}}<label wx:if="{{a.bt.length > 18}}">...</label></view>
+
+    </block>
+
+    <view wx:if="{{arr ==  null}}" class="nullSty">暂无信息 </view>
+  </view>
+</view>
+

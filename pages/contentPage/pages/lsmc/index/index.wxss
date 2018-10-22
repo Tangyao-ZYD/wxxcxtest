@@ -1,0 +1,51 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.box{
+  width: 100%;
+  height: 100%;
+}
+.main{
+  width: 90%;
+  height:100%;
+  margin: 0px 5%;
+}
+.items{
+  width: 100%;
+   height: 85%; 
+   display: block;
+}
+.item{
+  width: 14%;
+  height: 12%;
+  float: left;
+  margin: 20px 3%;
+}
+.itemTop{
+  width: 100%;
+  height: 70%;
+  /* background: yellow; */
+  border-radius: 50%;
+}
+.itemTop image{
+  width: 90%;
+  height: 100%;
+  border-radius: 50%;
+}
+.itemBottom{
+  width: 100%;
+  height: 25%;
+  font-size: 12px;
+  text-align: center;
+  padding-top:5%;
+}
+
+.bottom{
+  width: 100%;
+  margin-top: 5%; 
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 10%;
+  clear:both;
+}

@@ -1,0 +1,26 @@
+<import src="../../../../utils/wxParse/wxParse.wxml"/>
+<view class="box">
+<!-- 简介内容 -->
+  <view class="contentSty">
+    <!-- 标题部分 -->
+    <view class="contentTile">{{content.bt}}</view>
+    <!-- end 标题部分 -->
+
+    <!-- 内容主体部分 -->
+    <view class="content">
+
+      <scroll-view class="pSty" scroll-y="true">
+        <view class='wxParse'>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+      </scroll-view>
+
+      <view class="bottomSty">
+        <view class="bottomStyLeft">来源：金堂县人民法院</view>
+      </view>
+      
+    </view>
+    <!-- end 内容主体部分 -->
+  </view>
+  <!-- end 简介内容 -->
+</view>

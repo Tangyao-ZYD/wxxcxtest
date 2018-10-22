@@ -1,0 +1,40 @@
+<view class="box_xw">
+  <!--重点新闻 -->
+  <block wx:for="{{news}}" wx:for-item="n" wx:for-index="nIndex" wx:key="newaImportant">
+  <view class="importantNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_1'}}" bindtap="queryNewInfo" id="{{n.xwid}}">
+    <view class="importantNewsTitle">{{n.zt}}</view>
+    <view class="importantNewsbody">
+      <image src="{{urlStr}}show/images?fileName={{n.tp}}&width=350&height=200" mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
+    </view>
+  </view>
+  </block>
+<!--end 重点新闻 -->
+
+
+<view class="normalNewsBox">
+  <!-- 普通新闻 -->
+  <block wx:for="{{news}}" wx:for-item="n" wx:for-index="nIndex" wx:key="n">
+  <view class="normalNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_2'}}" bindtap="queryNewInfo" id="{{n.xwid}}">
+    <view class="normalNewsLeft">
+			<!-- 主题 -->
+      <view class="normalNewsLeftTitle">{{n.zt}}</view>
+			<!--end 主题 -->
+      <view class="normalNewsLeftTime">
+        <view class="normalNewsLeftTimeIco"></view>
+				<!-- 时间 -->
+        <view class="normalNewsLeftTimeText">
+          <image src="{{urlStr}}show/images?fileName=time.png" mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
+          <view class="timeSty">{{n.cjsjStr}}</view>
+        </view>
+				<!--end 时间 -->
+      </view>
+    </view>
+    <view class="normalNewsRight">
+      <image src="{{urlStr}}show/imageSlt?fileName={{n.tp}}&width=350&height=200"  mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
+    </view>
+  </view>
+  </block>
+  <!-- end 普通新闻 -->
+</view>
+
+</view>

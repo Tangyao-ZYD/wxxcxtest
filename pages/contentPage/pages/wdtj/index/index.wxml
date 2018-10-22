@@ -1,0 +1,39 @@
+<!-- 调解首页 -->
+<view class="box">
+  <view class="topSty">
+
+    <image class="topImgSty" src="{{urlStr}}show/images?fileName=banner1.jpg" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+ 
+
+      <view class='propose' bindtap="clickFunPropose" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry'}}">
+      <image src="{{urlStr}}show/images?fileName=icon01.png" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+        <view>调解申请</view>
+      </view>
+
+      <view class="propose" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry'}}" bindtap="tjListFun">
+        <image src="{{urlStr}}show/images?fileName=icon02.png" mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"></image>
+        <view>我的调解</view>
+      </view>
+
+      <view class="fw-propose" wx:if="{{rylx=='ls' || rylx=='tjy' || rylx=='zfry'}}" bindtap="tjListFun">
+        <image src="{{urlStr}}show/images?fileName=icon02.png" mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"></image>
+        <view>我的调解</view>
+      </view>
+
+      <!-- <view class="propose" bindtap="scbzFun" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry'}}">
+        <image src="https://www.thinkllwx.cn/SpringBootJN/show/images?fileName=icon03.png" mode="aspectFitll" ></image>
+        <view>速裁保障</view>
+      </view> -->
+
+  </view>
+<!-- <canvas canvas-id="canvas" bindtap='change'></canvas> -->
+  <view class='contentbottom'>
+    <view class="contentSty">
+      <text decode='true'>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您如果遇到矛盾纠纷希望寻求化解途径，我们建议您可以选择减少诉累、节约成本的诉前调解方式。您可以通过“我要调解”，注册个人信息、输入需要调解的事项内容、选择相应的社区、街道、司法部门的调解员进行调解。
+      </text>
+    </view>
+  </view>
+
+</view>
+

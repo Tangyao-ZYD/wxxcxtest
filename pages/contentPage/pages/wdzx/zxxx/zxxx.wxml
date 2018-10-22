@@ -1,0 +1,62 @@
+<view class="topSty">
+  <image src="{{urlStr}}show/images?fileName=chbgZx.png" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+
+</view>
+
+<!-- 咨询标题 -->
+<view class='clrtxImg' bindtap='bindFunGrxx' style="background-image: url('{{urlStr}}show/images?fileName={{userInfo.tx}}');background-size:100% 100%; border:none; color:white;" wx:if="{{zxInfo.zt != 3 && urlStr.length > 0}}">
+</view>
+
+<view class='material' wx:if="{{zxInfo.zt == 3}}">
+  <view class='imgLeft'>
+    <view class='txImg' style="background-image: url('{{urlStr}}show/images?fileName={{userInfo.tx}}');background-size:100% 100%; border:none; color:white;"  wx:if="{{urlStr.length > 0}}">
+    </view>
+    <text class='nameXm'>{{zxInfo.clrxm}}</text>
+    <!-- 星星 -->
+    <view class='xxImg'>
+      <block wx:for="{{stars}}">
+        <image class="star-image" style="left: {{item*30}}rpx" src="{{item}}">
+        </image>
+      </block>
+    </view>
+  </view>
+
+  <view class='contentRight'>
+    {{pjxxInfo.pjnr}}
+  </view>
+</view>
+
+<!--end 咨询标题 -->
+
+<view class="wrap">
+  <!-- 咨询信息主题 -->
+  <scroll-view scroll-y bindscroll="scroll" scroll-into-view="{{toView}}" class='scrollView' scroll-top="{{scrollTop}}">
+
+    <block wx:if="{{hfInfo != null}}" wx:for="{{hfInfo}}" wx:for-item="h" wx:for-index="hIndex" wx:key="h">
+      <view class='rylxbox'>
+
+        <view class="{{h.cjr != jcid ?'rylx':'arrow'}}">
+          <image bindtap="showImg" data-src="{{urlStr}}show/images?fileName={{h.nr}}" wx:if="{{h.xxlx == 2 && urlStr.length > 0}}" src="{{urlStr}}show/images?fileName={{h.nr}}" style="width:50px;height:50px;" mode="aspectFitll" />
+          <view wx:if="{{h.xxlx == 1}}">{{h.nr}}</view>
+        </view>
+
+      </view>
+
+    </block>
+    <view wx:if="{{hfInfo == null}}" class="noReply">
+      暂无回复信息
+    </view>
+  </scroll-view>
+
+
+
+</view>
+<!-- 回复 -->
+<view class="handleBox" wx:if="{{zxInfo.zt != 3}}">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <input class="input_submit" placeholder="点击输入，开始聊天吧" value="{{inputTemp}}" bindinput="bindKeyInput" name="nr" />
+    <button class="btn_submit" formType="submit" style="padding:3px 15px 15px;" size="mini" bindtap="submitTo" disabled='{{disabled}}'>发送</button>
+    <image src='{{urlStr}}show/images?fileName=join.png' bindtap="sendImg"  wx:if="{{urlStr.length > 0}}"></image>
+  </form>
+</view>
+<!-- end 回复 -->

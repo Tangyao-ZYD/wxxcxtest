@@ -1,0 +1,126 @@
+@import "../jbxx/jbxx.wxss";
+
+/**
+  上传身份证照片样式
+*/
+
+.imgLeft image{
+  width: 90px;
+  height: 70px;
+}
+.imgRight {
+  padding-top: 11%;
+}
+.imgRight button{
+  width: 95.5%;
+}
+
+
+.titleSty{
+  position: relative;
+  height: 40px;
+}
+.titleTop{
+  width: auto;
+  color: #6dbeff;
+  position: absolute;
+  left: 50%;
+  margin-left:-28px; 
+  background: white;
+}
+.hr{
+  width: 100%;
+  height: 2px;
+  top:45%;
+  background: #6dbeff;
+  position: absolute;
+}
+
+.box_line_round{
+  position: relative;
+  height: 100px;
+}
+.box_round{
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  line-height: 50px;
+}
+.box_r_t{
+  margin-left: 18.4%;
+  float: left;
+}
+
+.lineSty{
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  height: 40px;
+}
+.lineSty_left{
+  width: 50%;
+  height: 1px;
+  top: 50%;
+  left: 30%;
+  position: absolute;
+  border-bottom: 1px dashed #6dbeff;
+}
+.lineSty_right{
+  width: 50%;
+  height: 1px;
+  top: 50%;
+  left: 90%;
+  position: absolute;
+  border-bottom: 1px dashed #bbb;
+}
+
+.round{
+  width: 40px;
+  height: 40px;
+  color: white;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+.textSty{
+  font-size: 12px;
+}
+
+.colorred{
+  color:red; 
+  font-size:12px;
+  padding:5px;
+}
+.btnVer{
+  width: 35%;
+  height:30px;
+  background: #6dbeff;
+  font-size: 12px;
+  text-align: center;
+  float: rigth;
+  color: white;
+  margin-right: 0%;
+  line-height: 30px; 
+}
+.btnVerInput{
+  width: 35%;
+  float: left;
+}
+
+/*  重写 checkbox 样式  */
+checkbox .wx-checkbox-input{
+   width: 40rpx;
+   height: 40rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   width: 40rpx;
+   height: 40rpx;
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx;
+   color:#fff;
+   background: #6dbeff;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+  

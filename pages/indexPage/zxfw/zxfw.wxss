@@ -1,0 +1,73 @@
+ @import "../fyxw/fyxw.wxss"; 
+.topSty{
+  width: 100%;
+  height: auto;
+  margin-bottom: 3%; 
+}
+.topSty image{
+  width: 100%;
+   height: 170px;
+}
+.menuSty{
+  width: 100%;
+  height: 240px;
+  /* background: red;  */
+}
+.menuTitle{
+  width:76%;
+  height: 40px;
+  margin: 0px 12%;
+   /* background: yellow;  */
+}
+
+.menuTitleText{
+  color:#4e7ae5;
+  font-size: 14px;
+  font-weight: 600; 
+  line-height: 30px;
+}
+.menuTitle image{
+  width: 15px;
+  height: 40px;
+  float: left;
+}
+.menus{
+  width:90%;
+  height: 80%;
+  margin: 0px 5%;
+   /* background: yellow;  */
+}
+.menu{
+  width: 40%;
+  height: 44.5%;
+   margin: 2.5% 5% 0px 5%; 
+  font-size: 14px;
+  float: left;
+   /* background: red;  */
+   position: relative;
+}
+
+.bgImg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.menuIco{
+  width: 65%;
+  height: 50%;
+  position: relative;
+  left: 20%;
+  top: 20%;
+    /* background: red;   */
+}
+.menuIco image{
+  width: 31%;
+  height: 63%;
+}
+.menuText{
+  position: relative;
+  left: 20%;
+  color: white;
+}
+

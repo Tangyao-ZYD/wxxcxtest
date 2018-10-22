@@ -1,0 +1,46 @@
+@import "../jbxx/jbxx.wxss";
+ page {  
+  display: block;  
+  min-height: 100%;  
+  background-color:  #f2fbff;  
+} 
+.titleSty{
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  margin-top: -10px;
+  background: white;
+}
+.imgRight{
+  margin-right: 2%;
+}
+.nationSty{
+  width: 98%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  text-align: center;
+  margin-left:0;
+  background: white; 
+  border-radius: 2px;
+  box-shadow:1px 1px 1px 1px grey;
+}
+/**
+  上传身份证照片样式
+*/
+
+.imgLeft image{
+  width: 90px;
+  height: 70px;
+}
+.imgRight {
+  padding-top: 11%;
+}
+.imgRight button{
+  width: 95.5%;
+}
+.frqx{
+  margin-left: -20px;
+  
+}
+

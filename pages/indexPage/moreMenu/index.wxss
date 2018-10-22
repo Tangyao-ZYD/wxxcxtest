@@ -1,0 +1,97 @@
+.topSty{
+  width: 100%;
+  height: auto;
+  margin-bottom: 3%; 
+}
+.topSty image{
+  width:100%;
+  height: 170px;
+}
+.menusBody{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  /* background: red;  */
+}
+.menu{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  /* background: yellow;   */
+}
+.menuTitle{
+  width: 90%;
+  height: 40px;
+  margin: 0px 5%;
+   /* background: aqua;  */
+}
+.menuTitleIco{
+  width: 5%;
+  height: 96%;
+  margin: 1% 2% 0px 2%;
+  float: left;
+}
+.menuTitleIco image{
+  width: 100%;
+  height: 100%;
+}
+.menuTitleText{
+  width: 91%;
+  height: 100%;
+  float: right;
+  font-size: 14px;
+  line-height: 35px;
+  font-weight: 600;
+  
+  /* color: #4e7ae5; */
+}
+.hrSty{
+  width: 100%;
+  height: 1px; 
+  background: #f9f9f9;
+}
+.items{
+  width: 90%;
+  margin: 2% 5%;
+  /* background: greenyellow; */
+}
+.item{
+  width: 25%;
+  height: 80px;
+  float: left;
+   /* background: bisque;  */
+}
+.itemIco{
+  width: 35%;
+  height: 35%;
+  margin: 10% 32%;
+  /* background: red; */
+}
+.itemIco image{
+  width:100%;
+  height: 90%;
+}
+.itemText{
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  /* background: aqua; */
+}
+
+.hrStyle{
+  width: 100%;
+  height: 8px;
+  background: #f9f9f9;
+  margin-bottom: 5px; 
+}
+
+.menusNullSty{
+  font-size: 14px;
+  color: #000;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

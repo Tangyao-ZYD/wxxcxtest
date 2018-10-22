@@ -1,0 +1,13 @@
+<!-- 申请成功图标 -->
+<view class='successTb'>
+    <icon type="success" size="70"  color="#47ACE4"/>
+</view>
+<view class='contentTitle' style='color:#45A0F0;'> 申请成功!</view>
+<view class='contentTitle'>你的申请已提交后台，可在我的咨询列表查看</view> 
+<!-- 申请成功图标 -->
+
+<!-- 底部按钮-->
+    <view class="btnSubmit">
+      <button class="btn-compl" bindtap="clickFunWdgt" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">我的咨询</button>
+    </view>
+ <!-- end 底部按钮-->

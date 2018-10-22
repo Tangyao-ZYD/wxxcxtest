@@ -1,0 +1,290 @@
+.body{
+  width: 100%;
+  height: auto;
+  /* background: #f7faff; */
+}
+.titleSty{
+  width: 96%;
+  margin: 2%;
+  font-size: 14px;
+  /* border-bottom: 2px solid #01a9f2; */
+}
+.titleTop{
+  width: 96%;
+  padding: 2%;
+}
+.mianSty{
+  width: 96%;
+  margin: 2%;
+ /* background: greenyellow;*/
+}
+.mainBodySty{
+  width: 96%;
+  height: 10px;
+  padding: 2%;
+  margin-bottom: 30px;
+}
+.rightSty{
+  width: 74%;
+  height: 30px;
+  float: left;
+  font-size: 14px;
+  line-height: 30px;
+  /*background: orange;*/
+}
+.inputSty-Region{
+  width: 100%;
+  height: 100%;
+}
+.inputSty{
+  width: 96%;
+  height: 100%;
+  float: left;
+ /* background: yellow;*/
+}
+.inputNumSty{
+  width: 68%;
+  height: 100%;
+  float: left;
+}
+.btnSty{
+  width: 25%;
+  height: 30px;
+  color: white;
+  margin-left:69%;
+  font-size: 12px;
+  background-color: #6dbeff;
+}
+
+.radiusSty{
+  width: 75%;
+  height: 100%;
+  float: left;
+  /*background: pink;*/
+}
+.radioSty{
+  float: left;
+}
+
+.section{
+  font-size: 12px;
+  margin-left: 1.5%;
+}
+.regionSty{
+  width: 30%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  text-align: center;
+  /*margin-left:1%;*/
+  background: white; 
+  border-radius: 2px;
+  box-shadow:1px 1px 1px 1px grey;
+}
+.regionTwoSty{
+  margin-left:2%;
+}
+
+.nationSty{
+  width: 98%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  text-align: center;
+  margin-left:0;
+  background: white; 
+  border-radius: 2px;
+  box-shadow:1px 1px 1px 1px grey;
+}
+.rightRegionSty{
+  width: 74%;
+  height: 32px;
+  float: left;
+  font-size: 14px;
+  /*background: orange;*/
+}
+.rightPeopleSty{
+  width: 74%;
+  height: 70px;
+  float: left;
+  font-size: 14px;
+  line-height: 30px;
+  /*background: orange;*/
+}
+.radioPeopleSty{
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.flex-box{
+  margin-left: 0.8%;
+}
+
+input{
+  width: 94%;
+  height: 95%;
+  margin-left: 2%;
+  padding-left:2%;
+  font-size: 12px;
+  background: white;
+  border-radius: 3px;
+  box-shadow:1px 3px 3px 1px #bbb;
+}
+
+radio{
+  margin-left: 2%;
+}
+
+
+.flex-item label.active{ 
+ color: cornflowerblue; 
+} 
+.flex-item{
+  width: 30%;
+  text-align: center;
+  float: left;
+  margin: 1%;
+  /*background: red;*/
+  font-size: 12px;
+}
+
+.btnSubmit{
+  width: 96%;
+  padding: 4%;
+  margin-top: 30px;
+}
+
+
+.inputRegionSty{
+  width: 94%;
+  height: 45%;
+  margin-left: 2%;
+  padding-left:2%;
+  font-size: 12px;
+  background: white;
+  border-radius: 3px;
+  box-shadow:1px 1px 1px 1px grey;
+}
+
+.mainBodyIdcardSty{
+  width: 96%;
+  height: 80px;
+  padding: 2%;
+}
+.righIdcardImgSty{
+  width: 70%;
+  height: 100%;
+  float: left;
+  font-size: 14px;
+  line-height: 30px;
+  /*background: red;*/
+}
+.imgLeft{
+  float: left;
+}
+.imgLeft image{
+  width: 70px;
+  height: 80px;
+}
+.imgRight{
+  height: 30px;
+  width: 28%;
+  float: right;
+  padding-right: 18%;
+  padding-top: 16%;
+}
+.imgRight button{
+  width: 100%;
+}
+.checkbox{
+  font-size: 12px;
+  width: 32%;
+  float: left;
+  display: block;
+}
+.radioPeopleSty checkbox{
+  zoom: 65%;
+}
+
+
+.mustIcon{
+  color: red;
+}
+
+.color-green{
+  color:green; 
+  font-size:12px;
+  padding:5px;
+} 
+.colorgreen{
+  color:green; 
+  font-size:12px;
+  padding:5px;
+} 
+.colorred{
+  color:red; 
+  font-size:12px;
+  padding:5px;
+}
+.color-red{
+  color:red; 
+  font-size:12px;
+  padding:5px;
+}
+
+.btn-compl{
+  height: 75px;
+  font-size:16px;
+  font-weight: 600;
+  line-height: 60px;
+  /* margin-top: 80px;
+  margin-bottom: 20px; */
+}
+
+.mainBodySty{
+  width: 96%;
+  height: 10px;
+  padding: 2%;
+  margin-bottom: 30px;
+}
+.leftSty{
+  width: 26%;
+  height: 30px;
+  float: left;
+  text-align: right;
+  font-size: 12px;
+  line-height: 30px;
+  /*background: greenyellow;*/
+}
+.rightSty{
+  width: 74%;
+  height: 30px;
+  float: left;
+  font-size: 14px;
+  line-height: 30px;
+  /*background: orange;*/
+}
+.inputSty{
+  width: 96%;
+  height: 100%;
+  float: left;
+ /* background: yellow;*/
+}
+.leftSty1{
+  width: 28%;
+  height: 30px;
+  float: left;
+  text-align: right;
+  font-size: 12px;
+  line-height: 30px;
+  margin-left:-2%;
+  /*background: greenyellow;*/
+}
+.rightSty2{
+  width: 74%;
+  height: 30px;
+  float: left;
+  font-size: 14px;
+  line-height: 30px;
+  /*background: orange;*/
+}

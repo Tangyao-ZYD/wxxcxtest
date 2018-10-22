@@ -1,0 +1,98 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.box{
+  width: 100%;
+  height: 100%;
+}
+.main{
+  width: 90%;
+  height: 100%;
+  margin: 0px 5%;
+}
+.topSty{
+  width: 100%;
+  height: 8%;
+  font-size: 16px;
+  font-weight: 600;
+}
+.leftTitle{
+  width: 30%;
+  float: left;
+  text-align: left;
+}
+.rightTitle{
+  width: 65%;
+  float: right;
+  font-size: 14px;
+  font-weight: 500;
+  color: lightskyblue;
+  text-align: right;
+	position:relative;
+	top:40%;
+	left:-3%;
+
+}
+
+
+
+
+
+
+
+
+.basicSty{
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+}
+
+.leftSty{
+  width: 30%;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+.rightSty{
+  width: 65%;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+  float: right;
+  font-size: 14px;
+}
+.rightSty input{
+  width: 98%;
+  height: 100%;
+  line-height: 40px;
+  padding-left:2%;
+}
+.editSty{
+  border:1px solid #E0E0E0;
+  border-radius: 5px;
+  padding-left:2%;
+}
+
+
+
+.buttomSty{
+  width: 100%;
+}
+.buttomSty button{
+  width: 80px;
+  height: 40px;
+  float: right;
+  font-size: 14px;
+  text-align: center;
+  line-height: 40px;
+  margin: 20px 0px;
+  color: white;
+  background: lightskyblue;
+}
+.mustIcon{
+  color: red;
+}

@@ -1,0 +1,377 @@
+<view class="box">
+  <view class="main">
+    <view class="topSty">
+      <view class="leftTitle">个人信息</view>
+      <view class="rightTitle" bindtap="clickFun">编辑</view>
+    </view>
+    <form bindsubmit="formSubmit">
+    <view class="bodySty">
+    
+      <!-- 基础信息 -->
+      <view class="basicSty" wx:if="{{wxUserAllInfo.basicinfo != null}}">
+
+        <view class="leftSty">姓名:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="xm" value="{{wxUserAllInfo.basicinfo.xm}}"/>
+          
+        </view>
+
+        <view class="leftSty">性别:</view>
+        <view class="rightSty">
+          <!-- 性别 单选 " -->
+            <view class="radiusSty">
+              <radio-group bindchange="radioCheckedChangeForSex"   name="xb">
+                <radio disabled='{{disabledType}}' checked="{{wxUserAllInfo.basicinfo.xb == 0 ? 'checked':''}}" value="0" />男
+                <radio disabled='{{disabledType}}' checked="{{wxUserAllInfo.basicinfo.xb == 1 ? 'checked':''}}"value="1" />女
+              </radio-group>
+            </view>
+            <!-- end 单选 radiusSty -->
+        </view>
+
+        <view class="leftSty">身份证号:</view>
+        <view class="rightSty">
+            <input type="idcard" disabled='{{disabledType}}' maxlength="18" name="sfzh" bindblur="sfzh_Verification" value="{{wxUserAllInfo.basicinfo.sfzh}}"/>
+            <label class="mustIcon">{{msg_sfzh}}</label>
+        </view>
+				<view class="leftSty">身份证正面:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxp}}" data-src="{{urlStr}}SpringBootJN/show/images?fileName={{wxUserAllInfo.basicinfo.sfzxp}}" name="sfzxp" style="width:30px;height:30px;" mode="aspectFitll" bindtap="showImg" wx:if="{{urlStr.length > 0}}"/>
+        </view>
+
+        <view class="leftSty">身份证反面:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxpbm}}" name="sfzxpbm" style="width:30px;height:30px;" mode="aspectFitll" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxpbm}}" bindtap="showImg" wx:if="{{urlStr.length > 0}}"/>
+        </view>
+
+        <view class="leftSty">身份证期限:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="sfzqx" maxlength="21" bindblur="sfzqx_Verification" value="{{wxUserAllInfo.basicinfo.sfzqx}}"/>
+          <label class="mustIcon">{{msg_sfzhqx}}</label>
+        </view>
+
+        <view class="leftSty">出生日期:</view>
+        <view class="rightSty">
+          <view class="section">
+            <picker mode="date" disabled='{{disabledType}}' name="csrq" value="{{wxUserAllInfo.basicinfo.csrq}}" start="1900-01-01" end="2200-01-01" bindchange="bindDateChange">
+              <view class="picker">
+                <view>{{wxUserAllInfo.basicinfo.csrq}}</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="leftSty">联系方式:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="lxdh" maxlength="11" bindblur="lxdh_Verification"  value="{{wxUserAllInfo.basicinfo.lxdh}}"/>
+           <label class="mustIcon">{{msg_lxdh}}</label>
+        </view>
+
+        <view class="leftSty">民族:</view>
+        <view class="rightSty">
+          <view class="section">
+            <picker disabled='{{disabledType}}' bindchange="bindPickerChange" name="mz" value="{{nationIndex}}" range="{{nation}}">
+              <view class="picker">
+                <view>{{nation[nationIndex]}}</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="leftSty" style="height:70px;">户籍所在地:</view>
+        <view class="rightSty" style="height:70px;">
+          <view name="hjszdxz" bindblur="hjszdxz_Verification">{{wxUserAllInfo.basicinfo.hjszdxz}}</view>
+           <label class="mustIcon">{{msg_hjszdxz}}</label>
+        </view>
+
+        <view class="leftSty">现居地址:</view>
+        <view class="rightSty">
+          <input disabled='{{disabledTypeXzdz}}' type="text" name="xzdxz" maxlength='100'bindblur="xzdxz_Verification" class="{{isEdit == 0 ?'editSty':''}}" value="{{wxUserAllInfo.basicinfo.xzdxz}}"/>
+          <label class="mustIcon">{{msg_xzdxz}}</label>
+        </view>
+
+
+        <!-- 姓名、性别、出生日期、联系方式、民族、户籍所在地、现居地址 -->
+      </view>
+      <!-- end 基础信息 -->
+
+      <!-- 政府人员信息  style="height:300px;border-bottom: 1px solid gray;"-->
+      <view class="basicSty" wx:if="{{wxUserAllInfo.government != null}}">
+
+        <view class="leftSty">机构代码:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="jgdm" value="{{wxUserAllInfo.government.jgdm}}"/>
+        </view>
+
+        <view class="leftSty">机构类别:</view>
+        <view class="rightSty">
+          <view class="section">
+            <picker disabled='{{disabledType}}' name="jglb" bindchange="bindPickerChangeJglb" value="{{jglbTypeIndex}}" range="{{jblbArr}}" range-key="{{'name'}}" >
+              <view class="picker">
+                <view>{{jblbArr[jglbTypeIndex].name}} </view>
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="leftSty">机构名称:</view>
+        <view class="rightSty"><input disabled='{{disabledType}}' type="text" name="jgmc" value="{{wxUserAllInfo.government.jgmc}}"/></view>
+
+        <view class="leftSty">部门:</view>
+        <view class="rightSty"><input disabled='{{disabledType}}' type="text" name="bmmc" value="{{wxUserAllInfo.government.bmmc}}"/></view>
+
+        <view class="leftSty">职务:</view>
+        <view class="rightSty"><input disabled='{{disabledType}}' type="text" name="zfryzw" value="{{wxUserAllInfo.government.zfryzw}}"/></view>
+
+        <view class="leftSty">级别:</view>
+        <view class="rightSty">
+           <view class="section">
+            <picker name="jb" disabled='{{disabledType}}' bindchange="bindPickerChangeJb" value="{{jbTypeIndex}}" range="{{jbArr}}" range-key="{{'name'}}" >
+              <view class="picker">
+                <view>{{jbArr[jbTypeIndex].name}} </view>
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="leftSty">审判职务:</view> 
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="spzw" value="{{wxUserAllInfo.government.spzw}}"/></view>
+
+      <!-- 机构代码、机构类别、机构名称、部门、职务、级别、审判职务 -->
+      </view>
+      <!-- end 政府人员信息 -->
+
+      <!-- 人大代表信息 -->
+      <view class="basicSty" wx:if="{{wxUserAllInfo.deputies != null}}">
+
+        <view class="leftSty">代表级别:</view>
+        <view class="rightSty">
+          <view class="section">
+              <picker name="dbjb" disabled='{{disabledType}}' bindchange="bindPickerChangeForDbjb" value="{{dbjbForPickerIndex}}" range="{{rddbArr}}" range-key="{{'name'}}" >  
+                  <view class="picker">  
+                    <view>{{rddbArr[dbjbForPickerIndex].name}} </view>
+                  </view>  
+              </picker>
+            </view>
+        </view>
+
+        <view class="leftSty">代表证件号码:</view>
+        <view class="rightSty">
+          <input type="idcard" disabled='{{disabledType}}' name="rddbzzjhm" bindblur="zjhm_Verification"  maxlength="20" value="{{wxUserAllInfo.deputies.rddbzzjhm}}"/>
+          <label class="mustIcon">{{msg_zjhm}}</label>
+        </view>
+
+        <view class="leftSty">代表证:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.deputies.rddbzxp}}" style="width:30px;height:30px;" mode="aspectFitll"/>
+        </view>
+
+        <view class="leftSty">单位:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="dw" bindblur="dw_Verification" maxlength="100" value="{{wxUserAllInfo.deputies.dw}}"/>
+          <label class="mustIcon">{{msg_dw}}</label>
+        </view>
+
+        <view class="leftSty">职务:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="rddbzw" value="{{wxUserAllInfo.deputies.rddbzw}}"/></view>
+
+        <view class="leftSty">党派:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="dp" value="{{wxUserAllInfo.deputies.dp}}"/></view>
+
+        <view class="leftSty">选区:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="xq" value="{{wxUserAllInfo.deputies.xq}}"/></view>
+
+        <!-- 人大代表级别、人大代表证件号码、人大代表证相片、单位、职务、党派、选区 -->
+      </view>
+      <!-- end 人大代表信息 -->
+
+      <!-- 企业信息-->
+      <view class="basicSty" wx:if="{{wxUserAllInfo.enterprise != null}}">
+
+        <view class="leftSty">企业类别:</view>
+        <view class="rightSty">
+          <view class="section">
+              <picker name="qylb" disabled='{{disabledType}}' mode = "selector" bindchange="bindPickerChangeForType" range="{{qyArr}}" value="{{typeForPickerIndex}}" range-key="{{'name'}}">  
+                  <view class="picker">  
+                    <view>{{qyArr[typeForPickerIndex].name}} </view>
+                  </view>  
+              </picker>
+            </view>
+        </view>
+
+        <view class="leftSty">组织机构代码:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' bindblur="jgdm_Verification" maxlength="10" name="zzjgdm" value="{{wxUserAllInfo.enterprise.zzjgdm}}"/>
+          <label class="mustIcon">{{msg_jgdm}}</label>
+        </view>
+
+        <view class="leftSty">营业执照:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.yyzz}}" style="width:30px;height:30px;" mode="aspectFitll"/>
+        </view>
+
+        <view class="leftSty">法人姓名:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="frxm" bindblur="frxm_Verification"  maxlength="20" value="{{wxUserAllInfo.enterprise.frxm}}"/>
+          <label class="mustIcon">{{msg_frxm}}</label>
+        </view>
+
+        <view class="leftSty">法人身份证号:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="frsfzh" bindblur="idcard_Verification" maxlength="18" value="{{wxUserAllInfo.enterprise.frsfzh}}"/>
+          <label class="mustIcon">{{msg_idcard}}</label>
+        </view>
+
+        <view class="leftSty">身份证正面:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxp}}" name="frsfzxp" style="width:30px;height:30px;" mode="aspectFitll"/>
+        </view>
+
+        <view class="leftSty">身份证反面:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxpbm}}" name="frsfzxpbm" style="width:30px;height:30px;" mode="aspectFitll"/>
+        </view>
+
+        <view class="leftSty">身份证期限:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="frsfzqx" maxlength="20" value="{{wxUserAllInfo.enterprise.frsfzqx}}"/>
+           <label class="mustIcon">{{msg_frsfzqx}}</label>
+        </view>
+
+        <view class="leftSty">联系方式:</view>
+        <view class="rightSty">
+           <input type="number" disabled='{{disabledType}}' name="frlxfs" bindblur="frlxfs_Verification" maxlength="11" value="{{wxUserAllInfo.enterprise.frlxfs}}" />        
+            <label class="mustIcon">{{msg_frlxfs}}</label>
+        </view>
+
+        <view class="leftSty">营业地址:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="yydz" value="{{wxUserAllInfo.enterprise.yydz}}"/>
+          <label class="mustIcon">{{msg_yydz}}</label>
+        </view>
+
+        <view class="leftSty">授权委托书:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.sqwts}}" name="sqwts" style="width:30px;height:30px;" mode="aspectFitll"/>
+        </view>
+
+        <!-- 企业类别、组织机构代码、营业执照、法人姓名、法人身份证期限、法人身份证号、
+        法人身份证图片正面、法人身份证图片反面、营业地址、授权委托书 -->
+      </view>
+      <!-- end 企业信息 -->
+
+      <!-- 律师信息-->
+      <view class="basicSty" wx:if="{{wxUserAllInfo.lawyer != null}}">
+
+        <view class="leftSty">执业证号:</view>
+        <view class="rightSty">
+          <input type="text" disabled='{{disabledType}}' name="zyzh" value="{{wxUserAllInfo.lawyer.zyzh}}"/>
+
+        </view>
+
+        <view class="leftSty">律师证相片:</view>
+        <view class="rightSty">
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.lawyer.lszxp}}" name="lszxp" style="width:30px;height:30px;" mode="aspectFitll"/>
+        </view>
+
+        <view class="leftSty">证号:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="lszh" value="{{wxUserAllInfo.lawyer.lszh}}"/></view>
+
+        <view class="leftSty">执业机构:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="zyjg" value="{{wxUserAllInfo.lawyer.zyjg}}"/></view>
+
+        <view class="leftSty">律师类型:</view>
+      <view class="rightSty">
+          <view class="section">
+              <picker name="lslx" disabled='{{disabledType}}' mode = "selector" bindchange="bindPickerChangeTypeOfLawyer" range="{{lslxArr}}" value="{{typeOfLawyerPickerIndex}}" range-key="{{'name'}}">  
+                  <view class="picker">  
+                    <view>{{lslxArr[typeOfLawyerPickerIndex].name}} </view>
+                  </view>  
+              </picker>
+            </view>
+        </view>
+
+        <view class="leftSty">发证机关:</view>
+        <view class="rightSty"><input type="text" name="fzjg" value="{{wxUserAllInfo.lawyer.fzjg}}"/></view>
+
+        <view class="leftSty">发证日期:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="fzrq" value="{{wxUserAllInfo.lawyer.fzrq}}"/></view>
+
+        <view class="leftSty">律师状态:</view>
+        <view class="rightSty">
+          <view class="section">
+            <picker name="lszt" disabled='{{disabledType}}' mode = "selector" bindchange="bindPickerChangelszt" range="{{lsztArr}}" value="{{lsztTypeIndex}}" range-key="{{'name'}}">
+              <view class="picker">
+                <view>{{lsztArr[lsztTypeIndex].name}}</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+
+        <!-- 执业证号、律师证相片、证号、执业机构、律师类型、发证机关、发证日期、律师状态 -->
+      </view>
+      <!-- end 律师信息 -->
+
+      <!-- 调解员信息 -->
+      <view class="basicSty" wx:if="{{wxUserAllInfo.mediator != null}}">
+
+        <view class="leftSty">专业:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="zy" value="{{wxUserAllInfo.mediator.zy}}"/></view>
+
+        <view class="leftSty">调解员证编号:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="tjyzbh" value="{{wxUserAllInfo.mediator.tjyzbh}}"/></view>
+
+        <view class="leftSty">所在委员会:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="sztjwyh" value="{{wxUserAllInfo.mediator.sztjwyh}}"/></view>
+
+        <view class="leftSty">调解区域:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}' name="tjqy" value="{{wxUserAllInfo.mediator.tjqy}}"/></view>
+
+        <view class="leftSty">办公电话:</view>
+        <view class="rightSty"><input type="text" disabled='{{disabledType}}'  name="bgdh" value="{{wxUserAllInfo.mediator.bgdh}}"/></view>
+
+        <!-- 专业、调解员证编号、所在调解委员会、调解区域、办公电话 -->
+      </view>
+      <!-- end 调解员信息 -->
+
+      <!-- 务工信息 -->
+      <view class="basicSty" wx:if="{{wxUserAllInfo.workers != null}}">
+
+        <view class="leftSty">工种:</view>
+        <view class="rightSty">
+          <view class="section">
+                <picker name="gz" disabled='{{disabledType}}' bindchange="bindPickerChangeForwgType" value="{{wgTypeIndex}}" range="{{wgArr}}" range-key="{{'name'}}">  
+                  <view class="picker">
+                    <view>{{wgArr[wgTypeIndex].name}}</view>
+                  </view>  
+              </picker>
+              </view>
+        </view>
+
+        <view class="leftSty">务工行业:</view>
+        <view class="rightSty">
+          <view class="section">
+                <picker name="wghy" disabled='{{disabledType}}' bindchange="bindPickerChangeForwghyType" value="{{wghyTypeIndex}}" range="{{wghyArr}}" range-key="{{'name'}}">  
+                  <view class="picker">
+                    <view>{{wghyArr[wghyTypeIndex].name}}</view>
+                  </view> 
+              </picker>
+              </view>
+        </view>
+
+        <!-- 工种、务工行业 -->
+
+      </view>
+      <!-- end 务工信息 -->
+      
+
+    </view>
+
+    <!-- 底部按钮-->
+    <view class="buttomSty" wx:if="{{isEdit == 0}}">
+        <button class="btnSty" formType="submit">提交</button>
+    </view>
+    <!-- end 底部按钮-->
+
+    </form>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+<view class='box'>
+  <form bindsubmit="formSubmit">
+    <!-- 头像 姓名 -->
+    <view class='portrait'>
+        <view class='txImg' style="background-image: url('{{urlStr}}show/images?fileName={{userInfo.tx}}');background-size:100% 100%; border:none; color:white;"> 
+        </view>
+        <view  class='leftTitle'>
+           <view class='xmName'>{{zxInfo.clrxm}}</view>
+          <block wx:for="{{stars}}" wx:key="s">
+            <image class="star-image" style="left: {{item*60}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}" wx:if="{{pjxxInfo == null}}">
+              <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+              <view class="item" style="left:15rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+            </image>
+          </block>
+
+          <!-- <block wx:for="{{pjfs}}">
+            <image class="pjsf-image" style="left: {{item*30}}rpx" src="{{item}}" wx:if="{{pjxxInfo != null}}">
+            </image>
+          </block> -->
+
+
+        </view>
+
+    </view>
+    <!--end 头像 姓名 -->
+
+    <view class='content'>
+      <view class='textBox'>
+        <textarea bindblur="bindTextAreaBlur" name="pjnr" class="tareaSty" placeholder="请输入评价内容" value="{{pjxxInfo.pjnr}}" disabled="{{pjxxInfo!= null ? 'disabled':'none'}}"/>
+      </view>
+    </view>
+   
+
+    <!-- 底部按钮-->
+    <view class="btnSubmit" wx:if="{{pjxxInfo == null}}">
+      <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">完成</button>
+    </view>
+    <!-- end 底部按钮-->
+  </form>
+
+
+
+</view>

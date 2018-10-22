@@ -1,0 +1,276 @@
+<view class="box">
+  <view class="test-sty"  wx:if="{{isonLoad == 1}}">
+    <view class="loading-sty">正在加载...</view>
+  </view>
+  <view class="main">
+    <form bindsubmit="formSubmit">
+      <!-- 调解类型 -->
+      <view class="selectSty">
+        <view class="items">
+          <view class="item">
+            <view class="mustSty">*</view>
+            <text space="ensp"> 调解类型：</text>
+            <picker bindchange="bindCaseTypeChange" value="{{caseTypeIndex}}" range="{{caseTypeArray}}" range-key="{{'name'}}" name="tjlx">
+              <view class="picker pickerSty">
+                {{caseTypeArray[caseTypeIndex].name}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <!-- end 调解类型-->
+
+      <!-- 案由-->
+      <view class="selectSty">
+        <view class="items">
+          <view class="item">
+            <view class="mustSty">*</view>
+            <text space="ensp">案     由：</text>
+            <picker bindchange="bindAyChange" value="{{ayIndex}}" range="{{ayArray}}" range-key="{{'name'}}" name="zzbh">
+              <view class="picker pickerSty">
+                {{ayArray[ayIndex].name}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <!-- end 案由-->
+
+      <!-- 标的-->
+      <view class="selectSty">
+        <view class="items">
+          <view class="item">
+            <view class="mustSty"></view>
+            <text space="ensp">标     的：</text>
+            <input type="number" name="bd" placeholder="请输入标的" maxlength="10"/>
+          </view>
+        </view>
+      </view>
+      <!-- end标的-->
+
+      <!-- 申请事项 -->
+      <view class="textarea-style">
+        <view class="textareaItems">
+          <view class="textareaItem">
+            <view class="mustSty">*</view>
+            <text space="ensp">申请事项：</text>
+            <textarea class="textareaSty" name="sqsx"></textarea>
+          </view>
+        </view>
+      </view>
+      <!-- end 申请事项 -->
+
+      <!-- 纠纷描述-->
+      <view class="textarea-style">
+        <view class="textareaItems">
+          <view class="textareaItem">
+            <view class="mustSty">*</view>
+            <text space="ensp">纠纷描述：</text>
+            <textarea class="textareaSty" name="jfms"></textarea>
+          </view>
+        </view>
+      </view>
+      <!-- end 纠纷描述-->
+
+
+      <!-- 申请人填写项 -->
+      <view class="dsrSty">
+        <view class="sqrTitle">申请人信息
+          <view style="color:red; float:right;font-size:12px;margin-right:5px;">(注： * 标注为必填项 )</view>
+        </view>
+        <view class="items">
+          <view class="item">
+            <view class="mustSty"></view>
+            <text space="ensp">人员类型：</text>
+            <picker bindchange="bindRylxChange" value="{{rylxIndex}}" range="{{rylxArray}}" range-key="{{'name'}}" name="lx">
+              <view class="picker pickerSty">
+                {{rylxArray[rylxIndex].name}}
+              </view>
+            </picker>
+          </view>
+
+          <view class="item" wx:if="{{displaySqr != 1}}">
+            <view class="mustSty">*</view>
+            <text space="ensp">姓    名：</text>
+            <input type="text" name="mc" placeholder="请输入姓名" value="{{sqrInfo.xm}}" />
+          </view>
+
+          <view class="item" wx:if="{{displaySqr == 1}}">
+            <view class="mustSty">*</view>
+            <text space="ensp">名    称：</text>
+            <input type="text" name="mc" placeholder="请输入公司名称" />
+          </view>
+
+          <view class="item" wx:if="{{displaySqr == 1}}">
+            <view class="mustSty">*</view>
+            <text space="ensp">法人姓名：</text>
+            <input type="text" name="fddbr" placeholder="请输入法人姓名" value="{{sqrInfo.xm}}" />
+          </view>
+
+          <view class="item">
+            <view class="mustSty">*</view>
+            <text space="ensp">性    别：</text>
+            <view class="radiusSty">
+              <radio-group wx:if="{{sqrInfo.xb == 0}}" bindchange="radioCheckedChangeForSex" name="xb">
+                <radio checked="true" value="0" />男
+                <radio value="1" />女
+              </radio-group>
+
+              <radio-group wx:if="{{sqrInfo.xb == 1}}" bindchange="radioCheckedChangeForSex" name="xb">
+                <radio value="0" />男
+                <radio checked="true" value="1" />女
+              </radio-group>
+            </view>
+
+          </view>
+
+
+
+          <view class="item">
+            <view class="mustSty">*</view>
+            <text space="ensp">身份证号：</text>
+            <input type="idcard" maxlength="18" name="sfzhm" placeholder="请输入身份证号" value="{{sqrInfo.sfzh}}" />
+          </view>
+
+          <view class="item">
+            <view class="mustSty">*</view>
+            <text space="ensp">联系电话：</text>
+            <input type="number" maxlength="11" name="lxdh" placeholder="请输入联系电话" value="{{sqrInfo.lxdh}}" />
+          </view>
+
+          <view class="item">
+            <view class="mustSty">*</view>
+            <text space="ensp">地    址：</text>
+            <input type="text" name="dz" value="{{sqrInfo.xzdxz}}" />
+          </view>
+        </view>
+      </view>
+      <!-- end 申请人填写项 -->
+
+
+
+      <!-- 被申请人填写项 -->
+      <block wx:for="{{itemsBsqr}}" wx:for-item="i" wx:for-index="bIndex" wx:key="y">
+        <view class="dsrSty">
+          <view class="sqrTitle">
+            被申请人信息
+
+          </view>
+          <view class="items">
+            <view class="item">
+              <view class="mustSty">*</view>
+              <text space="ensp">{{i.title}}：</text>
+              <input type="text" name="bsqrmc{{bIndex}}" placeholder="请输入公司名称或姓名" />
+            </view>
+
+            <view class="item">
+              <text space="ensp"> {{i.frxm}}：</text>
+              <input type="text" name="bsqrfddbr{{bIndex}}" placeholder="请输入法定代表人姓名" />
+            </view>
+
+            <view class="item">
+              <view class="mustSty"></view>
+              <text space="ensp">{{i.sfzh}}：</text>
+              <input type="idcard" maxlength="18" name="bsqrsfzh{{bIndex}}" placeholder="请输入身份证号" />
+            </view>
+
+            <view class="item">
+              <view class="mustSty">*</view>
+              <text space="ensp">{{i.lxdh}}：</text>
+              <input type="number" maxlength="11" name="bsqrlxdh{{bIndex}}" placeholder="请输入联系电话" />
+            </view>
+
+            <view class="item">
+              <view class="mustSty">*</view>
+              <text space="ensp">{{i.dz}}：</text>
+              <input type="text" placeholder="请输入现住地址" name="bsqrdz{{bIndex}}" />
+            </view>
+          </view>
+
+          <view class="addViewSty">
+            <view style="color:red; float:left;font-size:12px;margin-left:10px;">(注：自然人不填写法人姓名)</view>
+            <!-- <image src="../../../../../../images/add.png" mode="aspectFitll" bindtap="clickAddPeople" data-rylx="1"></image> -->
+            <image src="{{urlStr}}show/images?fileName=delete.png" mode="aspectFitll" bindtap="clickDelPeople" data-rylx="1" data-index="{{bIndex}}" wx:if="{{urlStr.length > 0}}"></image>
+          </view>
+
+        </view>
+      </block>
+      <!-- end 被申请人填写项 -->
+
+      <!-- 第三人填写项 -->
+      <block wx:for="{{itemsDsr}}" wx:for-item="i" wx:for-index="dIndex" wx:key="d">
+        <view class="dsrSty">
+          <view class="sqrTitle">
+            第三人信息
+          </view>
+          <view class="items">
+            <view class="item">
+              <view class="mustSty">*</view>
+              <text space="ensp">{{i.title}}：</text>
+              <input type="text" placeholder="请输入公司名称或姓名" name="dsrmc{{dIndex}}" />
+            </view>
+
+            <view class="item">
+              <text space="ensp">{{i.frxm}}：</text>
+              <input type="text" placeholder="请输入法定代表人姓名" name="dsrfddbr{{dIndex}}" />
+            </view>
+
+            <view class="item">
+              <view class="mustSty"></view>
+              <text space="ensp">{{i.sfzh}}：</text>
+              <input type="idcard" maxlength="18" placeholder="请输入身份证号" name="dsrsfzh{{dIndex}}" />
+            </view>
+
+            <view class="item">
+              <view class="mustSty">*</view>
+              <text space="ensp">{{i.lxdh}}：</text>
+              <input type="number" maxlength="11" placeholder="请输入联系电话" name="dsrlxdh{{dIndex}}" />
+            </view>
+
+            <view class="item">
+              <view class="mustSty"></view>
+              <text space="ensp">{{i.dz}}：</text>
+              <input type="text" placeholder="请输入现住地址" name="dsrdz{{dIndex}}" />
+            </view>
+          </view>
+          <view class="addViewSty">
+            <view style="color:red; float:left;font-size:12px;margin-left:10px;">(注：自然人不填写法人姓名)</view>
+            <image src="{{urlStr}}show/images?fileName=delete.png" mode="aspectFitll" bindtap="clickDelPeople" data-rylx="2" data-index="{{dIndex}}" wx:if="{{urlStr.length > 0}}"></image>
+          </view>
+        </view>
+      </block>
+      <!-- end 第三人填写项 -->
+
+      <view class="textSty">
+        <view class="addSty" bindtap="clickAddPeople" data-rylx="1">添加被申请人</view>
+        <view class="addSty" bindtap="clickAddPeople" data-rylx="2">添加第三人</view>
+      </view>
+
+
+      <view class="clsty">
+        材料上传:
+        <view class='imgbox'>
+
+          <block wx:for="{{clList}}" wx:key="index" wx:key="index" wx:for-item="i">
+            <view class='logoinfo'>
+              <!-- <text class='xxx' bindtap='xxx' data-index='{{index}}'>x</text> -->
+
+              <image class='mrImg' name="clImg" src='{{urlStr}}show/images?fileName={{i.clmc}}' wx:if="{{urlStr.length > 0}}"></image>
+            </view>
+          </block>
+          <image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png' wx:if="{{urlStr.length > 0}}"></image>
+          <image src='{{urlStr}}show/images?fileName=delImg.png' class='mrImg' bindtap='deleteImage' data-index="{{index}}" catchtap="deleteImg" wx:if="{{urlStr.length > 0}}"></image>
+
+        </view>
+      </view>
+      <view class="clsty">
+        备注信息：
+        <textarea class="textareaSty" name="bz"></textarea>
+      </view>
+
+      <view class="btnSubmit">
+        <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">提交</button>
+      </view>
+    </form>
+  </view>
+</view>

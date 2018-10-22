@@ -1,0 +1,831 @@
+/* @import "../../tjsq/index.wxss"; */
+
+page {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: #f9fdff;
+}
+
+.maxBox {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+
+.box {
+  width: 100%;
+  height: 88%;
+  /* background: royalblue; *//* margin: 4%; */
+}
+
+.topTitle {
+  width: 93.5%;
+  height: 100px;
+  background: #fff;
+  margin: 3% 3%;
+  box-shadow: 1px 1px 1px 1px #e0e0e0;
+}
+
+.txImg {
+  width: 20%;
+  height: 70px;
+  position: relative;
+  border-radius: 50%;
+  top: 16%;
+  left: 8%;
+}
+
+.topText {
+  width: 80%;
+  height: 100%;
+  color: black;
+  position: relative;
+  top: -50%;
+  line-height: 30px;
+  left: 35%;
+}
+
+.content {
+  width: 100%;
+  height: 60%;
+}
+
+.contSty {
+  width: 100%;
+  height: 50px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+.rightSty {
+  width: 70%;
+  height: 34px;
+  border: 1px solid #ccc;
+  float: left;
+  margin-left: 7px;
+}
+
+.leftSty {
+  float: left;
+  line-height: 30px;
+  text-align: right;
+  width: 28%;
+  margin-left: -14px;
+}
+
+.bottomMenu {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 12%;
+  flex-direction: row;
+  margin-top: 4%;
+  background: #fff;
+  /* border-top:1px solid #f5f9fc;
+	box-shadow:1px 2px 2px 1px #e8f2fc; */
+}
+
+.btnSty {
+  width: 33.3%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.btnSty text {
+  line-height: 69px;
+  position: relative;
+  top: 27%;
+  left: -13%;
+}
+
+.menuImg {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 10%;
+}
+
+.menuImg2 {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 21%;
+}
+
+.menuImg3Bj {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 4%;
+}
+
+.menuImg3 {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 21%;
+}
+
+/* .pjSty{
+	position: relative;
+	left: 21%;
+} */
+
+.btnStyActive {
+  background: linear-gradient(#f0f9ff, #a3daff);
+}
+
+/* 调解css */
+
+.topBtn {
+  width: 100%;
+  height: 100%;
+}
+
+.zxtjSty {
+  width: 95%;
+  height: 150px;
+  color: #fff;
+  margin-top: 7%;
+  margin: auto;
+}
+
+.zxtjSty image {
+  width: 100%;
+  height: 100%;
+}
+
+.zxtjSty text {
+  position: relative;
+  top: -56%;
+  font-size: 20px;
+  letter-spacing: 2px;
+  left: 29%;
+}
+
+.xxtjSty {
+  width: 95%;
+  height: 150px;
+  color: #fff;
+  margin-top: 5%;
+  margin: auto;
+}
+
+.xxtjSty image {
+  width: 100%;
+  height: 100%;
+}
+
+.xxtjSty text {
+  position: relative;
+  top: -56%;
+  font-size: 20px;
+  letter-spacing: 2px;
+  left: 29%;
+}
+
+/* 办结 */
+
+.bjBox {
+  width: 100%;
+  height: 100%;
+}
+
+.contentBj {
+  width: 100%;
+  height: auto;
+  font-size: 14px;
+  margin-bottom: 10%;
+}
+
+.section {
+  clear: both;
+  width: 90%;
+  margin-top: 20%;
+  margin-left: 3%;
+}
+
+.sectionws {
+  clear: both;
+  width: 90%;
+  position: relative;
+  top: 10%;
+}
+
+.yzmSty {
+  clear: both;
+  width: 100%;
+  margin-left: 3%;
+  position: relative;
+  top: 19px;
+}
+
+.section-title {
+  text-align: right;
+  width: 20%;
+  height: 100%;
+  position: relative;
+  top: 15px;
+}
+
+.section-bj {
+  text-align: right;
+  letter-spacing: 8px;
+  width: 30%;
+  height: 100%;
+  position: relative;
+  top: 15px;
+  left: -5%;
+}
+
+.section-yzm {
+  text-align: right;
+  letter-spacing: 3px;
+  width: 30%;
+  height: 100%;
+  position: relative;
+  left: -9%;
+  float: left;
+}
+
+.mrImgws {
+  width: 50px;
+  height: 50px;
+  margin: 1% 3%;
+  position: relative;
+  left: 6%;
+  top: -7px;
+}
+
+.logoinfo {
+  float: left;
+  margin: 1% 2.5%;
+  width: 17.5%;
+  height: 50px;
+}
+
+/* .imgbox {
+  width: 75%;
+  height: auto;
+  float: right;
+  margin-right: 16px;
+} */
+
+.form-group {
+  float: right;
+  width: 74%;
+  position: relative;
+  left: -13px;
+}
+
+.tareaSty {
+  width: 243px;
+  height: 170px;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  resize: none;
+  margin-top: 5%;
+  background-color: #fff;
+  padding: 2%;
+  font-size: 14px;
+}
+
+.inputSty {
+  width: 100%;
+  height: 30px;
+  background: #fff;
+  margin-top: 10px;
+}
+
+.sectionTitle {
+  width: 100%;
+  font-size: 18px;
+  letter-spacing: 10%;
+  height: 82px;
+  line-height: 82px;
+  text-align: center;
+}
+
+.btnSubmitWs {
+  width: 96%;
+  padding: 4%;
+  /* margin-top:15%; */
+  height: 50px;
+}
+
+.btnSubmit {
+  width: 96%;
+  padding: 4%;
+  height: 50px;
+}
+
+.btn-compl {
+  height: 75px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 60px;
+  /* margin-top: 40%; */
+}
+
+.sucessWjxx {
+  width: 100%;
+  height: 30%;
+  position: relative;
+  /* margin-top:20%; */
+  top: 50px;
+}
+
+.sucessSty {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  left: 41%;
+}
+
+.sucessTitleSty {
+  color: #47ace4;
+  text-align: center;
+}
+
+.perBtn {
+  float: left;
+  width: 26%;
+  height: 37px;
+  font-size: 14px;
+  color: white;
+  margin-left: 2%;
+  border: none;
+  background: #6dbeff;
+  line-height: 40px;
+}
+
+.perBtnWs {
+  float: left;
+  width: 25%;
+  font-size: 14px;
+  color: white;
+  margin-left: 2%;
+  border: none;
+  background: #6dbeff;
+  position: relative;
+  top: 30px;
+}
+
+.inputPerSty {
+  height: 35px;
+  padding-left: 5%;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 3px;
+}
+
+.perSty {
+  width: 70%;
+  height: 40px;
+  position: relative;
+  left: -8%;
+  color: gray;
+  font-size: 14px;
+  float: left;
+}
+
+.fontSty {
+  float: left;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d4d4d4;
+  width: 46%;
+  height: 45px;
+  line-height: 44px;
+  letter-spacing: 2px;
+  text-align: center;
+  border-radius: 5px;
+  margin-left: -8%;
+  margin-top: 4px;
+}
+
+.fontStycg {
+  float: left;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d4d4d4;
+  width: 46%;
+  height: 45px;
+  line-height: 46px;
+  letter-spacing: 2px;
+  text-align: center;
+  border-radius: 5px;
+  margin-left: -1.5%;
+  margin-top: 6px;
+}
+
+.fontActionSty {
+  float: left;
+  color: #fff;
+  font-size: 16px;
+  width: 54%;
+  height: 55px;
+  line-height: 48px;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  left: -3.5%;
+}
+
+.fontActionStysb {
+  float: left;
+  color: #fff;
+  font-size: 16px;
+  width: 54%;
+  height: 55px;
+  line-height: 55px;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  left: -4.5%;
+}
+
+.tjbgSty {
+  width: 100%;
+  height: 100%;
+}
+
+.jg {
+  width: 100%;
+  height: 50px;
+  margin: 22% 5% 5%;
+}
+
+.scrollSty {
+  width: 100%;
+  height: 99.5%;
+  box-shadow: 1px 2px 2px 1px hsl(218, 100%, 93%);
+}
+
+.selectSty {
+  width: 99.5%;
+  height: 14%;
+  margin-bottom: 15px;
+}
+
+.pickerSty {
+  min-width: 68%;
+  height: 35px;
+  padding-left: 5px;
+  line-height: 35px;
+  float: right;
+  text-align: center;
+  background: white;
+  border: 1px solid #ededed;
+}
+
+.inputSty {
+  width: 95%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+  padding-left: 2%;
+  margin-left: 2%;
+  background: white;
+  border: 1px solid rgb(190, 190, 190);
+}
+
+.textarea-style {
+  width: 100%;
+  height: 18%;
+  /* background: orchid; */
+  margin-bottom: 10px;
+}
+
+.textareaItems {
+  width: 90%;
+  height: 70%;
+  padding: 10px 5%;
+  margin-top: 5px;
+}
+
+.textareaItem {
+  width: 100%;
+  height: 99%;
+}
+
+.textareaItem text {
+  width: 25%;
+  height: 100%;
+  line-height: 35px;
+  float: left;
+  margin-left: 2%;
+}
+
+.textareaSty-bzxx {
+  width: 61%;
+  height: 99%;
+  position: relative;
+  left: -5%;
+  padding-left: 5px;
+  float: right;
+  /* right: 10%; */
+  background: white;
+  border: 1px solid #ededed;
+}
+
+.textareaSty {
+  width: 66%;
+  height: 99%;
+  max-width: 66%;
+  max-height: 99%;
+  padding: 6px;
+  float: right;
+  background: white;
+  border: 1px solid #ededed;
+}
+
+.mustSty {
+  text-align: left;
+  width: 2%;
+  height: 100%;
+  float: left;
+  color: red;
+  font-size: 12px;
+  line-height: 35px;
+}
+
+.textSty {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 5px;
+  /* background: orange; */
+}
+
+.dsrSty {
+  width: 99.5%;
+  height: auto;
+  margin-bottom: 10px;
+  /* background: skyblue; */
+  border: 1px solid #eee;
+}
+
+.sqrTitle {
+  width: 95%;
+  height: 35px;
+  padding-left: 5%;
+  line-height: 35px;
+  border-bottom: 1px solid #b4b4b4;
+}
+
+.addViewSty {
+  width: 95%;
+  height: 35px;
+  padding-right: 5%;
+  line-height: 35px;
+  text-align: right;
+  border-bottom: 1px solid #b4b4b4;
+}
+
+.addViewSty image {
+  width: 40px;
+  height: 35px;
+  margin-left: 10px;
+  border-radius: 50%;
+  /* background: orchid; */
+}
+
+.displaySty {
+  display: none;
+}
+
+.items {
+  width: 90%;
+  height: auto;
+  padding: 10px 5%;
+  margin-top: 5px;
+}
+
+.item {
+  width: 100%;
+  height: 45px;
+  font-size: 14px;
+  line-height: 35px;
+}
+
+.item text {
+  width: 25%;
+  height: 100%;
+  line-height: 35px;
+  float: left;
+  margin-left: 2%;
+}
+
+.item input {
+  width: 67%;
+  height: 35px;
+  padding-left: 5px;
+  line-height: 35px;
+  float: right;
+  background: white;
+  border: 1px solid #ededed;
+}
+
+.result {
+  position: relative;
+  left: -9%;
+}
+
+.sqtjSty {
+  width: 35%;
+  height: 35px;
+  /* padding-left: 5px; */
+  line-height: 35px;
+  float: right;
+  background: #3ec5fd;
+  border: 1px solid #ededed;
+  text-align: center;
+  position: relative;
+  left: -9%;
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-right: 24%;
+}
+
+.addSty {
+  width: 30%;
+  height: 40px;
+  float: left;
+  margin-left: 5%;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  position: relative;
+  top: 15%;
+  background: skyblue;
+  border-radius: 5px;
+  border: 1px solid skyblue;
+  box-shadow: 1px 2px 2px 1px #b4b4b4;
+}
+
+/* .clsty {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 10px; */
+  /* margin-left: 10%; */
+/* } */
+.clsty{
+width: 99.5%;
+  height: 150px;
+  margin-bottom: 10px;
+  /* border: 1px solid #eee; */
+}
+.mrImg {
+  width: 50px;
+  height: 50px;
+  margin: 1% 3%;
+}
+.tjjg-sty {
+  width: 85%;
+  height: 40px;
+  margin-bottom: 10px;
+  margin-left: 10%;
+  line-height: 40px;
+}
+
+.lab-tjjg-sty {
+  float: left;
+  width: 26%;
+}
+
+.tjjg-content-sty {
+  width: 50%;
+  float: left;
+}
+
+.mrImg {
+  width: 50px;
+  height: 50px;
+  margin: 1% 3%;
+}
+
+.logoinfo {
+  float: left;
+  margin: 1% 2.5%;
+  width: 17.5%;
+  height: 50px;
+  position: relative;
+  /* left: 4%; */
+  top: -2px;
+}
+
+/* .imgbox {
+  width: 72%;
+  height: auto;
+  float: right;
+  left: 16%;
+  top: -4px;
+} */
+.imgbox {
+  width: 75%;
+  height: auto;
+  float: right;
+  margin-right: 16px;
+}
+.contentXxtj {
+  width: 100%;
+  height: 100%;
+}
+
+.titleSty {
+  width: 100%;
+  margin-bottom: 20px;
+  line-height: 82px;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  /* margin-left:-14px; */
+}
+
+.explain {
+  width: 85%;
+  height: 40%;
+  position: relative;
+  top: 45px;
+  margin: auto;
+  background: #fff;
+  padding: 3%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.viewHide {
+  display: none;
+}
+
+.viewShow {
+  display: block;
+}
+
+canvas {
+  width: 90px;
+  height: 28px;
+  border-radius: 14px;
+  margin-top: 6%;
+  float: left;
+}
+
+.yzmBtn {
+  color: #47ace4;
+  float: left;
+  margin: 10% 6%;
+}
+
+.clStyle {
+  position: relative;
+  left: 6%;
+}
+
+.scws-sty {
+  width: 100px;
+  height: 40px;
+  background: #47ace4;
+  text-align: center;
+  line-height: 40px;
+  float: right;
+  border-radius: 5px;
+  color: white;
+}
+
+.test-sty {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9000;
+  text-align: center;
+}
+
+.loading-sty {
+  width: 35%;
+  height: 10%;
+  font-size: 20px;
+  color: white;
+  background: #F0F0F0;
+  border-radius: 10%;
+  position: relative;
+  top: 43%;
+  z-index: 11000;
+  padding-top: 7%;
+  left: 33%;
+}
+.wsclStr{
+	position: relative;
+	left:5%;
+	letter-spacing:5px;
+}

@@ -1,0 +1,50 @@
+<view class="box">
+
+<form bindsubmit="addGroupFun">
+
+  <view class="main">
+        <!-- 调解内容 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 调解内容：</view>
+          <!-- end leftSty -->
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 调解内容 文本框 inputSty -->
+            <view class="inputSty">
+              <input name="tjnr" maxlength="20" />
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 调解内容 -->
+
+        <!-- 主题简介 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 主题简介：</view>
+          <!-- end leftSty -->
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 主题简介 文本框 inputSty -->
+            <view class="inputSty">
+              <textarea  name="ztjj" maxlength="100" />
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 主题简介 -->
+      
+    
+
+  </view>
+  <view class="btnSty">
+    <button formType="submit">创建</button>
+  </view>
+
+  </form>
+</view>

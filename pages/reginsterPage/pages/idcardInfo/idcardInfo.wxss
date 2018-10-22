@@ -1,0 +1,132 @@
+@import "../jbxx/jbxx.wxss";
+
+/**
+  上传身份证照片样式
+*/
+
+.imgLeft image{
+  width: 90px;
+  height: 70px;
+}
+.imgRight {
+  padding-top: 11%;
+}
+.imgRight button{
+  width: 95.5%;
+}
+
+
+.titleSty{
+  position: relative;
+  height: 40px;
+}
+.titleTop{
+  width: auto;
+  color: #6dbeff;
+  position: absolute;
+  left: 50%;
+  margin-left:-28px; 
+  background: white;
+}
+.hr{
+  width: 100%;
+  height: 2px;
+  top:45%;
+  background: #6dbeff;
+  position: absolute;
+}
+
+.box_line_round{
+  position: relative;
+  height: 100px;
+}
+.box_round{
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  line-height: 50px;
+}
+.box_r_t{
+  margin-left: 18%;
+  text-align: center;
+  float: left;
+}
+
+.lineSty{
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  height: 40px;
+}
+.lineSty_left{
+  width: 50%;
+  height: 1px;
+  top: 50%;
+  left: 30%;
+  position: absolute;
+  border-bottom: 1px dashed #6dbeff;
+}
+.lineSty_right{
+  width: 50%;
+  height: 1px;
+  top: 50%;
+  left: 90%;
+  position: absolute;
+  border-bottom: 1px dashed #bbb;
+}
+
+.round{
+  width: 40px;
+  height: 40px;
+  color: white;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+.textSty{
+  font-size: 12px;
+}
+
+
+/**   当事人 **/
+.lineSty_left_dsr{
+  width: 58%;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border-bottom: 1px dashed #6dbeff;
+}
+.box_r_t_dsr{
+  margin-left: 27%;
+  text-align: center;
+  float: left;
+}
+
+
+
+
+
+
+/*  重写 radio 样式  */
+radio .wx-radio-input{
+   border-radius: 50%;
+   width: 40rpx;
+   height: 40rpx;
+}
+ radio .wx-radio-input.wx-radio-input-checked{
+   border: none;
+   background: red;
+} 
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;
+   width: 40rpx;
+   height: 40rpx;
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx;
+   color:white;
+   background: #6dbeff;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}

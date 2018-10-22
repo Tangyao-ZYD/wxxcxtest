@@ -1,0 +1,293 @@
+<view>
+  <!-- 引用 头部 -->
+  <!-- <include src="../template/top"/> -->
+  <!-- end 头部-->
+  <!-- title -->
+  <view class="titleSty">
+    <view class="hr"></view>
+    <view class="titleTop">基本信息</view>
+  </view>
+  <!-- end  title -->
+  <!-- 注册进度 （人员类型不只是当事人时）-->
+  <view class="box_line_round" wx:if="{{showBtn == true}}">
+    <view class="lineSty">
+      <view class="lineSty_left"></view>
+      <view class="lineSty_right"></view> 
+    </view>
+    <view class="box_round">
+      <view class="box_r_t">
+        <view class="round" style="background: #6dbeff;">1</view>
+        <view class="textSty" style="color: #6dbeff;">步骤1</view>
+      </view>
+      <view class="box_r_t">
+        <view class="round" style="background: #6dbeff;">2</view>
+        <view class="textSty" style="color: #6dbeff;">步骤2</view>
+      </view>
+       <view class="box_r_t">
+        <view class="round" style="background: #bbb;">3</view>
+        <view class="textSty" style="color: #bbb;">步骤3</view>
+      </view> 
+    </view>
+  </view>
+  <!-- 注册进度 -->
+
+  <!-- 注册进度2(当人员类型为当事人时) -->
+  <view class="box_line_round" wx:if="{{showBtn == false}}">
+    <view class="lineSty">
+      <view class="lineSty_left_dsr"></view> 
+    </view>
+    <view class="box_round">
+      <view class="box_r_t_dsr">
+        <view class="round" style="background: #6dbeff;">1</view>
+        <view class="textSty" style="color: #6dbeff;">步骤1</view>
+      </view>
+      <view class="box_r_t_dsr">
+        <view class="round" style="background: #6dbeff;">2</view>
+        <view class="textSty" style="color: #6dbeff;">步骤2</view>
+      </view>
+    </view>
+  </view>
+  <!-- 注册进度 -->
+
+  <!-- body -->
+  <view class="body">
+    <form bindsubmit="formSubmit">
+      <!-- mainSty-->
+      <view class="mianSty">
+
+        <!-- 姓名 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 姓名：</view>
+          <!-- end leftSty -->
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 姓名 文本框 inputSty -->
+            <view class="inputSty">
+              <input type="text" maxlength="20" name="xm" placeholder="请输入姓名" bindblur="xm_Verification" focus="{{focus_xm}}" value="{{name}}"/>
+              <label class="color_red">{{msg_xm}}</label>
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 姓名 -->
+
+        <!-- 性别 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 性别：</view>
+          <!-- end leftSty -->
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 性别 单选 radiusSty " -->
+            <view class="radiusSty">
+              <radio-group wx:if="{{xb == 0}}" bindchange="radioCheckedChangeForSex"   name="xb">
+                <radio checked="true" value="0" />男
+                <radio value="1" />女
+              </radio-group>
+
+              <radio-group wx:if="{{xb == 1}}"  bindchange="radioCheckedChangeForSex"   name="xb">
+                <radio value="0" />男
+                <radio checked="true" value="1" />女
+              </radio-group>
+            </view>
+            <!-- end 单选 radiusSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 性别 -->
+        
+
+
+        <!-- 身份证号码 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 身份证号：</view>
+          <!-- end leftSty -->
+
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 身份证号 文本框 inputSty -->
+            <view class="inputSty">
+              <input type="idcard" maxlength="18"  placeholder="请输入身份证号" name="sfzh" bindblur="sfzh_Verification" value="{{sfzh}}" />
+              <label class="colorred">{{msg_sfzh}}</label>
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 身份证号码 -->
+
+        <!-- 身份证期限 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 身份证期限：</view>
+          <!-- end leftSty -->
+
+          <!-- rightSty -->
+          <view class="rightSty">
+            <view class="inputSty">
+              <!-- 身份证期限 文本框"-->
+               <input type="text" maxlength="21"  placeholder="请输入身份证期限" name="sfzhqx" bindblur="sfzqx_Verification" value="{{dateFor_sfzqx}}" />
+               <label class="color_red">{{msg_sfzhqx}}</label>
+              
+            </view>
+            <!-- end 文本框 -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 身份证期限 -->
+
+
+        <!-- 出生年月 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 出生年月：</view>
+          <!-- end leftSty -->
+
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 出生年月 文本框 inputSty -->
+            <view class="inputSty">
+              <view class="section">
+                <picker mode="date" name="csrq" value="{{date}}" start="1900-01-01" end="2200-01-01" bindchange="bindDateChange">
+                  <view class="picker">
+                    <view class="nationSty">{{date}}</view>
+                  </view>
+                </picker>
+              </view>
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 出生年月 -->
+
+        <!-- 民族 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 民族：</view>
+          <!-- end leftSty -->
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 民族 文本框 inputSty -->
+            <view class="inputSty">
+              <!-- rightRegionSty -->
+              <view class="section">
+                <picker bindchange="bindPickerChange" value="{{nationIndex}}" range="{{nation}}">
+                  <view class="picker">
+                    <view class="nationSty">{{nation[nationIndex]}} </view>
+                  </view>
+                </picker>
+              </view>
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 民族 -->
+
+
+        <!-- 户籍所在地 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 户籍所在地：</view>
+          <!-- end leftSty -->
+          <!-- rightRegionSty -->
+          <view class="rightRegionSty">
+            <!-- 户籍所在地 省市区联动选择 inputSty_Region -->
+            <view class="inputSty_Region">
+              <view class="section">
+                <picker mode="region" name="ssq" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                  <view class="picker">
+                    <view class="regionSty">{{region[0]}}</view>
+                    <view class="regionSty regionTwoSty">{{region[1]}}</view>
+                    <view class="regionSty regionTwoSty">{{region[2]}}</view>
+                  </view>
+                </picker>
+              </view>
+            </view>
+            <!-- end 户籍所在地 省市区联动选择 inputSty_Region -->
+          </view>
+          <!-- end rightRegionSty -->
+        </view>
+        <!-- end 户籍所在地 -->
+        <!-- 户籍所在地 详情 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty"></view>
+          <!-- end leftSty -->
+          <!-- rightRegionSty -->
+          <view class="rightRegionSty">
+            <view class="inputSty">
+              <input type="text" maxlength='100' placeholder="请输入户籍所在地详细地址" name="hjszdxq" value="{{hjszd}}" />
+            </view>
+          </view>
+          <!-- end rightRegionSty -->
+        </view>
+        <!-- end 户籍所在地 详情 -->
+
+        <!-- 现住详细地址 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">
+            <label class="mustIcon">*</label> 现住地址：</view>
+          <!-- end leftSty -->
+          <!-- rightRegionSty -->
+          <view class="rightRegionSty">
+            <!-- 现住详细地址 省市区联动选择 inputSty_Region -->
+            <view class="inputSty_Region">
+              <view class="section">
+                <picker mode="region" name="xjd" bindchange="bindRegionNewChange" value="{{regionNew}}" custom-item="{{customItem}}">
+                  <view class="picker">
+                    <view class="regionSty">{{regionNew[0]}}</view>
+                    <view class="regionSty regionTwoSty">{{regionNew[1]}}</view>
+                    <view class="regionSty regionTwoSty">{{regionNew[2]}}</view>
+                  </view>
+                </picker>
+              </view>
+            </view>
+            <!-- end 现住详细地址 省市区联动选择 inputSty_Region -->
+          </view>
+          <!-- end rightRegionSty -->
+        </view>
+        <!-- end 现住详细地址 -->
+        <!-- 现住详细地址 详情 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty"></view>
+          <!-- end leftSty -->
+          <!-- rightRegionSty -->
+          <view class="rightRegionSty">
+            <view class="inputSty">
+              <input type="text" maxlength='100'bindblur="xzdxz_Verification" placeholder="请输入现住详细地址" name="xzdxz" />
+                <label class="colorred">{{msg_xzdxz}}</label>
+            </view> 
+          </view>
+          <!-- end rightRegionSty -->
+        </view>
+        <!-- end 现住详细地址 详情 -->
+
+        <!-- 提交按钮 -->
+       <view class="btnSubmit">
+          <button wx:if="{{showBtn == false && urlStr.length>0}}" class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">完成</button>
+
+          <button wx:if="{{showBtn == true && urlStr.length>0}}" class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none;color:white;" plain="false">下一步</button>
+
+        </view>
+        <!-- end 提交按钮 -->
+      </view>
+      <!-- mainSty-->
+
+    </form>
+  </view>
+  <!--end  body-->
+</view>

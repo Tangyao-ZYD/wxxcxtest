@@ -1,0 +1,78 @@
+<view class="box">
+  <!-- 引用 头部 -->
+    <!-- <include src="../template/top"/> -->
+  <!-- end 头部-->
+  <!-- title -->
+     <view class="titleSty">
+      <view class="titleTop">务工：</view>
+    </view> 
+  <!-- end  title -->
+  <!-- body -->
+    <view class="body">
+    <!-- <form bindsubmit="formSubmit"> -->
+    <!-- mainSty-->
+      <view class="mianSty">
+      <!-- 工种 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty"><label class="mustIcon">*</label> 工种：</view>
+          <!-- end leftSty -->
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 工种 文本框 inputSty -->
+            <view class="inputSty">
+              <!-- rightRegionSty -->
+              <view class="section">
+                <picker name="gz" bindchange="bindPickerChangeForwgType" value="{{wgTypeIndex}}" range="{{wgArr}}" range-key="{{'name'}}">  
+                  <view class="picker">
+                    <view class="nationSty">{{wgArr[wgTypeIndex].name}}</view>
+
+                  </view>  
+              </picker>
+              </view>
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 工种 -->
+
+        <!-- 务工行业 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty"><label class="mustIcon">*</label> 务工行业：</view>
+          <!-- end leftSty -->
+          <!-- rightSty -->
+          <view class="rightSty">
+            <!-- 务工行业 文本框 inputSty -->
+            <!-- <view class="inputSty">
+              <input type="text" name="wghy" maxlength="100" placeholder="请输入务工行业" />
+            </view> -->
+            <view class="inputSty">
+              <!-- rightRegionSty -->
+              <view class="section">
+                <picker name="wghy" bindchange="bindPickerChangeForwghyType" value="{{wghyTypeIndex}}" range="{{wghyArr}}" range-key="{{'name'}}">  
+                  <view class="picker">
+                    <view class="nationSty">{{wghyArr[wghyTypeIndex].name}}</view>
+
+                  </view>  
+              </picker>
+              </view>
+            </view>
+            <!-- end 文本框 inputSty -->
+          </view>
+          <!-- end rightSty -->
+        </view>
+        <!-- end 务工行业 -->
+
+        <!-- 提交按钮 -->
+        <!-- <view class="btnSubmit">
+            <button formType="submit" style="background-image: url('../../images/btnbg.png');background-size:100% 100%; border:none; color:white;font-size:14px;font-weight: 600;margin-top: 80px;margin-bottom: 20px;" plain="false">完成</button>
+        </view> -->
+        <!-- end 提交按钮 -->
+      </view>
+    <!-- end mainSty-->
+    <!-- </form> -->
+    </view>
+  <!-- end body -->
+</view>

@@ -1,0 +1,30 @@
+<view class='box'>
+    <!-- 头像 -->
+      <view class='txImg' bindtap="clickFunPersonInfor" style="background-image: url('{{urlStr}}show/images?fileName={{tx}}');background-size:100% 100%; border:none; color:white;" wx:if="{{urlStr.length > 0}}">
+  </view>
+    <!--end 头像 -->
+
+    <!-- 中间内容介绍 -->
+    <view class='content'> 
+          <!-- 姓名 -->
+              <view class='fullName'>
+                  <label>姓名：</label>
+                  <label>{{xm}}</label>
+              </view>
+          <!--end 姓名 -->
+          <!-- 联系方式 -->
+              <view class='tel'>
+                  <label>电话：</label>
+                  <label>{{lxdh}}</label>
+              </view>
+          <!--end 联系方式 -->
+          <!-- 介绍 -->
+              <!-- <view class='introduce'>
+                 < 对方水电费是否水电费水电费水电费第三方斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬水电费水电费是否许星程V型开会V型尽可能需不必担心山东煎饼电视剧播放的伤口上的发布的说法吧 
+                 {{jl}}
+              </view> -->
+          <!--end 介绍 -->
+
+    </view>
+    <!--end 中间内容介绍 -->
+</view>

@@ -1,0 +1,30 @@
+<import src="../../../utils/wxParse/wxParse.wxml"/>
+<view class="box">
+<!-- 新闻内容 -->
+  <view class="contentSty">
+    <!-- 标题部分 -->
+    <view class="contentTile">{{content.zt}}</view>
+    <!-- end 标题部分 -->
+
+    <!-- 内容主体部分 -->
+    <view class="content">
+      
+      <scroll-view class="pSty" scroll-y="true">
+        <view class="pictureStr">
+          <image bindtap="previewImageFun" data-index="{{content.tp}}" src="{{urlStr}}show/imageSlt?fileName={{content.tp}}&width=350&height=200" mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
+        </view>
+        <view class='wxParse pStyInfo'>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+      </scroll-view>
+
+      <view class="bottomSty">
+        <view class="bottomStyLeft">来源：金堂人民法院</view>
+        <view class="bottomStyRight">发布时间：{{content.cjsjStr}}</view>
+      </view>
+
+    </view>
+    <!-- end 内容主体部分 -->
+  </view>
+  <!-- ｅｎｄ　新闻内容 -->
+</view>

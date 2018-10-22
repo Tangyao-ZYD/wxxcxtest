@@ -1,0 +1,56 @@
+<view class='box'>
+
+  <view class="test-sty" wx:if="{{isonLoad == 1}}">
+    <view class="loading-sty">正在加载...</view>
+  </view>
+
+  <view class="main">
+    <view class="topBox">
+      <view id='handle' bindtap="onChangeShowState" data-id="1" class="{{showView?'fontActionSty':'fontSty'}}">
+        <image src='{{urlStr}}show/images?fileName=iing.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+        <text>处理中</text>
+      </view>
+      <view id='topEnd' bindtap="onChangeShowState" data-id="5" class="{{showView?'fontSty':'fontActionSty'}}">
+        <image src='{{urlStr}}show/images?fileName=over.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+        <text>已完结</text>
+      </view>
+    </view>
+
+
+    <view class="bodyBox">
+      <scroll-view scroll-y class="scrollSty">
+        <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="i">
+          <view class="content" bindtap="clickFunContent" data-index="{{item.shjg}}" data-id="{{item.id}}">
+            <view>调解编号：{{item.tjbh}}</view>
+            <view class="timeBottomSty">
+              <image class="timeImg" src="{{urlStr}}show/images?fileName=time.png"></image>
+              <view class="timeSty">{{item.sqrqStr}}</view>
+            </view>
+            <view class="xqfwd" wx:if="{{item.clr != null && lx == 0 }}">
+              <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+            </view>
+
+            <view class="xq" wx:if="{{item.clr != null && lx == 1 && item.tjzt != 5}}">
+              <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+            </view>
+
+          
+            <view class="xqfwd" wx:if="{{item.clr != null && lx == 1 && item.tjzt == 5}}">
+              <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+            </view>
+
+          </view>
+          <!-- 详情 -->
+          <view class="del" bindtap="xqClickFun" data-id="{{item.id}}">详情</view>
+          <view class="del backOrange" bindtap="zbClickFun" data-id="{{item.id}}" data-tjbh="{{item.tjbh}}" wx:if="{{lx == 1 && item.tjzt!=5}}">转办</view>
+          <!-- 评价 -->
+          <view class="del backOrange" bindtap="pjClickFun" data-index="{{item.id}}" wx:if="{{tjzt == 5}}">评价</view>
+          <!-- 删除  -->
+          <view class="del backGray" bindtap="delClickFun" data-index="{{item.tjzt}}" data-id="{{item.id}}" wx:if="{{item.shjg == 0}}">删除</view>
+
+
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

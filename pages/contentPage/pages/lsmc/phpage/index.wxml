@@ -1,0 +1,49 @@
+<view class="box">
+  <view class="main">
+    <view class="items">
+
+      <!-- 回复排行榜 -->
+		 <block  wx:if="{{arr != null && dataIndex == 'hfph'}}" wx:for="{{arr}}" wx:for-item="a" wx:for-index="aIndex" wx:key="a">
+      <view class="item">
+        <view class="pictureSty"><image src="{{url}}show/images?fileName={{a.tx}}" mode="aspectFitll"/></view>
+        <view class="nameSty">{{a.xm}}</view>
+        <view class="contentSty">{{a.lxdh}}</view>
+      </view>
+		</block>
+		<!-- 回复排行榜 -->
+
+		<!-- 好评排行榜 -->
+		<block  wx:if="{{hparr != null && dataIndex == 'hpph'}}" wx:for="{{hparr}}" wx:for-item="h" wx:for-index="hIndex" wx:key="h">
+				<view class="item">
+					<view class="pictureSty">
+					<image src="{{url}}show/images?fileName={{h.tx}}" mode="aspectFitll" wx:if="{{url.length > 0}}"/></view>
+					<view class="nameSty">{{h.xm}}</view>
+					<view class="contentSty">{{h.lxdh}}</view>
+				</view>
+      </block>
+		<!--end 好评排行榜 -->
+
+		<!-- 调解排行榜 -->
+		<block  wx:if="{{tjslArr != null && dataIndex == 'tjph'}}" wx:for="{{tjslArr}}" wx:for-item="t" wx:for-index="tIndex" wx:key="t">
+				<view class="item">
+					<view class="pictureSty"><image src="{{url}}show/images?fileName={{t.tx}}" mode="aspectFitll"/></view>
+					<view class="nameSty">{{t.xm}}</view>
+					<view class="contentSty">{{t.lxdh}}</view>
+				</view>
+      </block>
+		<!--end 调解排行榜 -->
+
+
+		<!-- 调解好评排行榜 -->
+		<block  wx:if="{{tjhpArr != null && dataIndex == 'tjhpph'}}" wx:for="{{tjhpArr}}" wx:for-item="j" wx:for-index="jIndex" wx:key="j">
+				<view class="item">
+					<view class="pictureSty"><image src="{{url}}show/images?fileName={{j.tx}}" mode="aspectFitll"/></view>
+					<view class="nameSty">{{j.xm}}</view>
+					<view class="contentSty">{{j.lxdh}}</view>
+				</view>
+      </block>
+		<!--end 调解好评排行榜 -->
+
+    </view>
+  </view>
+</view>

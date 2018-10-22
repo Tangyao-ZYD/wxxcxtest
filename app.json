@@ -1,0 +1,113 @@
+{
+  "pages":[
+    "pages/indexPage/index/index",
+    "pages/indexPage/moreMenu/index",
+    "pages/indexPage/fyxwInfo/index",
+    "pages/indexPage/fyxw/fyxw",
+    "pages/indexPage/grzx/grzx",
+    "pages/indexPage/sfgk/sfgk",
+    "pages/indexPage/logs/logs",
+    "pages/indexPage/grxx/index",
+    "pages/indexPage/zxfw/zxfw"
+    
+  
+  ],
+  "subPackages": [
+    {
+      "root": "pages/contentPage",
+      "pages": [
+        "pages/jgzn/index",
+        "pages/content/content",
+        "pages/jgznInfo/jgznInfo",
+        "pages/lsmc/index/index",
+        "pages/lsmc/info/info",
+        "pages/lsmc/phpage/index",
+        "pages/tjymc/index/index",
+        "pages/tjymc/info/info",
+        "pages/tjymc/phpage/index",
+        "pages/wdzx/index/index",
+        "pages/wdzx/tczx/tczx",
+        "pages/wdzx/yzx/yzx",
+        "pages/wdzx/yzxUser/yzxUser",
+        "pages/wdzx/pj/pj",
+        "pages/wdzx/zxxx/zxxx",
+        "pages/wdzx/thbj/thbj",
+        "pages/wdzx/sqcg/sqcg",
+        "pages/wdtj/index/index",
+        "pages/wdtj/tjsq/index",
+        "pages/wdtj/zxtjList/wdtj/index",
+        "pages/wdtj/zxtjList/xqIndex/xqIndex",
+        "pages/wdtj/zxtjList/bj/bj",
+        "pages/wdtj/zxtjList/pj/pj",
+        "pages/wdtj/zxtjList/xxtj/xxtj",
+        "pages/wdzx/zxGrxx/zxGrxx"
+        
+      ]
+    },
+    {
+      "root": "pages/reginsterPage",
+      "pages": [
+        "pages/idcardInfo/idcardInfo",
+        "pages/jcxx/jcxx",
+        "pages/rddb/rddb",
+        "pages/wg/wg",
+        "pages/zcRylx/zcRylx",
+        "pages/qy/qy",
+        "pages/login/login"
+      ]
+    },
+    {
+      "root": "pages/groupChatPage",
+      "pages": [
+        "pages/groupList/index",
+        "pages/groupInfo/index",
+        "pages/addGroup/index",
+        "pages/manageGroup/index"
+      ]
+    },
+    {
+      "root": "pages/videoCallPage",
+      "pages": [
+        "pages/multiroom/room/room",
+        "pages/multiroom/roomlist/roomlist",
+        "pages/multiroom/roomname/roomname"
+      ]
+    }
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTitleText": "金堂县人民法院",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/01.png",
+        "iconPath": "images/1.png",
+        "pagePath": "pages/indexPage/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/02.png",
+        "iconPath": "images/2.png",
+        "pagePath": "pages/indexPage/sfgk/sfgk",
+        "text": "诉前解纷"
+      },{
+        "selectedIconPath": "images/02.png",
+        "iconPath": "images/2.png",
+        "pagePath": "pages/indexPage/zxfw/zxfw",
+        "text": "咨询服务"
+      },
+      {
+        "selectedIconPath": "images/03.png",
+        "iconPath": "images/3.png",
+        "pagePath": "pages/indexPage/grxx/index",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

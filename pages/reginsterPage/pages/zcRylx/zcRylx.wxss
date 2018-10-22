@@ -1,0 +1,100 @@
+@import "../jbxx/jbxx.wxss";
+
+/**
+  上传身份证照片样式
+*/
+
+.imgLeft image{
+  width: 90px;
+  height: 70px;
+}
+.imgRight {
+  padding-top: 11%;
+}
+.imgRight button{
+  width: 95.5%;
+}
+
+
+.titleSty{
+  position: relative;
+  height: 40px;
+}
+.titleT{
+  width: auto;
+  color: #6dbeff;
+  position: absolute;
+  left: 50%;
+  margin-left:-28px; 
+  padding:8px;
+  background: white;
+}
+.titleTop{
+  color: #6dbeff;
+  font-weight: 600;
+}
+.hr{
+  width: 100%;
+  height: 2px;
+  top:45%;
+  background: #6dbeff;
+  position: absolute;
+}
+
+.box_line_round{
+  position: relative;
+  height: 100px;
+}
+.box_round{
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  line-height: 50px;
+}
+.box_r_t{
+  margin-left: 18%;
+  text-align: center;
+  float: left;
+}
+
+.lineSty{
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  height: 40px;
+}
+.lineSty_left{
+  width: 50%;
+  height: 1px;
+  top: 50%;
+  left: 30%;
+  position: absolute;
+  border-bottom: 1px dashed #6dbeff;
+}
+.lineSty_right{
+  width: 50%;
+  height: 1px;
+  top: 50%;
+  left: 90%;
+  position: absolute;
+  border-bottom: 1px dashed #bbb;
+}
+
+.round{
+  width: 40px;
+  height: 40px;
+  color: white;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+.textSty{
+  font-size: 12px;
+}
+  
+.btn_compl{
+  height: 75px;
+  font-size:16px;
+  font-weight: 600;
+  line-height: 60px;
+}

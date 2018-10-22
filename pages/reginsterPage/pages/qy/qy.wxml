@@ -1,0 +1,251 @@
+<view class="box">
+<!-- 引用 头部 -->
+    <!-- <include src="../template/top"/> -->
+  <!-- end 头部-->
+  <!-- title -->
+     <view class="titleSty">
+      <view class="titleTop">企业：</view>
+    </view> 
+  <!-- end  title -->
+  <!-- body -->
+  <view class="body">
+  <!-- <form bindsubmit="formSubmit"> -->
+    <!-- mainSty-->
+    <view class="mianSty">
+      <!-- 企业类别 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 企业类别：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 企业类别 文本框 inputSty -->
+          <view class="inputSty">
+            <!-- rightRegionSty -->
+            <view class="section">
+              <picker name="qylb" mode = "selector" bindchange="bindPickerChangeForType" range="{{qyArr}}" value="{{typeForPickerIndex}}" range-key="{{'name'}}">  
+                  <view class="picker">  
+                    <view class="nationSty">{{qyArr[typeForPickerIndex].name}} </view>
+                  </view>  
+              </picker>
+            </view>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 企业类别 -->
+
+      <!-- 机构代码 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 机构代码：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 机构代码 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" bindblur="jgdm_Verification" focus="{{focus_jgdm}}"  name="zzjgdm"  maxlength="10" placeholder="请输入机构代码" />
+            <label class="mustIcon">{{msg_jgdm}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 机构代码 -->
+
+      <!-- 营业执照 -->
+      <view class="mainBodyIdcardSty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 营业执照：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="righIdcardImgSty">
+          <!-- 营业执照 上传图片 updateImgSty -->
+          <view class="updateImgSty">
+            <view class="imgLeft">
+              <image src="{{yyzz}}" mode='aspectFit'></image>
+            </view>
+            <view class="imgRight">
+              <button class="btnSty" bindtap="btnChoose" data-index="yyzz">上传</button>
+            </view>
+          </view>
+          <!-- end 上传图片 updateImgSty  -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 营业执照 -->
+
+      <!-- 法人身份证 （正面）-->
+      <view class="mainBodyIdcardSty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 法人身份证：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="righIdcardImgSty">
+          <!-- 法人身份证 上传图片 updateImgSty -->
+          <view class="updateImgSty">
+            <view class="imgLeft">
+              <image src="{{frsfzxp_z}}" mode='aspectFit'></image>
+            </view>
+            <view class="imgRight">
+              <button class="btnSty" bindtap="btnChoose" data-index="frsfzxp_z">上传</button>
+            </view>
+          </view>
+          <!-- end 上传图片 updateImgSty  -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 法人身份证 （正面）-->
+      
+      <!-- 法人身份证 （反面）-->
+      <view class="mainBodyIdcardSty">
+        <!-- leftSty -->
+        <view class="leftSty"></view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="righIdcardImgSty">
+          <!-- 法人身份证 上传图片 updateImgSty -->
+          <view class="updateImgSty">
+            <view class="imgLeft">
+              <image src="{{frsfzxp_f}}" mode='aspectFit'></image>
+            </view>
+            <view class="imgRight">
+              <button class="btnSty" bindtap="btnChoose" data-index="frsfzxp_f">上传</button>
+            </view>
+          </view>
+          <!-- end 上传图片 updateImgSty  -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 法人身份证 （反面）-->
+      
+      <!-- 法人姓名 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 法人姓名：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 法人姓名 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="frxm" bindblur="frxm_Verification"  maxlength="20" placeholder="请输入法人姓名" value="{{frsfzxpImgName_z.name}}"/>
+            <label class="mustIcon">{{msg_frxm}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 法人姓名 -->
+
+      <!-- 法人身份证号码 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty1"><label class="mustIcon">*</label> 法人身份证号：</view>
+        <!-- end leftSty -->
+
+        <!-- rightSty -->
+        <view class="rightSty2">
+          <!-- 法人身份证号码 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="idcard" name="frsfzh" bindblur="idcard_Verification" maxlength="18" placeholder="请输入法人身份证号码" value="{{frsfzxpImgName_z.id}}" />
+            <label class="mustIcon">{{msg_idcard}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 法人身份证号码 -->
+
+     
+      
+      <!-- 法人身份证期限 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 身份证期限：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 法人身份证期限 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="frsfzqx"  maxlength="20" placeholder="请输入法人身份证期限" value="{{frsfzxpImgName_f.valid_date}}" />
+            <label class="mustIcon">{{msg_frsfzqx}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 法人身份证期限-->
+
+
+      <!-- 联系方式 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 联系方式：</view>
+           
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 联系方式 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="number"  name="frlxfs" bindblur="frlxfs_Verification" maxlength="11" placeholder="请输入法人联系方式" />        
+            <label class="mustIcon">{{msg_frlxfs}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 联系方式 -->
+
+      <!-- 营业地址 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 营业地址：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 营业地址 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="yydz" bindblur="yydz_Verification" maxlength="200" placeholder="请输入营业地址" />
+            <label class="mustIcon">{{msg_yydz}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 营业地址 -->
+
+      <!-- 委托授权书 -->
+      <view class="mainBodyIdcardSty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 委托授权书：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="righIdcardImgSty">
+          <!-- 委托授权书 上传图片 updateImgSty -->
+          <view class="updateImgSty">
+            <view class="imgLeft">
+              <image src="{{wts}}" mode='aspectFit'></image>
+            </view>
+            <view class="imgRight_wts" style="width:60%;float:right;">
+              <button class="btnSty_wts" bindtap="btnChoose" data-index="wts" style="width:45%;height:auto;background:#6dbeff;float:left; font-size:12px; margin-top:24%;color:white;">上传</button>
+              <button class="btnSty_wts" bindtap="btnDownLoad" style="width:45%;height:auto;background:#6dbeff;float:left; font-size:12px; margin-left:10px;margin-top:24%;color:white;">下载</button> 
+            </view>
+          </view>
+          <!-- end 上传图片 updateImgSty  -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 委托授权书 -->
+
+      <!-- 提交按钮 -->
+      <!-- <view class="btnSubmit">
+          <button formType="submit" style="background-image: url('../../images/btnbg.png');background-size:100% 100%; border:none; color:white;font-size:14px;font-weight: 600;margin-top: 80px;margin-bottom: 20px;" plain="false">完成</button>
+      </view> -->
+      <!-- end 提交按钮 -->
+    </view>
+    <!-- mainSty-->
+    <!-- </form> -->
+  </view>
+  <!--end  body-->
+  </view>

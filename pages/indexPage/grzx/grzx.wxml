@@ -1,0 +1,45 @@
+<view>
+  <!-- 头部图片 -->
+  <view>
+    <include src="../template/topBody"/>
+  </view>
+  <!-- 菜单 box-->
+  <view class="menuSty">
+    <!-- 菜单标题 -->
+    <view class="menuTitle">
+      <image src="https://www.thinkllwx.cn/spring-boot/show/images?fileName=tips.png"  mode="aspectFitll"/>
+      <view class="menuTitleText">个人中心</view>
+    </view>
+    <!-- end 菜单标题 -->
+
+    <!--  菜单 -->
+    <!-- <view class="menus">
+      <view class="menu" bindtap="gtjlFun">
+        <image class="bgImg" src="../../../images/zxbg.png" mode="aspectFitll"/>
+        <view class="menuIco">
+          <image src="https://www.thinkllwx.cn/spring-boot/show/images?fileName=zx.png" mode="aspectFitll"/>
+        </view>
+        <view class="menuText">沟通交流</view>
+      </view>
+
+      <view class="menu" bindtap="grajFun">
+        <image class="bgImg" src="../../../images/gzbg.png" mode="aspectFitll"/>
+        <view class="menuIco">
+          <image src="https://www.thinkllwx.cn/spring-boot/show/images?fileName=gr.png" mode="aspectFitll"/>
+        </view>
+        <view class="menuText">个人案件</view>
+      </view>
+
+      <view class="menu" bindtap="clickWslaFun">
+        <image class="bgImg" src="../../../images/wsbg.png" mode="aspectFitll"/>
+        <view class="menuIco">
+          <image src="https://www.thinkllwx.cn/spring-boot/show/images?fileName=ws.png" mode="aspectFitll"/>
+        </view>
+        <view class="menuText">网上立案</view>
+      </view>
+
+    </view> -->
+    <!--  end 菜单 -->
+  </view>
+  <!--end  菜单 box-->
+</view>

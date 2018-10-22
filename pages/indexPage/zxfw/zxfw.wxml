@@ -1,0 +1,38 @@
+<view>
+  <!-- 头部图片 -->
+    <view>
+      <include src="../template/topBody"/>
+    </view>
+  <!-- end 头部图片 -->
+
+  <!-- 菜单 box-->
+  <view class="menuSty">
+    <!-- 菜单标题 -->
+    <view class="menuTitle">
+      <image src="{{urlStr}}show/images?fileName=tips.png"  mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"/>
+      <view class="menuTitleText">咨询服务</view>
+    </view>
+    <!-- end 菜单标题 -->
+
+    <!--  菜单 -->
+    <view class="menus">
+
+      <view class="menu" bindtap="clickTjFun">
+        <image class="bgImg" src="../../../images/zxbg.png" mode="aspectFitll"/>
+        <view class="menuIco">
+          <image src="{{urlStr}}show/images?fileName=zx.png" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+        </view>
+        <view class="menuText">在线咨询</view>
+      </view>
+    </view>
+    
+    <!--  end 菜单 -->
+  </view>
+  <!--end  菜单 box-->
+
+  <!-- 新闻 -->
+  <!-- <view class="newsBody">
+    <include src="../fyxw/fyxw"/>
+  </view> -->
+  <!--end 新闻 -->
+</view>

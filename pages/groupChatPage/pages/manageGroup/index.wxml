@@ -1,0 +1,63 @@
+<view class="box">
+  <view class="main">
+
+   <view class=" center">
+
+    <view class="topSty {{disp == 0 ? 'displayBlock':'displayNone'}}">
+      <input type="text" bindblur="blurFun" />
+      <button bindtap='queryFun'>查询</button>
+    </view>
+
+    <view class="itemOther {{sfcx == 0 ? 'displayBlock':'displayNone'}}" wx:if="{{newUser != null}}">
+      <view class="xmSty">{{newUser.xm}}</view>
+      <view class="sfxhSty">{{newUser.sfzh}}</view>
+      <view class="addBtnSty" bindtap="addUserFun" data-id="{{newUser.xm}}" data-index="{{newUser.sfzh}}" id="{{newUser.jcid}}">
+        <image src="{{urlStr}}show/images?fileName=add.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/>
+      </view>
+    </view>
+    <view class="itemOther {{sfcx == 0 ? 'displayBlock':'displayNone'}}" wx:if="{{newUser == null}}">
+      <view>未找到该用户</view>
+    </view>
+
+    <scroll-view class="bottomSty " scroll-y="true">
+      <block wx:if="{{dsrList != null}}" wx:for="{{dsrList}}" wx:for-item="d" wx:for-index="dIndex" wx:key="d">
+        <view class="item">
+          <view class="xmSty">{{d.qcymc}}</view>
+          <view class="sfxhSty">{{d.sfzhm}}</view>
+          <view class="addBtnSty  {{isDel == 0 ? 'displayBlock':'displayNone'}}" bindtap="deleteUserFun" id="{{dIndex}}">
+            <image src="{{urlStr}}show/images?fileName=delete.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/>
+          </view>
+        </view>
+      </block>
+      <view wx:if="{{dsrList == null}}">
+        暂无成员
+      </view>
+    </scroll-view>
+
+
+
+
+    <view class="title">群组简介：</view>
+    <scroll-view class="centerSty" scroll-y="true">
+      <view wx:if="{{qzjj != null}}">
+        {{qzjj}}
+      </view>
+      <view wx:if="{{qzjj == null}}">
+        暂无简介
+      </view>
+    </scroll-view>
+
+   </view>
+ 
+   <view class="buttomSty">
+
+    <view class="btnSty">
+      <button wx:if="{{checkd == 0}}" bindtap="clickFun">管理</button>
+      <button wx:if="{{checkd == 1}}" bindtap="submitFun">提交</button>
+    </view>
+
+   </view>
+
+
+  </view>
+</view>

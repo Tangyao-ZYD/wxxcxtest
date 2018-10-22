@@ -1,0 +1,306 @@
+<view>
+<!-- 引用 头部 -->
+  <!-- <include src="../template/top"/> -->
+<!-- end 头部-->
+<!-- title -->
+  <view class="titleSty">
+    <view class="titleTop">注册账号</view>
+  </view>
+  <!-- end  title -->
+<!-- body -->
+<view class="body">
+  <form bindsubmit="formSubmit">
+  <!-- mainSty-->
+  <view class="mianSty">
+   
+    
+    <!-- 姓名 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 姓名：</view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="rightSty">
+        <!-- 姓名 文本框 inputSty -->
+        <view class="inputSty">
+          <input type="text"  maxlength="20" name="xm" placeholder="请输入姓名" bindblur="xm_Verification" focus="{{focus_xm}}"/>
+          <label class="color_red">{{msg_xm}}</label>
+        </view>
+        <!-- end 文本框 inputSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 姓名 -->
+
+    <!-- 性别 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 性别：</view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="rightSty">
+        <!-- 性别 单选 radiusSty -->
+        <view class="radiusSty">
+          <radio-group bindchange="radioCheckedChangeForSex" name="xb">
+            <radio checked="true" value="0" />男
+            <radio value="1"/>女
+          </radio-group>
+        </view>
+        <!-- end 单选 radiusSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 性别 -->
+
+    <!-- 联系电话 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 联系电话：</view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="rightSty">
+        <!-- 联系电话 文本框 inputSty -->
+        <view class="inputSty">
+          <input type="number"  maxlength="11" placeholder="请输入联系方式" name="lxdh" 
+          bindblur="lxdh_Verification" focus="{{focus_lxdh}}"/>
+          <label class="color_red">{{msg_lxdh}}</label>
+        </view>
+        <!-- end 文本框 inputSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 联系电话 -->
+
+    <!-- 身份证号码 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 身份证号：</view>
+      <!-- end leftSty -->
+
+      <!-- rightSty -->
+      <view class="rightSty">
+        <!-- 身份证号 文本框 inputSty -->
+        <view class="inputSty">
+          <input type="idcard" maxlength="18" placeholder="请输入身份证号" name="sfzh"
+          bindblur="sfzh_Verification" focus="{{focus_sfzh}}"/>
+          <label class="color_red">{{msg_sfzh}}</label>
+        </view>
+        <!-- end 文本框 inputSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 身份证号码 -->
+
+    <!-- 身份证期限 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 身份证期限：</view>
+      <!-- end leftSty -->
+
+      <!-- rightSty -->
+      <view class="rightSty">
+      <view class="inputSty">
+        <!-- 身份证期限 文本框 inputSty bindblur="sfzqx_Verification"focus="{{focus_sfzqx}}"-->
+        <picker mode="date" name="sfzhqx" value="{{dateFor_sfzqx}}" start="1900-01-01" end="2200-01-01" bindchange="bindDateChangeFor_sfzqx">
+              <view class="picker">
+                <view class="nationSty">{{dateFor_sfzqx}}</view>
+              </view>
+            </picker>
+        </view>
+        <!-- end 文本框 inputSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 身份证期限 -->
+
+    <!-- 身份证照片 -->
+    <view class="mainBodyIdcardSty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 身份证照片：</view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="righIdcardImgSty">
+        <!-- 身份证照片 上传图片 updateImgSty -->
+        <view class="updateImgSty">
+          <view class="imgLeft">
+            <image src="{{src}}" mode='aspectFit' name="sfzxp" bindtap="btnShowImg"></image>
+          </view>
+          <view class="imgRight">
+            <button class="btnSty" bindtap="btnChoose">上传</button>
+          </view>
+        </view>
+        <!-- end 上传图片 updateImgSty  -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 身份证照片 -->
+
+    <!-- 出生年月 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 出生年月：</view>
+      <!-- end leftSty -->
+
+      <!-- rightSty -->
+      <view class="rightSty">
+        <!-- 出生年月 文本框 inputSty -->
+        <view class="inputSty">
+          <view class="section">
+            <picker mode="date" name="csrq" value="{{date}}" start="1900-01-01" end="2200-01-01" bindchange="bindDateChange">
+              <view class="picker">
+                <view class="nationSty">{{date}}</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <!-- end 文本框 inputSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 出生年月 -->
+
+    <!-- 民族 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 民族：</view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="rightSty">
+        <!-- 民族 文本框 inputSty -->
+        <view class="inputSty">
+          <!-- rightRegionSty -->
+          <view class="section">
+            <picker bindchange="bindPickerChange" value="{{nationIndex}}" range="{{nation}}">  
+                <view class="picker">  
+                  <view class="nationSty">{{nation[nationIndex]}} </view>
+                </view>  
+            </picker>
+          </view>
+        </view>
+        <!-- end 文本框 inputSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 民族 -->
+
+
+    <!-- 户籍所在地 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 户籍所在地：</view>
+      <!-- end leftSty -->
+      <!-- rightRegionSty -->
+      <view class="rightRegionSty">
+        <!-- 户籍所在地 省市区联动选择 inputSty_Region -->
+        <view class="inputSty_Region">
+          <view class="section">
+            <picker mode="region" name="ssq" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+              <view class="picker">
+                <view class="regionSty">{{region[0]}}</view>
+                <view class="regionSty regionTwoSty">{{region[1]}}</view>
+                <view class="regionSty regionTwoSty">{{region[2]}}</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <!-- end 户籍所在地 省市区联动选择 inputSty_Region -->
+      </view>
+      <!-- end rightRegionSty -->
+    </view>
+    <!-- end 户籍所在地 -->
+    <!-- 户籍所在地 详情 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"></view>
+      <!-- end leftSty -->
+      <!-- rightRegionSty -->
+      <view class="rightRegionSty">
+        <view class="inputSty">
+          <input type="text" maxlength='100' placeholder="请输入户籍所在地详细地址" name="hjszdxq" />
+        </view>
+      </view>
+      <!-- end rightRegionSty -->
+    </view>
+    <!-- end 户籍所在地 详情 -->
+
+    <!-- 现住详细地址 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 现住地址：</view>
+      <!-- end leftSty -->
+      <!-- rightRegionSty -->
+      <view class="rightRegionSty">
+        <!-- 现住详细地址 省市区联动选择 inputSty_Region -->
+        <view class="inputSty_Region">
+          <view class="section">
+            <picker mode="region" name="xjd" bindchange="bindRegionNewChange" value="{{regionNew}}" custom-item="{{customItem}}">
+              <view class="picker">
+                <view class="regionSty">{{regionNew[0]}}</view>
+                <view class="regionSty regionTwoSty">{{regionNew[1]}}</view>
+                <view class="regionSty regionTwoSty">{{regionNew[2]}}</view>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <!-- end 现住详细地址 省市区联动选择 inputSty_Region -->
+      </view>
+      <!-- end rightRegionSty -->
+    </view>
+    <!-- end 现住详细地址 -->
+    <!-- 现住详细地址 详情 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"></view>
+      <!-- end leftSty -->
+      <!-- rightRegionSty -->
+      <view class="rightRegionSty">
+        <view class="inputSty">
+          <input type="text" maxlength='100' placeholder="请输入现住详细地址" name="xzdxz" />
+        </view>
+      </view>
+      <!-- end rightRegionSty -->
+    </view>
+    <!-- end 现住详细地址 详情 -->
+
+    <!-- 人员类型 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">人员类型：</view>
+          <!-- end leftSty -->
+          <!-- rightPeopleSty -->
+          <view class="rightPeopleSty">
+            <!-- 人员类型 单选 inputSty -->
+            <view class="radioPeopleSty">
+                <checkbox-group bindchange="checkboxChange" name="rylx">
+                  <label class="checkbox" wx:for="{{items}}" wx:key="peopleType">
+                    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+                  </label>
+                </checkbox-group>
+            </view>
+            <!-- end 人员类型 单选 inputSty -->
+          </view>
+          <!-- end rightPeopleSty -->
+        </view>
+        <!-- end 人员类型 -->
+
+    <!-- 提交按钮 -->
+     <view class="btnSubmit">
+        <button wx:if="{{showBtn == true}}" class="btn-compl" formType="submit" style="background-image: url('https://www.thinkllwx.cn/spring-boot/show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">完成</button>
+
+        <button wx:if="{{showBtn == false}}" class="btn-compl" formType="submit" style="background-image: url('https://www.thinkllwx.cn/spring-boot/show/images?fileName=btnbg.png');background-size:100% 100%; border:none;color:white;" plain="false">下一步</button>
+
+    </view>
+    <!-- end 提交按钮 -->
+  </view>
+  <!-- mainSty-->
+
+  </form>
+</view>
+<!--end  body-->
+</view>
+
+
+
+
+
+

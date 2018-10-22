@@ -1,0 +1,143 @@
+  <view>
+<!-- 引用 头部 -->
+  <!-- <include src="../template/top"/> -->
+<!-- end 头部-->
+<!-- title -->
+  <view class="titleSty">
+    <view class="hr"></view>
+    <view class="titleTop">基本信息</view>
+  </view>
+  <!-- end  title -->
+  <!-- 注册进度 -->
+  <view class="box_line_round">
+    <view class="lineSty">
+      <view class="lineSty_left"></view>
+      <view class="lineSty_right"></view>
+    </view>
+    <view class="box_round">
+      <view class="box_r_t">
+        <view class="round" style="background: #6dbeff;">1</view>
+        <view class="textSty" style="color: #6dbeff;">步骤1</view>
+      </view>
+      <view class="box_r_t">
+        <view class="round" style="background: #bbb;">2</view>
+        <view class="textSty" style="color: #bbb;">步骤2</view>
+      </view>
+      <view class="box_r_t">
+        <view class="round" style="background: #bbb;">3</view>
+        <view class="textSty" style="color: #bbb;">步骤3</view>
+      </view>
+    </view>
+  </view>
+  <!-- 注册进度 -->
+
+<!-- body -->
+<view class="body">
+  <form bindsubmit="formSubmit">
+  <!-- mainSty-->
+  <view class="mianSty">
+    <!-- 身份证照片 （正面）-->
+    <view class="mainBodyIdcardSty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 身份证照片：</view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="righIdcardImgSty">
+        <!-- 身份证照片 上传图片 updateImgSty -->
+        <view class="updateImgSty">
+          <view class="imgLeft">
+            <image src="{{idcard_z}}" mode='aspectFit' name="sfzxp" bindtap="btnShowImg"></image>
+          </view>
+          <view class="imgRight">
+            <button class="btnSty" bindtap="btnChoose" data-index="idcard_z">上传</button>
+          </view>
+        </view>
+        <!-- end 上传图片 updateImgSty  -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 身份证照片 （正面）-->
+
+    <!-- 身份证照片 （反面）-->
+    <view class="mainBodyIdcardSty">
+      <!-- leftSty -->
+      <view class="leftSty"></view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="righIdcardImgSty">
+        <!-- 身份证照片 上传图片 updateImgSty -->
+        <view class="updateImgSty">
+          <view class="imgLeft">
+            <image src="{{idcard_f}}" mode='aspectFit' name="sfzxp" bindtap="btnShowImg"></image>
+          </view>
+          <view class="imgRight">
+            <button class="btnSty" bindtap="btnChoose" data-index="idcard_f">上传</button>
+          </view>
+        </view>
+        <!-- end 上传图片 updateImgSty  -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 身份证照片 （反面）-->
+    <!-- 联系电话 -->
+    <view class="mainBodySty">
+      <!-- leftSty -->
+      <view class="leftSty"><label class="mustIcon">*</label> 联系电话：</view>
+      <!-- end leftSty -->
+      <!-- rightSty -->
+      <view class="rightSty">
+        <!-- 联系电话 文本框 inputSty -->
+        <view class="inputSty">
+          <input type="number"  maxlength="11" placeholder="请输入联系方式" name="lxdh" 
+          bindblur="lxdh_Verification"/>
+          <label class="colorred">{{msg_lxdh}}</label>
+        </view>
+        <!-- end 文本框 inputSty -->
+      </view>
+      <!-- end rightSty -->
+    </view>
+    <!-- end 联系电话 -->
+     
+
+    <!-- 人员类型 -->
+        <view class="mainBodySty">
+          <!-- leftSty -->
+          <view class="leftSty">人员类型：</view>
+          <!-- end leftSty -->
+          <!-- rightPeopleSty -->
+          <view class="rightPeopleSty">
+            <!-- 人员类型 单选 inputSty -->
+            <view class="radioPeopleSty">
+                <checkbox-group bindchange="checkboxChange" name="rylx">
+                  <label class="checkbox" wx:for="{{items}}" wx:key="peopleType">
+                    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+                  </label>
+                </checkbox-group>
+            </view>
+            <!-- end 人员类型 单选 inputSty -->
+          </view>
+          <!-- end rightPeopleSty -->
+        </view>
+        <!-- end 人员类型 -->
+
+    <!-- 提交按钮 -->
+   <view class="btnSubmit">
+        <!-- <button wx:if="{{showBtn == true}}" class="btn_compl" formType="submit" style="background-image: url('../../images/btnbg.png');background-size:100% 100%; color:white;border:none; " plain="false">完成</button> -->
+
+        <button  wx:if="{{canIUse}}" open-type="getUserInfo" wx:if="{{showBtn == false && urlStr.length>0}}" class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">下一步</button>
+
+    </view>
+    <!-- end 提交按钮 -->
+  </view>
+  <!-- mainSty-->
+
+  </form>
+</view>
+<!--end  body-->
+</view>
+
+
+
+
+
+

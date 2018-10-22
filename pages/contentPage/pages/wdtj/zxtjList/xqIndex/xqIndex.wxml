@@ -1,0 +1,346 @@
+<view class='maxBox'>
+  <view class="test-sty" wx:if="{{isonLoad == 1}}">
+    <view class="loading-sty">正在加载...</view>
+  </view>
+  <view class='box'>
+    <scroll-view scroll-y class="scrollSty">
+      <!-- 头部 头像 -->
+      <view class='topTitle' wx:if="{{checkedId == 1}}">
+        <view class='txImg' wx:if="{{details.clr == null && urlStr.length > 0}}" style="background-image: url('{{urlStr}}show/images?fileName=head.png');background-size:100% 100%; border:none; color:white;">
+        </view>
+        <view class='txImg' wx:if="{{details.clr != null && urlStr.length > 0}}" style="background-image: url('{{urlStr}}show/images?fileName={{clrInfo.tx}}');background-size:100% 100%; border:none; color:white;" bindtap="bindFunGrxx">
+        </view>
+        <view class='topText'>
+          <view>编号:{{details.tjbh}}</view>
+          <view wx:if="{{details.shrqStr == null}}">暂无处理人(待分派)</view>
+          <view wx:if="{{details.shrqStr != null}}">{{details.shrqStr}}</view>
+        </view>
+      </view>
+      <!--end 头部 头像 -->
+
+      <!-- 个人信息 -->
+      <view class='content' wx:if="{{checkedId == 1}}">
+        <view class="selectSty">
+          <view class="items">
+            <view class="item">
+              <text space="ensp">调解类型：</text>
+              <input type="text" value="{{details.tjlxStr}}" disabled="ture" />
+            </view>
+          </view>
+        </view>
+        <!-- end 案件类型-->
+
+        <!-- 案由-->
+        <view class="selectSty">
+          <view class="items">
+            <view class="item">
+              <text space="ensp" class='aySty'>案    由：</text>
+              <input type="text" value="{{details.zzbhStr}}" disabled="ture" />
+            </view>
+          </view>
+        </view>
+        <!-- end 案由-->
+
+        <!-- 标的-->
+        <view class="selectSty">
+          <view class="items">
+            <view class="item">
+              <text space="ensp">标    的：</text>
+              <input type="text" name="ygxm{{iIndex}}" value="{{details.bd}}" placeholder="请输入标的" disabled="ture" />
+            </view>
+          </view>
+        </view>
+        <!-- end标的-->
+        <!-- 申请事项 -->
+        <view class="textarea-style">
+          <view class="textareaItems">
+            <view class="textareaItem">
+              <text space="ensp">申请事项：</text>
+              <view class="textareaSty" disabled="ture">{{details.sqsx}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- end 申请事项 -->
+
+        <!-- 纠纷描述-->
+        <view class="textarea-style">
+          <view class="textareaItems">
+            <view class="textareaItem">
+              <text space="ensp">纠纷描述：</text>
+              <view class="textareaSty" disabled="ture">{{details.jfms}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 被申请人填写项 -->
+        <block wx:for="{{itemsBsqr}}" wx:for-item="i" wx:for-index="qq" wx:key="y">
+
+          <view class="dsrSty">
+            <view class="sqrTitle" wx:if="{{i.ssdw == 1}}">申请人</view>
+
+            <view class="sqrTitle" wx:if="{{i.ssdw == 2}}">被申请人</view>
+
+            <view class="sqrTitle" wx:if="{{i.ssdw == 3}}">第三人</view>
+
+            <view class="items">
+              <view class="item">
+                <text space="ensp">人员类型：</text>
+                <input type="text" disabled="ture" value="{{i.lxStr}}" />
+              </view>
+              <view class="item">
+                <text space="ensp">姓 名：</text>
+                <input type="text" disabled="ture" value="{{i.mc}}" placeholder="请输入姓名" />
+              </view>
+
+              <view class="item" wx:if="{{i.sfzhm.length > 0}}">
+                <text space="ensp">身份证号：</text>
+                <input type="idcard" disabled="ture" maxlength="18" placeholder="请输入身份证号" value='{{i.sfzhm}}' />
+              </view>
+              <view class="item" wx:if="{{i.fddbr.length > 0}}">
+                <text space="ensp">法人姓名：</text>
+                <input type="text" value="{{i.fddbr}}" placeholder="请输入法定代表人姓名" />
+              </view>
+              <view class="item">
+                <text space="ensp">联系电话：</text>
+                <input type="number" disabled="ture" maxlength="11" placeholder="请输入联系电话" value='{{i.lxdh}}' />
+              </view>
+
+              <view class="item">
+                <text space="ensp">地   址：</text>
+                <input type="text" disabled="ture" value='{{i.dz}}' disabled="ture" />
+              </view>
+            </view>
+          </view>
+        </block>
+        <!-- end 申请人填写项 -->
+
+
+        <view class="clsty">
+          <text space="ensp" class='clStyle'>材    料:</text>
+          <view class='imgbox'>
+            <block wx:for="{{img_arr}}" wx:key="index" wx:for-item="i">
+              <view class='logoinfo' wx:if="{{i.cllb == 3}}">
+                <image class='mrImg' name="clImg" src='{{urlStr}}show/images?fileName={{i.clmc}}' data-src='{{urlStr}}show/images?fileName={{i.clmc}}' bindtap='showImg' wx:if="{{urlStr.length > 0}}"></image>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view class="clsty">
+          <text space="ensp" class='clStyle'>备注信息：</text>
+          <view class="textareaSty-bzxx">{{details.bz}}</view>
+        </view>
+        <view class="tjjg-sty">
+          <view class="lab-tjjg-sty">调解结果：</view>
+          <view wx:if="{{details.clr == null && details.tjjg == null}}" class="tjjg-content-sty">
+            调解暂未开始
+          </view>
+          <view wx:if="{{details.clr != null && details.tjjg == null}}" class="tjjg-content-sty">
+            调解暂未结束
+          </view>
+          <view wx:if="{{details.tjjg == 1}}">
+            调解成功
+          </view>
+          <view wx:if="{{details.tjjg == 0}}">
+            调解失败
+          </view>
+        </view>
+        <!--审核信息 -->
+        <view class="tjjg-sty">
+          <view class="lab-tjjg-sty">审核结果：</view>
+          <view wx:if="{{details.shjg == null}}" class="tjjg-content-sty">
+            暂未审核
+          </view>
+          <view wx:if="{{details.shjg == 1}}">
+            审核通过
+          </view>
+          <view wx:if="{{details.shjg == 0}}">
+            审核不通过
+          </view>
+        </view>
+
+        <view class="tjjg-sty">
+          <view class="lab-tjjg-sty">审核意见：</view>
+          <view wx:if="{{details.shyj == null}}" class="tjjg-content-sty">
+            暂无审核意见
+          </view>
+          <view wx:if="{{details.shyj != null}}" class="tjjg-content-sty">
+            {{details.shyj}}
+          </view>
+        </view>
+        <!--end 审核信息 -->
+        <view class='sqtjSty' bindtap='arginFun' wx:if="{{details.shjg == 0 || details.tjjg==0}}">申请再次调解</view>
+
+      </view>
+      <!-- end 个人信息 -->
+
+      <!-- 调解 -->
+      <view wx:if="{{lx == 1}}">
+        <view class="topBtn {{showView?'viewShow':'viewHide'}}" wx:if="{{checkedId == 2 && tjfs == null}}">
+          <view class='zxtjSty' bindtap='checkFunZxtj' data-id="1">
+            <image src='{{urlStr}}show/images?fileName=brnbg02.png' wx:if="{{urlStr.length > 0}}"></image>
+            <text>文字调解</text>
+          </view>
+          <view class='xxtjSty' bindtap='checkFunxxtj' data-id="2">
+            <image src='{{urlStr}}show/images?fileName=btnbg03.png' wx:if="{{urlStr.length > 0}}"></image>
+            <text>线下调解</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="topBtn" wx:if="{{checkedId == 2 && tjfs == 3}}">
+        <view class='contentXxtj'>
+          <view class='titleSty' style="background-image: url('{{urlStr}}show/images?fileName=tiibg_02.jpg');background-size:101% 101%; border:none; color:white;" plain="false">线下调解</view>
+          <view class='explain'>线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解说明线下调解</view>
+        </view>
+
+      </view>
+      <!-- end 调解 -->
+
+
+      <!-- 办结 -->
+      <view class='bjBox' wx:if="{{checkedId == 3}}">
+        <!-- 内容（用户端） -->
+        <form bindsubmit="formSubmit">
+          <view class='contentBj' wx:if="{{lx == 0}}">
+            <!-- 标题 -->
+            <view class='sectionTitle' style="background-image: url('{{urlstr}}show/images?fileName=tiibg_02.jpg');background-size:101% 101%; border:none; color:white;" plain="false">调解完结确认</view>
+            <!--end 标题 -->
+            <view class='sucessWjxx'>
+              <image class='sucessSty' src='{{urlStr}}show/images?fileName=sucess.png' wx:if="{{urlStr.length > 0}}"></image>
+              <view class='sucessTitleSty'>{{resultName}}</view>
+            </view>
+            <view class="section">
+              <view class="section-bj">文 书:</view>
+              <view class='imgbox'>
+                <block wx:for="{{img_arr}}" wx:key="index" wx:for-item="i">
+                  <view class='logoinfo' wx:if="{{i.cllb == 3}}">
+                    <image class='mrImg' name="clImg" src='{{urlStr}}show/images?fileName={{i.clmc}}' wx:if="{{urlStr.length > 0}}"></image>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view class='yzmSty'>
+              <view class="section-yzm">验 证 码:</view>
+              <!-- 验证码 -->
+              <view class="perSty">
+                <input type='number' name="yzm" maxlength='6' class="inputPerSty" bindblur="btnVerFun" placeholder="验证码" />
+                <canvas canvas-id="canvas"></canvas>
+                <label class='yzmBtn' bindtap='change'>点击换一张</label>
+              </view>
+              <!--end 验证码 -->
+            </view>
+            <!-- 底部按钮-->
+            <view class="btnSubmit">
+              <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">提交</button>
+            </view>
+            <!-- end 底部按钮-->
+          </view>
+          <!-- end 内容（用户端） -->
+
+
+          <!-- 内容（服务端） -->
+          <view class='contentBj' wx:if="{{lx == 1}}">
+            <!-- 标题 -->
+            <view class='sectionTitle' style="background-image: url('{{urlStr}}show/images?fileName=tiibg_02.jpg');background-size:101% 101%; border:none; color:white;" plain="false">调解报结</view>
+            <view class='jg'>
+              <view bindtap="onChangeShowState" class='fontActionSty' wx:if="{{sfcg == 1}}" data-id="1" style="background-image: url('{{urlStr}}show/images?fileName=tjbj.png');background-size:101% 101%; border:none; color:white;" plain="false">
+                调解成功
+              </view>
+              <view bindtap="onChangeShowState" wx:if="{{sfcg != 1}}" data-id="1" class='fontStycg'>
+                调解成功
+              </view>
+              <view bindtap="onChangeShowState" class='fontActionStysb' wx:if="{{sfcg == 0 && urlStr.length > 0}}" data-id="0" style="background-image: url('{{urlStr}}show/images?fileName=tjbj_02.png');background-size:101% 101%; border:none; color:white;" plain="false">
+                调解失败
+              </view>
+              <view bindtap="onChangeShowState" wx:if="{{sfcg != 0}}" data-id="0" class='fontSty'>
+                调解失败
+              </view>
+            </view>
+            <!-- 材料上传 -->
+          
+            <view class="clsty">
+               <label class='wsclStr'>文 书:</label>
+							 
+              <view class='imgbox'>
+                <block wx:for="{{clList}}" wx:key="index" wx:for-item="i">            
+                  	<view class='logoinfo'>                  
+                    <image class='mrImg' name="clImg" src="{{urlStr}}show/images?fileName={{i.clmc}}" wx:if="{{urlStr.length > 0}}"></image>
+                    </view>
+                  </block>
+              
+                <image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png' wx:if="{{urlStr.length > 0}}"></image>
+              
+                <image src='{{urlStr}}show/images?fileName=delImg.png' class='mrImg' bindtap='deleteImage' data-index="{{index}}" catchtap="deleteImg" wx:if="{{urlStr.length > 0}}"></image>
+                </view>
+              </view>
+          
+            <!-- end 材料上传 -->
+
+            <!-- 底部按钮-->
+            <view class="btnSubmitWs">
+              <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">提交</button>
+            </view>
+            <!-- end 底部按钮-->
+
+          </view>
+
+        </form>
+      </view>
+
+      <!-- end 办结 -->
+
+
+    </scroll-view>
+  </view>
+
+  <!-- 底部菜单 -->
+  <view class='bottomMenu'>
+    <view class='btnSty' bindtap="checkFun" wx:if="{{checkedId == 1 && urlStr.length > 0}}" data-index="1">
+      <image class='menuImg' src='{{urlStr}}show/images?fileName=botbtn01_active.png'></image>
+      <text>详情</text>
+    </view>
+    <view class='btnSty' bindtap="checkFun" wx:if="{{checkedId != 1}}" data-index="1">
+      <image class='menuImg' src='{{urlStr}}show/images?fileName=botbtn01.png' wx:if="{{urlStr.length > 0}}"></image>
+      <text>详情</text>
+    </view>
+
+    <view wx:if="{{checkedId == 2}}" class="btnSty" bindtap="checkFun" data-index="2" data-tjbh="{{details.tjbh}}" data-tjzt="{{details.tjzt}}">
+      <image class='menuImg2' src='{{urlSty}}show/images?fileName=botbtn02_active.png' wx:if="{{urlStr.length > 0}}"></image>
+      <text>在线调解</text>
+    </view>
+
+    <view wx:if="{{checkedId != 2}}" class="btnSty" bindtap="checkFun" data-index="2" data-tjbh="{{details.tjbh}}" data-tjzt="{{details.tjzt}}">
+      <image class='menuImg2' src='{{urlStr}}show/images?fileName=botbtn02.png' wx:if="{{urlStr.length > 0}}"></image>
+      <text>在线调解</text>
+    </view>
+
+    <view wx:if="{{checkedId == 3 && lx == 0}}" class="btnSty" bindtap="checkFun" data-index="3" data-clr="{{details.clr}}" data-tjid="{{details.tjid}}" data-tjzt="{{details.tjzt}}">
+      <image class='menuImg3' wx:if="{{checkedId == 3 && urlStr.length > 0}}" src='{{urlStr}}show/images?fileName=botbtn03_active.png'></image>
+      <!-- <text>调解确认</text> -->
+      <!-- <text wx:if="{{usertype == 'sqr' && details.tjzt != 5}}">调解确认</text> wx:if="{{details.tjzt == 5}}" -->
+      <text style="position: relative;left: -1%;">评价</text>
+    </view>
+    <view wx:if="{{checkedId != 3 && lx == 0}}" class="btnSty" bindtap="checkFun" data-index="3">
+      <image class='menuImg3' wx:if="{{checkedId!=3 && urlStr.length > 0}}" src='{{urlStr}}show/images?fileName=botbtn03.png'></image>
+
+      <!-- <text wx:if="{{usertype == 'sqr' && details.tjzt != 5}}">调解确认</text> wx:if="{{details.tjzt == 5}}" -->
+      <text style="position: relative;left: -1%;">评价</text>
+    </view>
+
+    <view wx:if="{{checkedId == 3 && lx == 1}}" class="btnSty" bindtap="checkFun" data-index="3">
+      <image class='menuImg3' src='{{urlStr}}show/images?fileName=botbtn03_active.png' wx:if="{{urlStr.length > 0}}"></image>
+      <text wx:if="{{details.tjjg == null}}">调解报结</text>
+      <text wx:if="{{details.tjjg == 0 || details.tjjg == 1}}" style="position: relative;left: -1%;">评价</text>
+    </view>
+
+    <view wx:if="{{checkedId != 3 && lx == 1}}" class="btnSty" bindtap="checkFun" data-index="3">
+      <image class='menuImg3' src='{{urlStr}}show/images?fileName=botbtn03.png' wx:if="{{urlStr.length > 0}}"></image>
+      <text wx:if="{{details.tjjg == null}}">调解报结</text>
+      <text wx:if="{{details.tjjg == 0 || details.tjjg == 1}}" style="position: relative;left: -1%;">评价</text>
+    </view>
+
+
+  </view>
+  <!--end 底部菜单 -->
+
+</view>

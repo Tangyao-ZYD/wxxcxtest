@@ -1,0 +1,26 @@
+
+   <view class='box'>
+      <view class="groupButton {{disp == 0 ? 'displayBlock':'displayNone'}}" bindtap="newGroup">
+              <image src='../groupImages/addGroup.png'/>
+              <label class='addGroup'>新建</label> 
+      </view>
+      
+  <block wx:if="{{groupArr != null}}"
+   wx:for="{{groupArr}}"  wx:for-item="g" wx:for-index="gIndex" wx:key="g">
+      <view class='content' bindtap="queryGroupInfo" id='{{g.GroupId}}'
+       data-index="{{g.NextMsgSeq-1}}" data-id="{{g.SelfInfo.UnreadMsgNum}}">
+          <view class='group'>
+              <!-- <image src='{{g.FaceUrl}}'/> -->
+              <label>{{g.Name}}</label>
+              <view class='read' wx:if="{{g.SelfInfo.UnreadMsgNum != 0}}">
+                <image src='../groupImages/read.png'/>
+              </view>
+          </view>
+      </view>
+  </block>
+
+  <!-- 当群组信息 暂无时 -->
+  <view class='content' wx:if="{{groupArr == null}}" >
+         暂未加入任何群组
+  </view>
+</view>   

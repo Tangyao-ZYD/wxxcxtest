@@ -1,0 +1,126 @@
+<view class='maxBox'>
+  <!-- 内容（用户端） -->
+  <form bindsubmit="formSubmit">
+    <view class='content' wx:if='{{idNum == 1}}'>
+      <view class='section'>调解完结确认</view>
+      <view class='section'>
+
+        <label class='section-title'>完结信息:</label>
+        <view class='form-group'>
+          <textarea bindblur="bindTextAreaBlur" class="tareaSty" value="{{zxnr}}" placeholder="请输入问题内容" />
+        </view>
+      </view>
+
+
+      <view class="section">
+        <view class="section-title">文书:</view>
+        <view class='imgbox'>
+
+          <block wx:for="{{img_arr}}" wx:key="index">
+            <view class='logoinfo'>
+              <image class='mrImg' name="clImg" src='{{item}}'></image>
+            </view>
+          </block>
+          <image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png'></image>
+        </view>
+
+      </view>
+
+      <view class='section'>
+
+        <label class='section-title'>验证码:</label>
+        <view class='form-group'>
+          <input type='text' class='inputSty' name='yzm' maxlength="6" placeholder="请输入验证码"></input>
+        </view>
+      </view>
+
+      <!-- 底部按钮-->
+      <view class="btnSubmit">
+        <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">提交</button>
+      </view>
+      <!-- end 底部按钮-->
+
+    </view>
+
+
+  <!-- end 内容（用户端） -->
+
+
+  <!-- 内容（服务端） -->
+    <view class='content' wx:if='{{idNum == 2}}'>
+      <view class='section'>
+        <label class='section-title'>调解报告</label>
+        <view class='form-group'>
+          <textarea bindblur="bindTextAreaBlur" class="tareaSty" value="{{zxnr}}" name="tjbg" placeholder="请输入问题内容" />
+        </view>
+      </view>
+      <view class='section'>
+
+        <label class='section-title'>调解结果</label>
+        <view class='form-group'>
+          <textarea bindblur="bindTextAreaBlur" name="tjjg" class="tareaSty" value="{{zxnr}}" placeholder="请输入问题内容" />
+        </view>
+      </view>
+
+
+      <view class="section">
+        <view class="section-title">文书:</view>
+        <view class='imgbox'>
+
+          <block wx:for="{{img_arr}}" wx:key="index">
+            <view class='logoinfo'>
+              <image class='mrImg' name="clImg" src='{{item}}'></image>
+            </view>
+          </block>
+          <image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png'></image>
+        </view>
+
+      </view>
+
+      <!-- 底部按钮-->
+      <view class="btnSubmit">
+        <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">提交</button>
+      </view>
+      <!-- end 底部按钮-->
+
+    </view>
+
+
+
+  </form>
+
+  <!-- end 内容（服务端） -->
+
+
+
+
+
+
+
+
+
+  <!-- 底部菜单 -->
+  <view class='bottomMenu'>
+    <view class='btnSty btnStyActive' bindtap="checkFun" wx:if="{{checkedId == 1}}" data-index="1">
+      <text>详情</text>
+    </view>
+    <view class='btnSty' bindtap="checkFun" wx:if="{{checkedId != 1}}" data-index="1">
+      <text>详情</text>
+    </view>
+
+    <view wx:if="{{checkedId == 2}}" class="btnSty btnStyActive" bindtap="checkFun" data-index="2">
+      <text>调解</text>
+    </view>
+    <view wx:if="{{checkedId != 2}}" class="btnSty" bindtap="checkFun" data-index="2">
+      <text>调解</text>
+    </view>
+
+    <view wx:if="{{checkedId == 3}}" class="btnSty btnStyActive" bindtap="checkFun" data-index="3">
+      <text>办结</text>
+    </view>
+    <view wx:if="{{checkedId != 3}}" class="btnSty" bindtap="checkFun" data-index="3">
+      <text>办结</text>
+    </view>
+  </view>
+  <!--end 底部菜单 -->
+</view>

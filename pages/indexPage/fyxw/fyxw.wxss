@@ -1,0 +1,94 @@
+.box_xw{
+  width: 100%;
+  height: auto;
+  word-break:break-all;
+   /* background: orangered;   */
+}
+.importantNews{
+  width: 98%;
+  height: 280px;
+  margin: 1%;
+   /* background: blanchedalmond;  */
+}
+.importantNewsTitle{
+  width: 80%;
+  height: 40px;
+  margin: 0px 8% 0px 8%;
+  text-align: left;
+  padding: 2%;
+  color: #4e7ae5;
+  font-size: 16px;
+  font-weight: 600;
+  /* background: yellow;    */
+}
+.importantNewsbody{
+  width: 90%;
+  height: 75%;
+  margin: 0 5% 0 5%;
+  border: 2px solid #EEE;
+}
+.importantNewsbody image{
+  width: 98%;
+  height: 97%;
+  margin:1%;
+}
+
+.normalNewsBox{
+  width: 100%;
+  height: auto;
+  background: #fcfcfc;
+}
+.normalNews{
+  width: 90%;
+  height: 80px;
+  margin: 1% 5%;
+  border:1px solid #f5f9fc;
+  box-shadow:1px 2px 2px 1px #e8f2fc;
+  background: white;
+}
+.normalNewsLeft{
+  width: 65%;
+  height: 100%;
+  /* background: blue; */
+  float:left;
+}
+.normalNewsLeftTitle{
+  height: 55%;
+  position: relative;
+  padding-left: 5%;
+  padding-top: 5%;
+  font-size: 14px;
+  font-weight: 500;
+  color: #191919;
+   /* background: oldlace;  */
+}
+.normalNewsLeftTime{
+  top:5%;
+  position: relative;
+  padding-left: 5%;
+  font-size: 12px;
+   /* background: yellow;  */
+}
+.normalNewsLeftTimeText image{
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+.timeSty{
+  color: #999999;
+  position: relative;
+  left:2%;
+}
+
+.normalNewsRight{
+  width: 30%;
+  height: 100%;
+  /* background: black; */
+  float:right;
+}
+.normalNewsRight image{
+  width: 80%;
+  height: 80%;
+  margin: 8% 2%;
+  /* background: red; */
+}

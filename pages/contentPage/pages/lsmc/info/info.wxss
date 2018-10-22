@@ -1,0 +1,183 @@
+
+page{
+  width: 100%;
+  height: 100%;
+}
+.box{
+  width: 100%;
+  height: 100%;
+}
+.main{
+  width: 100%;
+  height: 100%;
+  background: #fbfbfb;
+}
+
+
+
+.bottom{
+  width: 100%;
+  height: 7.5%;
+  position: relative;
+}
+.btnBox{
+  width: 100%;
+  height: 50px;
+  position: absolute;
+}
+.btnSty{
+  width: 33.3%;
+  height:50px;
+  float: left;
+  line-height: 50px;
+  font-size: 14px;
+  position: relative;
+}
+.iconImg{
+  width: 14%;
+  height: 40%;
+  float: left;
+  position: absolute;
+  top:32%;
+  left: 16%;
+}
+.btnActiveSty{
+  width: 33.3%;
+  height:50px;
+  float: left;
+  color: white;
+  line-height: 55px;
+  font-size: 14px;
+  position: relative;
+  background: linear-gradient(to right, #3e76ff , #32b7fa);
+}
+.iconText{
+  float: right; 
+  width:62%;
+  height: 100%;
+}
+
+.topSty{
+  width: 90%;
+  height: 45%;
+  text-align: center;
+  position: relative;
+  font-size: 14px;
+  margin: 0px 5%;
+  line-height: 25px;
+  color: #000;
+}
+.topBox{
+  width: 60%;
+  height: 100%;
+  /* margin: 20%; */
+  position: absolute;
+  left:18%;
+}
+.txSty{
+  width: 40%;
+  height: 45%;
+  position: absolute;
+  left:35%;
+  top:10%;
+}
+.txSty image{
+  width: 100%;
+  height: 100%;
+}
+.xmSty{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top:60%;
+  left:5%;
+}
+.tbSty{
+  position: absolute;
+  top:70%;
+  left:25%;
+}
+.tbSty image{
+  width: 15px;
+  height: 15px;
+  margin-right: 15px;
+}
+.textBodySty{
+  width: 90%;
+  height: 220px;
+  position: relative;
+  margin: 0px auto;
+  background: white; 
+  font-size: 14px;
+}
+.fbBtn{
+  width: 60px;
+  height: 35px;
+  background: orange;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  line-height: 35px;
+  border-radius: 5px;
+  margin-left: 70%;
+  margin-right: 5%;
+  margin-top: 5%;
+  float: right;
+}
+.pjnrSty{
+  width: 90%;
+  height: 80%;
+  position: absolute;
+  top:30px;
+  /* background: yellowgreen; */
+  margin: 0px 5%;
+}
+.pjnrSty textarea{
+  width: 90%;
+  height: 75%;
+  margin: 5% 0px;
+  border-top: 1rpx solid #E0E0E0;
+  padding: 5%;
+  /* border-radius: 5px; */
+}
+
+.imagesViewSty{
+  float: left;
+}
+.textTopSty{
+  width: 90%;
+  height: 60px;
+  position: absolute;
+  top: -25px;
+  margin: 0px 5%;
+  /* background: red; */
+}
+.textTopSty image{
+  width: 36px;
+  height: 60px;
+}
+.imagesViewSty{
+  width: 20%;
+}
+
+.l-evalist{
+  width: 70%;
+  position: absolute;
+  /* background: yellow; */
+  margin-left: 40px;
+}
+.l-evalist view{
+  width: 20px;
+  height:20px;
+  float: left;
+  margin-top:35px;
+  margin-left: 2%;
+}
+/* .iconActive{
+  background-image: url('https://www.thinkllwx.cn/SpringBootJT/show/images?fileName=heartin.png');
+  background-size:100% 100%; 
+}
+.icon{
+  background-image: url('https://www.thinkllwx.cn/SpringBootJT/show/images?fileName=heartgray.png');
+  background-size:100% 100%; 
+} */

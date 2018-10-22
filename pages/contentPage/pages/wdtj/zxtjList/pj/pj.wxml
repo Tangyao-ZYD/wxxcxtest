@@ -1,0 +1,74 @@
+<view class='box'>
+  <form bindsubmit="formSubmit">
+    <!-- 头像 姓名 -->
+    <view class='portrait'>
+      <view class='txImg' wx:if="{{clrInfo != null && urlStr.length > 0}}" style="background-image: url('{{urlStr}}show/images?fileName={{clrInfo.tx}}');background-size:100% 100%; border:none; color:white;">
+      </view>
+      <view class='txImg' wx:if="{{clrInfo == null && urlStr.length > 0}}" style="background-image: url('{{urlStr}}show/images?fileName=head.png');background-size:100% 100%; border:none; color:white;">
+      </view>
+      <view class='leftTitle'>
+        <view class='xmName'>{{userInfo.xm}}</view>
+
+        <block wx:for="{{stars}}" wx:key="s" wx:if="{{pjxxInfo == null}}">
+				<view  wx:if="{{lx == 0 }}">
+						<image class="star-image" style="left: {{item*60}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}" wx:if="{{pjxxInfo == null}}">
+            <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+            <view class="item" style="left:15rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+          </image>
+				</view>
+        </block>
+        <block wx:for="{{pjfs}}" wx:key="index" wx:for-item="a">
+          <image class="pjsf-image" style="left: {{a*30}}rpx" src="{{a}}" wx:if="{{pjxxInfo != null}}">
+          </image>
+        </block>
+
+        <!-- 按钮选择 -->
+        <view class='parameter-wrap' wx:if="{{rylx == 'ls' || rylx =='tjy' || rylx == 'zfry'}}">
+          <block wx:for="{{parameter}}" wx:key="parameter">
+            <text class='parameter-info text-over {{item.checked?"checked_parameter":""}}' data-id='{{item.id}}' bindtap="{{isClick?'parameterTap':''}}">{{item.name}}</text>
+          </block>
+        </view>
+        <!-- end 按钮选择 -->
+
+      </view>
+
+    </view>
+    <!--end 头像 姓名 -->
+    <!-- 评价内容 -->
+    <view class='content'>
+      <view class='textBox' wx:if="{{rylx != 'ls' && rylx !='tjy' && rylx != 'zfry'}}">
+        <textarea bindblur="bindTextAreaBlur" name="pjnr" class="tareaSty" placeholder="请输入评价内容" value="{{pjxxInfo.pjnr}}" disabled="{{pjxxInfo!= null ? 'disabled':''}}" />
+      </view>
+    </view>
+    <!-- end 评价内容 -->
+    <!-- 调解日志 -->
+    <view class='content' wx:if="{{rylx == 'ls' || rylx =='tjy' || rylx == 'zfry'}}">
+      <view class='textBox'>
+        <textarea bindblur="bindTextAreaBlur" name="tjyxd" class="tareaSty" placeholder="请输入评价内容" value="{{details.tjyxd}}" disabled="{{details.tjyxd!= null ? 'disabled':''}}" />
+      </view>
+    </view>
+    <!-- end 调解日志 -->
+
+
+
+
+
+    <!-- 底部按钮-->
+    <!-- 外部评价 -->
+    <view class="btnSubmit" wx:if="{{pjxxInfo == null && rylx != 'ls' && rylx !='tjy' && rylx != 'zfry'}}">
+      <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">完成</button>
+    </view>
+    <!-- end 外部评价 -->
+
+    <!-- 内部评价 -->
+    <view class="btnSubmit" wx:if="{{details.tjyxd == null && (rylx == 'ls' || rylx =='tjy' || rylx == 'zfry')}}">
+      <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">完成</button>
+    </view>
+    <!-- end 内部评价 -->
+
+    <!-- end 底部按钮-->
+  </form>
+
+
+
+</view>

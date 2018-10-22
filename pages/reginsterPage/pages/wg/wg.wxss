@@ -1,0 +1,6 @@
+@import "../jbxx/jbxx.wxss";
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color:  #f2fbff;  
+}  

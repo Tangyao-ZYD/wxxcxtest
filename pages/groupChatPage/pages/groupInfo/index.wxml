@@ -1,0 +1,100 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="page_bd">
+    <view class="topSty" bindtap="manage">
+      <!-- <image class="{{disp == 0 ? 'displayBlock':'displayNone'}}" style="width:20px;height:20px;" src='../groupImages/editorGroupUser.png' /> -->
+      <!-- <image bindtap="videoCall" style="width:20px;height:20px;" src='../groupImages/editorGroupUser.png' /> -->
+      <block wx:for="{{qzcyInfo}}" wx:for-item="q" wx:for-index="qIndex" wx:key="q">
+        <view class="nameSty titleNameSty">{{q.qcymc}}</view>
+      </block>
+    </view>
+    <scroll-view bindscrolltoupper="upper" catchtap="scrollClick" class="msg_scroll" style="height:{{scrollHeight}};background:#f9fdff;" scroll-top="{{scrollTop}}" scroll-y scroll-with-animation>
+
+      <block wx:for="{{msgs}}" wx:key="id">
+        <view class="chat_block chat_block_right" wx:if="{{item.isSend == true}}">
+          <view class="chat_avatar">
+            <view class="nameSty">{{item.fromAccountNick}}</view>
+            <!-- <image mode="aspectFit" src="{{userInfo.avatarUrl || '/images/user_avatar.png'}}"></image> -->
+          </view>
+          <view class="chat_cont">
+            <view wx:if="{{item.xxType == 'textAndFace'}}">
+              <!-- {{item.content}} -->
+              <block wx:for="{{item.content}}" wx:for-item="it" wx:key="{{index}}">
+                <text wx:if="{{it.elemType==='text'}}">{{it.elemData}}</text>
+                <image wx:if="{{it.elemType==='face'}}" src="../groupImages/emojis/{{it.elemData}}.gif" class="emoji"></image>
+              </block>
+            </view>
+            <view wx:if="{{item.xxType == 'TIMGroupTipElem'}}">
+              <text>{{item.content}}</text>
+            </view>
+            <view class="img_msg" wx:if="{{item.xxType == 'TIMImageElem'}}">
+              <image catchtap="showImg" data-src="{{item.content}}" src="{{item.content}}" style="width:50px;height:50px"></image>
+            </view>
+            <view wx:if="{{item.xxType == 'TIMFileElem'}}" bindtap="playR" data-index="{{item.content}}">
+              <image style="width:20px;height:20px" src='../groupImages/chat/voice_.png' />
+            </view>
+          </view>
+        </view>
+
+        <view class="chat_block chat_block_left" wx:if="{{item.isSend == false}}">
+          <view class="chat_avatar">
+            <view class="nameSty">{{item.fromAccountNick}}</view>
+            <!-- <image mode="aspectFit" src="{{userInfo.avatarUrl || '/images/user_avatar.png'}}"></image> -->
+          </view>
+          <view class="chat_cont">
+            <view wx:if="{{item.xxType == 'textAndFace'}}">
+              <!-- {{item.content}} -->
+              <block wx:for="{{item.content}}" wx:for-item="it" wx:key="{{index}}">
+                <text wx:if="{{it.elemType==='text'}}">{{it.elemData}}</text>
+                <image wx:if="{{it.elemType==='face'}}" src="../groupImages/emojis/{{it.elemData}}.gif" class="emoji"></image>
+              </block>
+            </view>
+            <view wx:if="{{item.xxType == 'TIMGroupTipElem'}}">
+              <text>{{item.content}}</text>
+            </view>
+            <view class="img_msg" wx:if="{{item.xxType == 'TIMImageElem'}}">
+              <image catchtap="showImg" data-src="{{item.content}}" src="{{item.content}}" style="width:50px;height:50px"></image>
+            </view>
+            <view wx:if="{{item.xxType == 'TIMFileElem'}}" bindtap="playR" data-index="{{item.content}}">
+              <image style="width:20px;height:20px" src='../groupImages/chat/voice_.png' />
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </scroll-view>
+
+    <view class="msg_fixed" wx:if="{{tjzt != 5}}" >
+      <view class="msgbox">
+        <image wx:if="{{recordFlag == 0}}" catchtap="startR" src="../groupImages/chat/voice.png"></image>
+        <image wx:if="{{recordFlag == 1}}" catchtap="stopR" src="../groupImages/chat/stop.png"></image>
+        <input value="{{msgContent}}" bindfocus="inputFocus" class="msgbox_input" maxlength="999" cursor-spacing="10" bindconfirm="confirmMsg" bindblur="blurInput" confirm-type="发送" />
+        <!-- <textarea style="height:33px" value="{{msgContent}}" bindfocus="inputFocus" class="msgbox_input" maxlength="999" cursor-spacing="10" bindconfirm="confirmMsg" bindblur="blurInput" fixed='true' confirm-type="发送" ></textarea> -->
+        <image catchtap="toggleEmojis" src="../groupImages/chat/emotion-o.png"></image>
+        <image catchtap="toggleFiles" src="../groupImages/chat/plus.png"></image>
+        <image catchtap="bindConfirm" src="../groupImages/chat/send.png"></image>
+      </view>
+
+      <view wx:if="{{showEmojis}}" class="emojis_box">
+        <view class="emoji_wrap" wx:for="{{emojiList}}" wx:key="key">
+          <image catchtap="clickEmoji" src="{{item.img}}" data-key="{{item.key}}" class="emoji"></image>
+        </view>
+        <view class="emoji_wrap">
+          <text catchtap="bindConfirm" class="emoji_send">发送</text>
+        </view>
+      </view>
+
+      <view wx:if="{{showFiles}}" class="files_box">
+        <view class="files_wrap">
+          <view catchtap="choosePicture" class="files_icon">
+            <image src="../groupImages/chat/image.png"></image>
+          </view>
+          <text>图片</text>
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+</view>

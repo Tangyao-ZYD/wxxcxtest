@@ -1,0 +1,80 @@
+<view id="adduser">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="section__title">主题:</view>
+      <view class='form-group'>
+        <input type="text" class="input-text" name="zxzt" placeholder="请输入主题" value="{{zxInfo.zxzt}}" disabled="{{lx != 'xq' ?'':'disabled'}}"/>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section__title">问题:</view>
+      <view class='form-group'>
+        <textarea bindblur="bindTextAreaBlur" class="tareaSty" name="zxnr" value="{{zxInfo.zxnr}}" placeholder="请输入问题内容" disabled="{{lx != 'xq'?'':'disabled'}}"/>
+      </view>
+    </view>
+
+    <view class="section section_gap">
+      <view class="section__title titleType">咨询类型:</view>
+      <view class='form-group'>
+        <picker bindchange="bindPickerChange" name="zxlx" value="{{index}}" range = "{{array}}" disabled="{{lx != 'xq'?'':'disabled'}}">  
+                  <view class="picker">  
+                    <view class="nationSty">{{array[index]}}</view>
+                  </view>  
+              </picker>
+      </view>
+    </view>
+
+
+    <view class="section">
+     <view class="section__title">材料:</view>
+       <view class='imgbox'>
+           
+            <block wx:for="{{zxClList}}" wx:key="index" wx:for-item="i">
+              <view class='logoinfo'>
+                <!-- <text class='xxx' bindtap='xxx' data-index='{{index}}'>x</text> -->
+                <image class='mrImg' src='{{urlStr}}show/images?fileName={{i}}' wx:if="{{urlStr.length > 0}}" data-src='{{urlStr}}show/images?fileName={{i}}' bindtap='showImg'/>
+              </view>
+            </block>
+            <block wx:for="{{img_arr}}" wx:key="index" wx:for-item="i">
+              <view class='logoinfo'>
+                <!-- <text class='xxx' bindtap='xxx' data-index='{{index}}'>x</text> -->
+                <image class='mrImg' src='{{i}}'/>
+              </view>
+            </block>
+             <image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png' wx:if="{{lx != 'xq' && urlStr.length > 0}}"></image>
+        </view>
+       
+    </view>
+    <!-- 审核结果 -->
+    <view class="section" wx:if="{{zxInfo.shyj != null}}">
+      <view class="section__title">审核结果:</view>
+      <view class='form-group' wx:if="{{zxInfo.shjg == 1}}">
+        <input type="text" class="input-text" value="审核通过" disabled="{{lx != 'xq' ?'':'disabled'}}"/>
+      </view>
+      <view class='form-group' wx:if="{{zxInfo.shjg == 0}}">
+        <input type="text" class="input-text" value="审核不通过" disabled="{{lx != 'xq' ?'':'disabled'}}"/>
+      </view>
+      <view class='form-group' wx:if="{{zxInfo.shjg == null }}">
+        <input type="text" class="input-text" value="暂未审核" disabled="{{lx != 'xq' ?'':'disabled'}}"/>
+      </view>
+    </view>
+    <!-- end 审核结果 -->
+    <!-- 理由  wx:if="{{zxInfo.shjg == 1}}"-->
+    <view class="section" wx:if="{{zxInfo.shyj != null}}">
+      <view class="section__title">审核意见:</view>
+      <view class='form-group'>
+        <textarea bindblur="bindTextAreaBlur" class="tareaSty_reason"  value="{{zxInfo.shyj}}" placeholder="请输入问题内容" disabled="disabled" />
+      </view>
+    </view>
+   <!--end 理由 -->
+   
+
+    
+     <!-- 底部按钮-->
+    <view class="btnSubmit" wx:if="{{lx != 'xq'}}">
+      <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">提交</button>
+    </view>
+    <!-- end 底部按钮-->
+  </form>
+</view>

@@ -1,0 +1,79 @@
+<view class="adduser">
+		<form bindsubmit="formSubmit" bindreset="formReset">
+				<!-- 主题-->
+				<view class="selectSty">
+					<view class="items">
+						<view class="item">
+							<view class="mustSty"></view>
+							<text space="ensp" class='textSty'>主    题：</text>
+							<input type="text" name="zxzt" placeholder="请输入主题" />
+						</view>
+					</view>
+				</view>
+				<!-- end标的-->
+				<!-- 申请事项 -->
+				<view class="textarea-style">
+					<view class="textareaItems">
+						<view class="textareaItem">
+							<text space="ensp" class='textSty'>问    题：</text>
+							<textarea class="textareaSty" value="{{zxnr}}" name="zxnr"></textarea>
+						</view>
+					</view>
+				</view>
+				<!-- end 申请事项 -->
+				<!-- 案由-->
+      <view class="selectSty1">
+        <view class="items">
+          <view class="item">
+            <text space="ensp" class='textSty'>咨询类型：</text>
+            <picker bindchange="bindPickerChangeZxlx" value="{{index}}" range="{{array}}" name="zxlx">
+              <view class="picker pickerSty">
+               	{{array[index]}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <!-- end 案由-->
+			<!-- 材料上传 -->
+			<view class="clsty">
+			 <text space="ensp" class='textSty1'>材料上传: </text>
+        <view class='imgbox'>
+						<block wx:for="{{clList}}" wx:item-index="cIndex" wx:key="index">
+							<view class='logoinfo'>
+								<image class='mrImg' name="clImg" src='{{urlStr}}show/images?fileName={{item}}' wx:if="{{urlStr.length > 0}}"></image>
+							</view>
+						</block>
+						<image bindtap="upimg" class='mrImg' src='https://www.nbxwx.cn/SpringBootJT/show/images?fileName=addImg.png'></image>
+            <image src='{{urlStr}}show/images?fileName=delImg.png' class='mrImg' bindtap='deleteImage' data-index="{{cIndex}}" catchtap="deleteImg" wx:if="{{urlStr.length > 0}}"></image>
+					</view>
+          
+				</view>
+			<!-- end 材料上传 -->
+
+      <!-- 材料上传 -->
+			<!-- 材料上传 -->
+<!--       <view class="clsty">
+       <text space="ensp" class='textSty1'>材料上传: </text>
+<view class='imgbox'>
+            <block wx:for="{{clList}}" wx:key="index" >
+              <view class='logoinfo'>
+                <image class='mrImg' name="clImg" src='{{urlStr}}show/images?fileName={{item}}' wx:if="{{urlStr.length > 0}}"></image>
+              </view>
+            </block>
+            <image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png' wx:if="{{urlStr.length > 0}}"></image>
+            <image src='{{urlStr}}show/images?fileName=delImg.png' class='mrImg' bindtap='deleteImage' data-index="{{index}}" catchtap="deleteImg" wx:if="{{urlStr.length > 0}}"></image>
+          </view>
+        </view> -->
+      <!-- end 材料上传 -->
+			<!-- end 材料上传 -->
+
+				<!-- 提交 -->
+			 <view class="btnSubmit">
+        <button class="btn-compl" formType="submit" style="background-image: url('https://www.nbxwx.cn/SpringBootJT/show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">提交</button>
+      </view>
+			<!--end 提交 -->
+		</form>
+</view>
+
+

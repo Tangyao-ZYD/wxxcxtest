@@ -1,0 +1,162 @@
+<view class="box">
+<!-- 引用 头部 -->
+    <!-- <include src="../template/top"/> -->
+  <!-- end 头部-->
+  <!-- title -->
+     <view class="titleSty">
+      <view class="titleTop">人大代表：</view>
+    </view> 
+  <!-- end  title -->
+  <!-- body -->
+  <view class="body">
+  <!-- <form bindsubmit="formSubmit"> -->
+    <!-- mainSty-->
+    <view class="mianSty">
+
+      <!-- 代表级别 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 代表级别：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 代表级别 文本框 inputSty -->
+          <view class="inputSty">
+            <!-- rightRegionSty -->
+            <view class="section">
+              <picker name="dbjb" bindchange="bindPickerChangeForDbjb" value="{{dbjbForPickerIndex}}" range="{{rddbArr}}" range-key="{{'name'}}" >  
+                  <view class="picker">  
+                    <view class="nationSty">{{rddbArr[dbjbForPickerIndex].name}} </view>
+                  </view>  
+              </picker>
+            </view>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 代表级别 -->
+
+      <!-- 证件号码 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 代表证件号：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 证件号码 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="rddbzzjhm" bindblur="zjhm_Verification"  maxlength="20" placeholder="请输入证件号码" />
+            <label class="mustIcon">{{msg_zjhm}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 证件号码 -->
+
+      <!-- 证件照片 -->
+      <view class="mainBodyIdcardSty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 人大代表证：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="righIdcardImgSty">
+          <!-- 证件照片 上传图片 updateImgSty -->
+          <view class="updateImgSty">
+            <view class="imgLeft">
+              <image src="{{zjzp}}" mode='aspectFit'></image>
+            </view>
+            <view class="imgRight">
+              <button class="btnSty" bindtap="btnChoose"  data-index="zjzp">上传</button>
+            </view>
+          </view>
+          <!-- end 上传图片 updateImgSty  -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 证件照片 -->
+      
+      <!-- 单位 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty"><label class="mustIcon">*</label> 单位：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 单位 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="dw"  bindblur="dw_Verification" maxlength="100" placeholder="请输入单位" />
+            <label class="mustIcon">{{msg_dw}}</label>
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 单位 -->
+
+      <!-- 职务 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty">职务：</view>
+        <!-- end leftSty -->
+
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 职务 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="zw" maxlength="50" placeholder="请输入职务" />
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 职务 -->
+
+
+      <!--选区 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty">选区：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 选区 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="xq" maxlength="100" placeholder="请输入选区" />
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 选区 -->
+
+      <!-- 党派 -->
+      <view class="mainBodySty">
+        <!-- leftSty -->
+        <view class="leftSty">党派：</view>
+        <!-- end leftSty -->
+        <!-- rightSty -->
+        <view class="rightSty">
+          <!-- 党派 文本框 inputSty -->
+          <view class="inputSty">
+            <input type="text" name="dp"  maxlength="20" placeholder="请输入党派" />
+          </view>
+          <!-- end 文本框 inputSty -->
+        </view>
+        <!-- end rightSty -->
+      </view>
+      <!-- end 党派 -->
+      
+      <!-- 提交按钮 -->
+      <!-- <view class="btnSubmit">
+          <button formType="submit" style="background-image: url('../../images/btnbg.png');background-size:100% 100%; border:none; color:white;font-size:14px;font-weight: 600;margin-top: 80px;margin-bottom: 20px;" plain="false">完成</button>
+      </view> -->
+      <!-- end 提交按钮 -->
+
+    </view>
+    <!-- mainSty-->
+    <!-- </form> -->
+  </view>
+  <!--end  body-->
+  </view>

@@ -1,0 +1,20 @@
+<view class="box">
+  <view class="main">
+    <view class="items">
+
+       <block  wx:if="{{arr != null}}" wx:for="{{arr}}" wx:for-item="a" wx:for-index="aIndex" wx:key="a">
+        <view class="item" bindtap="detailsFun" data-id="{{a.jcid}}">
+          <view class="itemTop">
+            <image wx:if="{{a.tx != null}}" src="{{urlStr}}show/imageSlt?fileName={{a.tx}}&width=350&height=200"  mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+            <image wx:if="{{a.tx == null}}" src="../../../../../images/userImg.jpg"  mode="aspectFitll"></image>
+          </view>
+          <view class="itemBottom">{{a.xm}}</view>
+        </view>
+      </block>   
+    </view>
+
+    <view class="bottom" bindtap="loadMoreFun" wx:if="{{arr.length >20}}">
+      点击查看更多 >>>
+    </view>
+  </view>
+</view>

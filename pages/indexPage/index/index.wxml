@@ -1,0 +1,40 @@
+
+<view>
+  <!-- 头部图片 -->
+<view class="topSty">
+<!-- 注册 -->
+    <!-- <view class="btnLogin" wx:if="{{isReviewed != 1}}"><button wx:if="{{canIUse}}" bindtap='loginFun' open-type="getUserInfo" style="background-image: url('https://www.thinkllwx.cn/SpringBootJT/show/images?fileName=register.png');background-size:100% 100%; border:none;" plain="false">注册</button></view> -->
+<!-- 登录 --> 
+    <view class="btnLogin" wx:if="{{ sfdl == 0 && openIdIsExit == 0}}">
+        <button wx:if="{{canIUse && urlStr.length>0}}"  bindtap='loginFun' open-type="getUserInfo" style="background-image: url('{{urlStr}}show/images?fileName=register.png');background-size:100% 100%; border:none;" plain="false">登录</button>
+    </view>
+      <image src="../../../images/banner.jpg" mode="aspectFitll"/>  
+  </view>
+
+
+
+  <!-- end 头部图片 -->
+
+
+  <!-- 主体部分 -->
+  <view class="box">
+    <view class="box_menu">
+
+      <view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_3" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons1.png" />法治动态</view>
+<view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_1" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons2.png" />新闻动态</view>
+<view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_2" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons3.png" />政策法规</view>
+<view class="menu" bindtap="queryContentInfo" data-id="wx_xxfz_gndm_1" data-index="wx_juris_zsfs_3"><image class="menu_image" src="../../../images/icons5.png" />案例推送</view>
+<view class="menu" bindtap="queryContentInfo" data-id="wx_xxfz_gndm_3" data-index="wx_juris_zsfs_3"><image class="menu_image" src="../../../images/icons4.png" />招商引资</view>
+<view class="menu"  bindtap="queryMoreMenu"><image class="menu_image" src="../../../images/icons6.png"/>更多功能</view>
+    </view>
+  </view>
+  <!--end 主体部分 -->
+
+                                                                                                                                              
+  <!-- 新闻部分 -->
+  <view class="newsBody">
+    <include src="../fyxw/fyxw"/>
+  </view>
+  <!-- end 新闻部分 -->
+</view>
+<view>{{menuType}}</view>
