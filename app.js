@@ -12,6 +12,7 @@ App({
     wxUserAllInfo: {},
     sfdl: 0,//默认0未登陆、1:已登录
     urlStr: "",
+		// sptj:'',
   } ,
   onLaunch: function () {
     // 展示本地存储能力

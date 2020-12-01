@@ -62,12 +62,13 @@
     /* background: red;   */
 }
 .menuIco image{
-  width: 31%;
-  height: 63%;
+  width: 28.7px;
+  height: 31.5px;
 }
 .menuText{
   position: relative;
   left: 20%;
   color: white;
+	top:10%;
 }
 

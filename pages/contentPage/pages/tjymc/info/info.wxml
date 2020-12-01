@@ -4,7 +4,7 @@
     <view class="topSty">
       <view class="topBox">
         <view class="txSty">
-          <image wx:if="{{tjyInfo.tx != null && tjyInfo.tx != ''}}" src="{{urlStr}}show/images?fileName={{tjyInfo.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+          <image wx:if="{{tjyInfo.tx != null && tjyInfo.tx != '' && urlStr.length > 0}}" src="{{urlStr}}show/images?fileName={{tjyInfo.tx}}" mode="aspectFitll"/>
           <image wx:if="{{tjyInfo.tx == null || tjyInfo.tx == ''}}" src="../../../../../images/userImg.jpg" mode="aspectFitll"/>
         </view>
         <view class="xmSty">{{tjyInfo.xm}}</view>
@@ -14,7 +14,7 @@
 
     <view class="textBodySty">
        <view class="textTopSty">
-        <view class="imagesViewSty"><image src="{{urlStr}}show/images?fileName=eval.png" mode="aspectFitll"/></view>
+        <view class="imagesViewSty"><image src="{{urlStr}}show/images?fileName=content.png" mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"/></view>
         <view class="l-evalist" wx:if="{{jjxx != null}}">
           <view class="{{curHdIndex >'0'? 'iconActive' : 'icon'}}" data-id="1"></view>
           <view class="{{curHdIndex >'1'? 'iconActive' : 'icon'}}" data-id="2"></view>

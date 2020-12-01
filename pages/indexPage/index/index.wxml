@@ -8,33 +8,82 @@
     <view class="btnLogin" wx:if="{{ sfdl == 0 && openIdIsExit == 0}}">
         <button wx:if="{{canIUse && urlStr.length>0}}"  bindtap='loginFun' open-type="getUserInfo" style="background-image: url('{{urlStr}}show/images?fileName=register.png');background-size:100% 100%; border:none;" plain="false">登录</button>
     </view>
-      <image src="../../../images/banner.jpg" mode="aspectFitll"/>  
+      <image src="../../../images/banner.png" mode="aspectFitll"/>  
   </view>
 
-
-
+	<!-- <view bindtap='appletCheck'>小程序跳转小程序</view> -->
+		<!-- <view bindtap='getUserInfoFun'>小程序跳转小程序</view>
+		<open-data type="userNickName"></open-data>
+		<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button> -->
   <!-- end 头部图片 -->
-
 
   <!-- 主体部分 -->
   <view class="box">
     <view class="box_menu">
 
-      <view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_3" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons1.png" />法治动态</view>
+      <!-- <view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_3" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons1.png" />法治动态</view> -->
 <view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_1" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons2.png" />新闻动态</view>
-<view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_2" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons3.png" />政策法规</view>
+<!-- <view class="menu" bindtap="queryContentInfo" data-id="wx_xwjj_xwlx_2" data-index="wx_juris_zsfs_2"><image class="menu_image" src="../../../images/icons3.png" />政策法规</view> -->
+<view class="menu" bindtap="queryContentInfo" data-id="wx_xxfz_gndm_4" data-index="wx_juris_zsfs_3"><image class="menu_image" src="../../../images/icons3.png" />政策法规</view>
 <view class="menu" bindtap="queryContentInfo" data-id="wx_xxfz_gndm_1" data-index="wx_juris_zsfs_3"><image class="menu_image" src="../../../images/icons5.png" />案例推送</view>
-<view class="menu" bindtap="queryContentInfo" data-id="wx_xxfz_gndm_3" data-index="wx_juris_zsfs_3"><image class="menu_image" src="../../../images/icons4.png" />招商引资</view>
+<!-- <view class="menu" bindtap="queryContentInfo" data-id="wx_xxfz_gndm_3" data-index="wx_juris_zsfs_3"><image class="menu_image" src="../../../images/icons4.png" />招商引资</view> -->
+<view class="menu" bindtap="clickFunWeb"><image class="menu_image" src="../../../images/qx_3.png" />智能问答</view>
+<view class="menu" bindtap="queryTjyInfo"><image class="menu_image" src="../../../images/qx_4.png" />调解员信息</view>
 <view class="menu"  bindtap="queryMoreMenu"><image class="menu_image" src="../../../images/icons6.png"/>更多功能</view>
     </view>
   </view>
   <!--end 主体部分 -->
 
-                                                                                                                                              
-  <!-- 新闻部分 -->
+    <!-- 新闻部分 -->
   <view class="newsBody">
-    <include src="../fyxw/fyxw"/>
+    <!-- <include src="../fyxw/fyxw"/> -->
+    <view class="box_xw">
+        <!--重点新闻 -->
+        <block wx:for="{{news}}" wx:for-item="n" wx:for-index="nIndex" wx:key="newaImportant">
+        <view class="importantNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_1'}}" bindtap="queryNewInfo" id="{{n.xwid}}" data-index='{{n.zylx}}'>
+          <view class="importantNewsTitle">{{n.zt}}</view>
+          <view class="importantNewsbody">
+            <image src="{{urlStr}}show/images?fileName={{n.tp}}&width=350&height=200" mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
+          </view>
+        </view>
+        </block>
+      <!--end 重点新闻 -->
+
+
+      <view class="normalNewsBox">
+        <!-- 普通新闻 -->
+        <block wx:for="{{news}}" wx:for-item="n" wx:for-index="nIndex" wx:key="n">
+        <view class="normalNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_2'}}" bindtap="queryNewInfo" id="{{n.xwid}}" data-index='{{n.zylx}}'>
+          <view class="normalNewsLeft">
+            <!-- 主题 -->
+            <view class="normalNewsLeftTitle">{{n.zt}}</view>
+            <!--end 主题 -->
+            <view class="normalNewsLeftTime">
+              <view class="normalNewsLeftTimeIco"></view>
+              <!-- 时间 -->
+              <view class="normalNewsLeftTimeText">
+                <image src="{{urlStr}}show/images?fileName=time.png" mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
+                <view class="timeSty">{{n.cjsjStr}}</view>
+              </view>
+              <!--end 时间 -->
+            </view>
+          </view>
+          <view class="normalNewsRight">
+            <image src="{{urlStr}}show/imageSlt?fileName={{n.tp}}&width=350&height=200"  mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
+          </view>
+        </view>
+        </block>
+        <!-- end 普通新闻 -->
+      </view>
+
+      </view>
   </view>
+  <!-- end 新闻部分 -->
+                                                                                                                                          
+  <!-- 新闻部分 -->
+  <!-- <view class="newsBody">
+    <include src="../fyxw/fyxw"/>
+  </view> -->
   <!-- end 新闻部分 -->
 </view>
 <view>{{menuType}}</view>

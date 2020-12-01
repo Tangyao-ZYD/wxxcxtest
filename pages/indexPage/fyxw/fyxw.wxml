@@ -1,7 +1,7 @@
 <view class="box_xw">
   <!--重点新闻 -->
   <block wx:for="{{news}}" wx:for-item="n" wx:for-index="nIndex" wx:key="newaImportant">
-  <view class="importantNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_1'}}" bindtap="queryNewInfo" id="{{n.xwid}}">
+  <view class="importantNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_1'}}" bindtap="queryNewInfo" id="{{n.xwid}}" data-index='{{n.zylx}}'>
     <view class="importantNewsTitle">{{n.zt}}</view>
     <view class="importantNewsbody">
       <image src="{{urlStr}}show/images?fileName={{n.tp}}&width=350&height=200" mode="aspectFitll" wx:if = "{{urlStr.length>0}}"/>
@@ -14,7 +14,7 @@
 <view class="normalNewsBox">
   <!-- 普通新闻 -->
   <block wx:for="{{news}}" wx:for-item="n" wx:for-index="nIndex" wx:key="n">
-  <view class="normalNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_2'}}" bindtap="queryNewInfo" id="{{n.xwid}}">
+  <view class="normalNews" wx:if="{{n.zsfs == 'wx_xwjj_zsfs_2' && null != news}}" bindtap="queryNewInfo" id="{{n.xwid}}" data-index='{{n.zylx}}'>
     <view class="normalNewsLeft">
 			<!-- 主题 -->
       <view class="normalNewsLeftTitle">{{n.zt}}</view>
@@ -34,6 +34,8 @@
     </view>
   </view>
   </block>
+  <!-- 暂无信息 -->
+  <view class="nullsty" wx:if="{{null == news}}" >暂无信息</view>
   <!-- end 普通新闻 -->
 </view>
 

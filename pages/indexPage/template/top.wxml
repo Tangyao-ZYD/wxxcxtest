@@ -1,4 +1,4 @@
 <!-- <image src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4027939567,3711109039&fm=27&gp=0.jpg"></image> -->
 <view>
-  <image style="width:100%; height:160px;" src="{{urlStr}}show/images?fileName=banner_03.jpg"  wx:if="{{urlStr.length > 0}}"></image>
+  <image style="width:100%; height:160px;" src="../../../images/banner.png"  wx:if="{{urlStr.length > 0}}"></image>
 </view>

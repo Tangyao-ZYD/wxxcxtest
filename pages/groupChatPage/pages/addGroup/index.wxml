@@ -25,7 +25,7 @@
         <view class="mainBodySty">
           <!-- leftSty -->
           <view class="leftSty">
-            <label class="mustIcon">*</label> 主题简介：</view>
+            简介：</view>
           <!-- end leftSty -->
           <!-- rightSty -->
           <view class="rightSty">

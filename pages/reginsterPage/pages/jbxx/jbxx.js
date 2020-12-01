@@ -258,10 +258,10 @@ Page({
     var sfzh = formData.sfzh;
     var sfzxp = that.data.imgName;
     var csrq = formData.csrq;
-    var mz = that.data.mz;
+		var mz = that.data.nationIndex;
 
     var openId = that.data.openId;
-    var nickName = that.data.nickName;
+    // var nickName = that.data.nickName;
 
     //参数
     var parame = {
@@ -283,7 +283,7 @@ Page({
       "district_Xz": xj_qu,
       "rylx": rylx,
       "openId": openId,
-      "wxh": nickName
+      // "wxh": nickName
     };
     //判断填写项是否为空
     if ((xm != null && xm != "") &&

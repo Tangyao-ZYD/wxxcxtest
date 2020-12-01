@@ -8,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.4",
-	"appid": "wxe8547636ddb3b5ba",
-	"projectname": "%E9%87%91%E5%A0%82%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9C%80%E6%96%B0%E7%89%88",
+	"libVersion": "2.3.2",
+	"appid": "wx5bc2e3751bf2a217",
+	"projectname": "jtwxxcx",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -21,13 +21,29 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "自定义预览",
+					"pathName": "pages/indexPage/index/index",
+					"query": "tjzt=1&sf=1&tjbh=20181101160024&jcid=dd7cab00-99dd-4e4e-9fe2-6bb1a5189f80&userName=yangx",
+					"scene": "1037",
+					"referrerInfo": {
+						"appId": "wxc50b09fb1c085e41",
+						"extraData": "{}"
+					}
+				}
+			]
 		}
 	}
 }

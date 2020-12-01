@@ -45,17 +45,82 @@ Page({
   /**
    * 标题点击事件
    */
-  checkFun: function (e) {
-    //切换选中样式
-    var checkedId = e.currentTarget.dataset.id;
-    this.setData({
-      checkedId: checkedId,
-    });
-    //跳转到查看详情页面
-    wx.navigateTo({
-      url: '../../pages/jgznInfo/jgznInfo?id=' + checkedId,
-    });
-  },
+	checkFun: function (e) {
+		//切换选中样式
+		var urlStr = getApp().globalData.urlStr;
+		var checkedId = e.currentTarget.dataset.id;
+		var zylx = e.currentTarget.dataset.index;
+		this.setData({
+			checkedId: checkedId,
+		});
+		if (zylx != 1) {
+			//跳转到查看详情页面
+			wx.navigateTo({
+				url: '../../pages/jgznInfo/jgznInfo?id=' + checkedId,
+			});
+		} else {
+			wx.request({
+				url: urlStr + 'xxfz/queryXxById',
+				data: { id: checkedId },
+				success: function (r) {
+					// console.log(r)
+					//判断请求返回数据是否为空
+					if (r.data.data.info != null) {
+						var fileType = r.data.data.fileType;//文件类型
+						//下载文件
+						wx.downloadFile({
+							url: urlStr + 'load/fileDownLoad/' + fileType + '/' + r.data.data.info.nr,
+							success: function (res) {
+								// console.log(res)
+								var filePath = res.tempFilePath;
+								//判断是否有此文件
+								if (res.statusCode == 200) {
+									//打开文件
+									wx.openDocument({
+										filePath: filePath,
+										fileType: fileType,
+										success: function (res) {
+											console.log('打开文档成功')
+										},
+										fail: function (res) {
+											console.log('fail')
+										},
+										complete: function (res) {
+											console.log('complete')
+										}
+									})
+								} else {
+									wx.showModal({
+										title: '提示',
+										content: '未找到该文件',
+										showCancel: false
+									});
+								}
+
+							},
+							fail: function (res) {
+								//console.log('fail1')
+								//wx.showModal({ title: 'fail11' });
+							},
+							complete: function (res) {
+								//console.log('complete1')
+								//wx.showModal({ title: 'complete1' });
+							}
+							
+						})
+
+					} else {
+						wx.showModal({
+							title: '提示',
+							content: '未找到该文件',
+							showCancel: false
+						});
+					}
+				}
+			});
+		}
+
+	},
   /**
    * 条件查询
    */

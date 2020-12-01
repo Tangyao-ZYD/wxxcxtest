@@ -56,19 +56,19 @@ page {
 }
 
 .textareaItems {
-  width: 90%;
-  height: 84%;
+  width: 100%;
+  height: 85%;
   padding: 10px 0px;
   margin-top: 5px;
 }
 
 .textareaItem {
   width: 100%;
-  height: 99%;
+  height: 100%;
 }
 
 .textareaItem text {
-  width: 29%;
+  width: 26%;
   height: 100%;
   line-height: 35px;
   float: left;
@@ -76,14 +76,37 @@ page {
 }
 
 .textareaSty {
-  width: 61%;
+  width: 66%;
   height: 99%;
-  max-width: 61%;
+  max-width: 66%;
+  max-height: 99%;
+  padding: 5px;
+  float: left;
+  background: white;
+  border: 1px solid #ededed;
+}
+.textareaSty1 {
+  width: 67%;
+  height: 99%;
+  max-width: 67%;
   max-height: 99%;
   padding: 5px;
   float: right;
   background: white;
   border: 1px solid #ededed;
+}
+.textareaSty-bz {
+  width: 70%;
+  height: 99%;
+  /* max-width: 61%;
+  max-height: 99%; */
+  padding: 5px;
+  float: right;
+  background: white;
+  border: 1px solid #ededed;
+  /* margin-right: 14%; */
+  /* margin-top:-5%; */
+
 }
 
 .mustSty {
@@ -94,6 +117,15 @@ page {
   color: red;
   font-size: 12px;
   line-height: 35px;
+}
+.musTextareatSty{
+  text-align: left;
+  width: 2%;
+  height: 100%;
+  float: left;
+  color: red;
+  font-size: 12px;
+  line-height: 12px;
 }
 
 .textSty {
@@ -161,7 +193,7 @@ margin-top:5px;
   height: 100%;
   line-height: 35px;
   float: left;
-  margin-left: 2%;
+  margin-left: 12rpx;
 }
 
 .item input {
@@ -178,7 +210,7 @@ margin-top:5px;
   width: 30%;
   height: 40px;
   float: left;
-  margin-left: 5%;
+  /* margin-left: 5%; */
   color: white;
   text-align: center;
   line-height: 40px;
@@ -205,9 +237,10 @@ margin-top:5px;
 
 
 .clsty{
-width: 99.5%;
+width: 96%;
   height: 150px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
+  margin-left: 24rpx;
   /* border: 1px solid #eee; */
 }
 .mrImg {
@@ -224,7 +257,7 @@ width: 99.5%;
 }
 
 .imgbox {
-  width: 75%;
+  width: 70%;
   height: auto;
   float: right;
   margin-right: 16px;
@@ -249,4 +282,26 @@ width: 99.5%;
   z-index: 11000;
   padding-top: 7%;
   left: 33%;
+}
+.textareaSty1 {
+  width: 68.5%;
+  height: 86%;
+  /* max-width: 66%;
+  max-height: 99%; */
+  /* padding: 6px; */
+  float: right;
+  background: white;
+  border: 1px solid #ededed;
+}
+
+.textareaSty2 {
+  width: 68.5%;
+  height: 99%;
+  /* max-width: 66%;
+  max-height: 99%; */
+  /* padding: 6px; */
+  float: right;
+	line-height:20px;
+	background: white;
+  border: 1px solid #ededed;
 }

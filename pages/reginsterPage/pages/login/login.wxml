@@ -1,7 +1,7 @@
 <view class="bodyStyle">
-  <!-- 顶部图片-->
+  <!-- 顶部图片 {{urlStr}}show/images?fileName=-->
   <view class="head">
-    <image src='{{urlStr}}show/images?fileName=loadin_02.png' wx:if="{{urlStr.length>0}}"></image>
+    <image src='../../../../images/loadin_02.png' wx:if="{{urlStr.length>0}}"></image>
   </view>
   <!-- end 顶部图片-->
   <!-- body 部分-->
@@ -10,14 +10,15 @@
     <view class="topSty">
       <view bindtap="onChangeShowState" class="{{showView?'fontActionSty':'fontSty'}}">手机</view>
 
-      <!-- <view bindtap="onChangeShowState" class="{{showView?'fontActionSty':'fontSty'}}" >账号</view>
+      <!-- <view bindtap="onChagetVerificationCodengeShowState" class="{{showView?'fontActionSty':'fontSty'}}" >账号</view>
       <view bindtap="onChangeShowState" class="{{showView?'fontSty':'fontActionSty'}}">手机</view> -->
     </view>
     <!-- end body top 部分 -->
     <!-- body 中 主要部分  账号输入-->
     <form bindsubmit="formSubmit">
     <view class="mainSty">
-        <!-- 账号登录-->
+
+			<!-- 账号登录-->
         <view class="numberView">
          
 
@@ -26,7 +27,7 @@
           <!-- 手机号登录-->
             <view class="phoneSty">
               <view class="phoneLeftSty">
-                <image src='{{urlStr}}show/images?fileName=.png' wx:if="{{urlStr.length>0}}"/>
+                <!-- <image src='{{urlStr}}show/images?fileName=tel.png' wx:if="{{urlStr.length>0}}"/> -->
                 <input type='number'maxlength="11" name="lxdh" 
           bindblur="lxdh_Verification"  placeholder="手机号" />
                 
@@ -37,6 +38,7 @@
             </view>
              
             <!-- end 手机号登录-->
+						
             <!-- 验证码 -->
             <view class="perSty">
                 <input type='number' name="yzm" maxlength='6' class="inputPerSty" bindblur="btnVerFun"  placeholder="验证码" />
@@ -44,8 +46,6 @@
             <!--end 验证码 -->
           </view>
           <!-- end 手机登录-->
-
-
 
           <!-- 登录按钮 -->
           <view class="numberSty">

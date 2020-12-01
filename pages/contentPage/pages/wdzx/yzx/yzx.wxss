@@ -8,7 +8,13 @@ page {
   width: 100%;
   height: 100%;
 }
-
+.nullsty{
+   width: 100%;
+   height: 80%;
+   margin-top: 20%;
+   font-size: 16px;
+   text-align: center;
+ }
 .topTitle {
   width: 100%;
   height:14%;
@@ -91,7 +97,7 @@ counselList{
 }
 .normalNewsBox{
   width: 100%;
-  height: auto;
+  height: 84%;
   margin-top:2%;
   /* background: #fcfcfc; */
 }
@@ -121,7 +127,7 @@ counselList{
 
 .content {
   width: 96%;
-  padding: 10px;
+  padding: 4%;
   line-height: 22px;
   margin-right: 0;
   -webkit-transition: all 0.4s;
@@ -176,9 +182,9 @@ transition:all 0.4s;
 /*已有处理人*/
 .dealWith{
  width:7%;
-height:52%;
+/* height:52%; */
 position:relative;
-top:-55%;
+top:-18px;
 left:90%;
 
 }
@@ -193,4 +199,43 @@ left:90%;
 .zxztStr{
 	position: relative;
 	left:1%;
+}
+.xqstr{
+width:7%;
+height:60%;
+position:relative;
+float:right;
+top:14%;
+left: 20%;
+}
+.xqstr image{
+  width:22px;
+  height:20px;
+}
+
+.scrollSty{
+  width: 96%;
+  height: 99%;
+  margin: 0px 2%;
+  position:relative;
+  top:10rpx;
+}
+.header{
+   width:100%;
+    height:5%;
+    text-align:center;
+    font-size:12px;
+    color:gray;
+}
+.bottom{
+  width:100%;
+height:5%;
+text-align:center;
+font-size:12px;
+color:gray;
+}
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
 }

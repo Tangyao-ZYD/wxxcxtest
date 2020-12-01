@@ -15,9 +15,9 @@
         module.exports.sub = sub;
       </wxs>
 
-      <view wx:if="{{a.xxid == checkedId}}" class="item itemActive" bindtap="checkFun" data-id="{{a.xxid}}">{{util.sub(a.bt)}}<label wx:if="{{a.bt.length > 18}}">...</label></view>
+      <view wx:if="{{a.xxid == checkedId}}" class="item itemActive" bindtap="checkFun" data-id="{{a.xxid}}" data-index="{{a.zylx}}">{{util.sub(a.bt)}}<label wx:if="{{a.bt.length > 18}}">...</label></view>
 
-      <view wx:if="{{a.xxid != checkedId}}" class="item" bindtap="checkFun" data-id="{{a.xxid}}">{{util.sub(a.bt)}}<label wx:if="{{a.bt.length > 18}}">...</label></view>
+      <view wx:if="{{a.xxid != checkedId}}" class="item" bindtap="checkFun" data-id="{{a.xxid}}" data-index="{{a.zylx}}">{{util.sub(a.bt)}}<label wx:if="{{a.bt.length > 18}}">...</label></view>
 
     </block>
 

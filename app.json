@@ -8,9 +8,8 @@
     "pages/indexPage/sfgk/sfgk",
     "pages/indexPage/logs/logs",
     "pages/indexPage/grxx/index",
+    "pages/indexPage/znwd/index",
     "pages/indexPage/zxfw/zxfw"
-    
-  
   ],
   "subPackages": [
     {
@@ -80,6 +79,9 @@
     "navigationBarTitleText": "金堂县人民法院",
     "navigationBarTextStyle":"black"
   },
+	"navigateToMiniProgramAppIdList": [
+		"wxc50b09fb1c085e41"
+	],
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#1296db",
@@ -92,13 +94,13 @@
         "text": "首页"
       },
       {
-        "selectedIconPath": "images/02.png",
-        "iconPath": "images/2.png",
+        "selectedIconPath": "images/n.png",
+        "iconPath": "images/nn.png",
         "pagePath": "pages/indexPage/sfgk/sfgk",
         "text": "诉前解纷"
       },{
-        "selectedIconPath": "images/02.png",
-        "iconPath": "images/2.png",
+        "selectedIconPath": "images/4.png",
+        "iconPath": "images/04.png",
         "pagePath": "pages/indexPage/zxfw/zxfw",
         "text": "咨询服务"
       },
@@ -108,6 +110,7 @@
         "pagePath": "pages/indexPage/grxx/index",
         "text": "个人中心"
       }
+			
     ]
   }
 }

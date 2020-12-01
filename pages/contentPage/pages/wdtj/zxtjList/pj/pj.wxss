@@ -92,6 +92,8 @@ page {
   width: 96%;
   padding: 3.5%;
   margin-top: 15%;
+	position: relative;
+	left:3%;
 }
 
 .btn-compl {
@@ -121,7 +123,7 @@ page {
   top: 20px;
   width: 50rpx;
   height: 50rpx;
-  src: "https://www.thinkllwx.cn/SpringBootJT/show/images?fileName=normal.png";
+  src: "https://www.jtxwx.cn/SpringBootJT/show/images?fileName=normal.png";
   margin-left: 3px;
 }
 
@@ -158,7 +160,7 @@ page {
 .parameter-info {
   width: 20%;
   height: 30px;
-  background: url('https://www.nbxwx.cn/SpringBootJT/show/images?fileName=btnbbg06.png');
+  background: url('https://www.jtxwx.cn/SpringBootJT/show/images?fileName=btnbbg06.png');
   background-size: 86px;
   background-repeat: no-repeat;
   background-position-x: -8px;
@@ -170,7 +172,7 @@ page {
 
 .checked_parameter {
   color: #fff;
-  background-image: url('https://www.nbxwx.cn/SpringBootJT/show/images?fileName=btnbg05.png');
+  background-image: url('https://www.jtxwx.cn/SpringBootJT/show/images?fileName=btnbg05.png');
   background-size: 86px;
   border: none;
   background-repeat: no-repeat;

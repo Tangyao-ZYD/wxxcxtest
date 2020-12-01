@@ -1,4 +1,4 @@
 <view class="topSty">
   <!-- <image src="https://www.aihuikeji.com/spring-boot/show/imageSlt?fileName=topbg.png&width=350&height=180" mode="aspectFitll"/>       -->
-  <image src="../../../images/banner.jpg" mode="aspectFitll"/> 
+  <image src="../../../images/banner.png" mode="aspectFitll"/> 
 </view>

@@ -1,0 +1,3 @@
+<!--pages/indexPage/znwd/index.wxml-->
+
+<web-view src="https://h5.common1.aegis-info.com/html/index?id=1032"></web-view>

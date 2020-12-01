@@ -42,9 +42,37 @@ Page({
   manage: function() {
     getApp().globalData.qzid = this.data.groupId;
     //跳转管理群组页面
-    wx.navigateTo({
-      url: "../manageGroup/index"
-    })
+    var that = this;
+        var rylx = getApp().globalData.wxUserInfo.rylx;
+        //获取人员类型
+        var r = rylx;
+        var arr = [];
+        if (rylx != null) {
+            arr = r.split(",");
+        }
+
+        //设置人员类型（0：用户端人员，1：服务端人员）
+        if (rylx != "ls" && rylx != "tjy" && rylx != "zfry") {
+            that.setData({
+                lx: 0
+            });
+        } else {
+            that.setData({
+                lx: 1
+            });
+        }
+
+        if (that.data.lx == 1) {
+            //跳转管理群组页面
+            wx.navigateTo({
+                url: "../manageGroup/index"
+            })
+        } else {
+            console.log("当事人不能管理人员")
+        }
+    // wx.navigateTo({
+    //   url: "../manageGroup/index"
+    // })
   },
   /**
    * 视频通话
@@ -983,7 +1011,10 @@ Page({
     var rylx = getApp().globalData.wxUserInfo.rylx;
     console.log(rylx)
     var arr = [];
-    arr = rylx.split(",");
+		if (rylx != null){
+			arr = rylx.split(",");
+		}
+    
     for (var j in arr) {
       if (arr[j] == "tjy") {
         that.setData({
@@ -1006,11 +1037,11 @@ Page({
 
     //用户信息对象
     var loginInfo = {
-      'sdkAppID': 1400116995, //用户标识接入SDK的应用ID，必填。
-      'appIDAt3rd': 1400116995, //App 用户使用 OAuth 授权体系分配的 Appid，必填 
+      'sdkAppID': 1400164029, //用户标识接入SDK的应用ID，必填。
+      'appIDAt3rd': 1400164029, //App 用户使用 OAuth 授权体系分配的 Appid，必填 
       'identifier': jcid, //用户帐号，必填   （这个就是自己服务器里，每个用户的账号，可以自己设置）
       'identifierNick': xm, //用户昵称，选填
-      'accountType': 32114, //账号类型，必填   (这个可以在后台管理看到，但是腾讯的文档上是没有这个的！！！但是这个必须填，不填报错）
+      'accountType': 36862, //账号类型，必填   (这个可以在后台管理看到，但是腾讯的文档上是没有这个的！！！但是这个必须填，不填报错）
       'userSig': usersig //鉴权 Token，identifier 不为空时，必填   我觉得这个也是必填的，这个需要在一开始就从后端获取。
     };
     //事件回调对象 监听事件

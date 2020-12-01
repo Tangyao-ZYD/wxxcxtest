@@ -4,9 +4,9 @@ Page({
     star: 0,
     starMap: [1, 2, 3, 4, 5],
     stars: [0, 1, 2, 3, 4],
-    normalSrc: 'https://www.nbxwx.cn/SpringBootJT/show/images?fileName=normal.png',
-    selectedSrc: 'https://www.nbxwx.cn/SpringBootJT/show/images?fileName=selected.png',
-    halfSrc: 'https://www.nbxwx.cn/SpringBootJT/show/images?fileName=half.png',
+    normalSrc: '',
+    selectedSrc: '',
+    halfSrc: '',
     key: 0, //评分
     pjfs: 0,
     parameter: [{
@@ -26,82 +26,101 @@ Page({
   onLoad: function(options) {
     var that = this;
     var urlStr = getApp().globalData.urlStr;
-    that.setData({ urlStr: urlStr});
+    var pjlx = options.pjlx;
+    that.setData({
+      normalSrc: urlStr + "show/images?fileName=normal.png",
+      selectedSrc: urlStr + "show/images?fileName=selected.png",
+      halfSrc: urlStr + "show/images?fileName=half.png",
+      urlStr: urlStr,
+      pjlx: pjlx
+    });
     var rylx = getApp().globalData.wxUserInfo.rylx;
     var lx = 0;
-    if ((rylx != 'ls' && rylx != 'tjy' && rylx != 'zfry')|| rylx == '') {
+    if ((rylx != 'ls' && rylx != 'tjy' && rylx != 'zfry') || rylx == '') {
       lx = 0;
     } else {
       lx = 1;
     }
+    console.log(options.clr);
     that.setData({
       bpjr: options.clr,
       parameter: that.data.parameter, //默认parameter数组的第一个对象是选中的
       pjr: getApp().globalData.wxUserInfo.jcid,
       rylx: rylx,
-      lx:lx,
+      lx: lx,
       xxid: options.tjid
     });
     if (lx == 0) {
       wx.request({
-        url: urlStr+'mediate/findTj',
+        url: urlStr + 'evaluate/queryPjxxAndClrByJcidAndTjid',
         data: {
-          id: options.tjid
+          jcid: getApp().globalData.wxUserInfo.jcid,
+          tjid: options.tjid
         },
-        success:function(res){
-          console.log(res);
-          if(res.data.data != null){
-            if (res.data.data.clrMap != null) {
-              if (res.data.data.clrMap.mediator != null) {
-                that.setData({
-                  clrInfo: res.data.data.clrMap.mediator,
-                  userInfo: res.data.data.clrMap.basic
-                });
-              } else {
-                that.setData({
-                  clrInfo: null
-                });
-              }
+        // method:"POST",
+        success: function(res) {
+          // console.log(res);
+          if (res.data.data.clrMap != null) {
+            if (res.data.data.clrMap.basic != null) {
+              that.setData({
+                userInfo: res.data.data.clrMap.basic
+              });
             } else {
               that.setData({
-                clrInfo: null
+                userInfo: null
               });
             }
-            //查询 评价信息
-            wx.request({
-              url: urlStr+'evaluate/queryPjxxByXxid',
-              data: {
-                xxid: options.tjid
-              },
-              success: function (res) {
-                if (res.data.data != null) {
-                  that.setData({
-                    pjxxInfo: res.data.data,
-                    pjfs: that.starCount(res.data.data.pjfs)
-                  });
-                }
-              }
-            })
+
+            if (res.data.data.clrMap.government != null) {
+              that.setData({
+                clrInfo: res.data.data.clrMap.government,
+              });
+            } else if (res.data.data.clrMap.lawyer != null) {
+              that.setData({
+                clrInfo: res.data.data.clrMap.lawyer,
+              });
+            } else if (res.data.data.clrMap.mediator != null) {
+              that.setData({
+                clrInfo: res.data.data.clrMap.mediator,
+              });
+            } else {
+              that.setData({
+                clrInfo: null,
+              });
+            }
           }
+
+          if (res.data.data.pjxx != null) {
+            that.setData({
+              pjxxInfo: res.data.data.pjxx,
+              pjfs: that.starCount(res.data.data.pjxx.pjfs)
+            });
+          }
+
         }
       })
-      
     } else {
       //查询调解员心得
       wx.request({
-        url: urlStr+'mediate/findTj',
+        url: urlStr + 'mediate/findTj',
         data: {
           id: options.tjid
         },
         success: function(res) {
-          console.log(res);
-          if(res.data.data!= null){
+          // console.log("---------------");
+          // console.log(res);
+          // console.log("---------------");
+          if (res.data.data != null) {
             if (res.data.data.clrMap != null) {
               if (res.data.data.clrMap.mediator != null) {
                 that.setData({
                   clrInfo: res.data.data.clrMap.mediator
                 });
-              } else {
+              } else if (res.data.data.clrMap.lawyer != null) {
+                that.setData({
+                  clrInfo: res.data.data.clrMap.lawyer
+                });
+              }else {
                 that.setData({
                   clrInfo: null
                 });
@@ -170,6 +189,8 @@ Page({
     var lx = that.data.lx;
     var formData = e.detail.value;
     var xxid = this.data.xxid;
+    var pjlx = this.data.pjlx;
+    console.log(this.data.bpjr);
     if (lx == 0) {
       var bpjr = this.data.bpjr;
       var pjr = this.data.pjr;
@@ -178,7 +199,7 @@ Page({
       var pjfs = this.data.key;
       var parame = {
         "xxid": xxid,
-        "pjlx": 1,
+        "pjlx": pjlx,
         "pjnr": pjnr,
         "pjr": pjr,
         "bpjr": bpjr,
@@ -186,7 +207,7 @@ Page({
         "pjfs": pjfs
       };
       wx.request({
-        url: urlStr+'evaluate/addEvaluateInfo',
+        url: urlStr + 'evaluate/addEvaluateInfo',
         header: {
           'content-type': 'application/x-www-form-urlencoded'
         },
@@ -214,7 +235,7 @@ Page({
         "tjyxd": formData.tjyxd
       };
       wx: wx.request({
-        url: urlStr+'mediate/updateTjxd',
+        url: urlStr + 'mediate/updateTjxd',
         data: parame,
         method: "POST",
         success: function(res) {
@@ -240,7 +261,7 @@ Page({
   },
   //计算行星显示规则
   starCount: function(originStars) {
-     var that = this;
+    var that = this;
     var urlStr = getApp().globalData.urlStr;
     //计算星星显示需要的数据，用数组stars存储五个值，分别对应每个位置的星星是全星、半星还是空星
     var starNum = originStars * 10 / 10,
@@ -248,11 +269,11 @@ Page({
       i = 0;
     do {
       if (starNum >= 1) {
-        stars[i] = urlStr+'show/images?fileName=selected.png';
+        stars[i] = urlStr + 'show/images?fileName=selected.png';
       } else if (starNum >= 0.5) {
-        stars[i] = urlStr+'show/images?fileName=half.png';
+        stars[i] = urlStr + 'show/images?fileName=half.png';
       } else {
-        stars[i] = urlStr+'show/images?fileName=normal.png';
+        stars[i] = urlStr + 'show/images?fileName=normal.png';
       }
       starNum--;
       i++;

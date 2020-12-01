@@ -531,16 +531,40 @@ page {
   /* right: 10%; */
   background: white;
   border: 1px solid #ededed;
+	
 }
 
 .textareaSty {
   width: 66%;
   height: 99%;
-  max-width: 66%;
-  max-height: 99%;
+  /* max-width: 66%;
+  max-height: 99%; */
   padding: 6px;
   float: right;
   background: white;
+  border: 1px solid #ededed;
+	overflow: auto;
+}
+.textareaSty1 {
+  width: 68.5%;
+  height: 86%;
+  /* max-width: 66%;
+  max-height: 99%; */
+  /* padding: 6px; */
+  float: right;
+  background: white;
+  border: 1px solid #ededed;
+}
+
+.textareaSty2 {
+  width: 68.5%;
+  height: 99%;
+  /* max-width: 66%;
+  max-height: 99%; */
+  /* padding: 6px; */
+  float: right;
+	line-height:20px;
+	background: white;
   border: 1px solid #ededed;
 }
 

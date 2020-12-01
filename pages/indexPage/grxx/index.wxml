@@ -1,6 +1,27 @@
 <view class="box">
+<!--  编辑个人信息页面 -->
+  <view class="hiddenPage" wx:if="{{isEdit==0}}">
+    <form bindsubmit="soureFun">
+    <view class="exitModel">
+      <view class="viewSty"></view>
+      <view class="xjdzEditSty">现居地址:</view>
+      <view class="xjdzEditStyInput" ><textarea name="xzdxz" value="{{editTextarea}}"></textarea></view>
+      <view class="editBtnSty">
+        <button class="soureSty" formType="submit">确定</button>
+        <button class="cancelSty" bindtap="cancelFun">取消</button>
+      </view>
+      <view class="viewStyBtom"></view>
+    </view>
+    
+    </form>
+    
+  </view>
+  <!-- end 编辑个人信息页面 -->
   <view class="main">
     <view class="topSty">
+      <!-- <view class="tx-style">
+        <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxp}}"  mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+      </view> -->
       <view class="leftTitle">个人信息</view>
       <view class="rightTitle" bindtap="clickFun">编辑</view>
     </view>
@@ -35,12 +56,12 @@
         </view>
 				<view class="leftSty">身份证正面:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxp}}" data-src="{{urlStr}}SpringBootJN/show/images?fileName={{wxUserAllInfo.basicinfo.sfzxp}}" name="sfzxp" style="width:30px;height:30px;" mode="aspectFitll" bindtap="showImg" wx:if="{{urlStr.length > 0}}"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxp}}" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxp}}" name="sfzxp" style="width:60px;height:40px;" mode="aspectFitll" bindtap="showImg" wx:if="{{urlStr.length > 0}}"/>
         </view>
 
         <view class="leftSty">身份证反面:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxpbm}}" name="sfzxpbm" style="width:30px;height:30px;" mode="aspectFitll" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxpbm}}" bindtap="showImg" wx:if="{{urlStr.length > 0}}"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxpbm}}" name="sfzxpbm" style="width:60px;height:40px;" mode="aspectFitll" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.basicinfo.sfzxpbm}}" bindtap="showImg" wx:if="{{urlStr.length > 0}}"/>
         </view>
 
         <view class="leftSty">身份证期限:</view>
@@ -78,14 +99,15 @@
         </view>
 
         <view class="leftSty" style="height:70px;">户籍所在地:</view>
-        <view class="rightSty" style="height:70px;">
+				 <view class="rightSty textareaSty1 {{wxUserAllInfo.basicinfo.hjszdxz.length > 18 ? 'textareaSty2' :''}}" style="height:70px;">
           <view name="hjszdxz" bindblur="hjszdxz_Verification">{{wxUserAllInfo.basicinfo.hjszdxz}}</view>
            <label class="mustIcon">{{msg_hjszdxz}}</label>
         </view>
 
-        <view class="leftSty">现居地址:</view>
-        <view class="rightSty">
-          <input disabled='{{disabledTypeXzdz}}' type="text" name="xzdxz" maxlength='100'bindblur="xzdxz_Verification" class="{{isEdit == 0 ?'editSty':''}}" value="{{wxUserAllInfo.basicinfo.xzdxz}}"/>
+        <view class="leftSty" style="height:70px;">现居地址:</view>
+				 <view class="rightSty1 textareaStyxx {{xzdxz.length > 17 ? 'textareaSty2' :''}}" style="height:70px;">
+				 <view wx:if = "{{disabledTypeXzdz == true}}">{{xzdxz}}</view>
+          <!-- <textarea disabled='{{disabledTypeXzdz}}' name="xzdxz" maxlength='100' bindblur="xzdxz_Verification" class="textareaSty {{isEdit == 0 ?'editSty':''}}" wx:if='{{disabledTypeXzdz == false}}' value='{{xzdxz}}'></textarea> -->
           <label class="mustIcon">{{msg_xzdxz}}</label>
         </view>
 
@@ -162,7 +184,7 @@
 
         <view class="leftSty">代表证:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.deputies.rddbzxp}}" style="width:30px;height:30px;" mode="aspectFitll"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.deputies.rddbzxp}}" style="width:30px;height:30px;" bindtap="showImg" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.deputies.rddbzxp}}" mode="aspectFitll"/>
         </view>
 
         <view class="leftSty">单位:</view>
@@ -206,7 +228,7 @@
 
         <view class="leftSty">营业执照:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.yyzz}}" style="width:30px;height:30px;" mode="aspectFitll"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.yyzz}}" style="width:30px;height:30px;" bindtap="showImg" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.yyzz}}" mode="aspectFitll"/>
         </view>
 
         <view class="leftSty">法人姓名:</view>
@@ -223,12 +245,12 @@
 
         <view class="leftSty">身份证正面:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxp}}" name="frsfzxp" style="width:30px;height:30px;" mode="aspectFitll"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxp}}" name="frsfzxp" style="width:30px;height:30px;" bindtap="showImg" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxp}}" mode="aspectFitll"/>
         </view>
 
         <view class="leftSty">身份证反面:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxpbm}}" name="frsfzxpbm" style="width:30px;height:30px;" mode="aspectFitll"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxpbm}}" name="frsfzxpbm" style="width:30px;height:30px;" bindtap="showImg" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.frsfzxpbm}}" mode="aspectFitll"/>
         </view>
 
         <view class="leftSty">身份证期限:</view>
@@ -243,15 +265,15 @@
             <label class="mustIcon">{{msg_frlxfs}}</label>
         </view>
 
-        <view class="leftSty">营业地址:</view>
-        <view class="rightSty">
-          <input type="text" disabled='{{disabledType}}' name="yydz" value="{{wxUserAllInfo.enterprise.yydz}}"/>
-          <label class="mustIcon">{{msg_yydz}}</label>
-        </view>
+        <view class="leftSty" style="height:70px;">营业地址:</view>
+<view class="rightSty textareaSty1 {{wxUserAllInfo.enterprise.yydz.length > 18 ? 'textareaSty2' :''}}" style="height:70px;">
+<view bindblur="hjszdxz_Verification">{{wxUserAllInfo.enterprise.yydz}}</view>
+<label class="mustIcon">{{msg_yydz}}</label>
+</view>
 
         <view class="leftSty">授权委托书:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.sqwts}}" name="sqwts" style="width:30px;height:30px;" mode="aspectFitll"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.sqwts}}" name="sqwts" style="width:30px;height:30px;" bindtap="showImg" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.enterprise.sqwts}}" mode="aspectFitll"/>
         </view>
 
         <!-- 企业类别、组织机构代码、营业执照、法人姓名、法人身份证期限、法人身份证号、
@@ -270,7 +292,7 @@
 
         <view class="leftSty">律师证相片:</view>
         <view class="rightSty">
-          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.lawyer.lszxp}}" name="lszxp" style="width:30px;height:30px;" mode="aspectFitll"/>
+          <image src="{{urlStr}}show/images?fileName={{wxUserAllInfo.lawyer.lszxp}}" name="lszxp" style="width:30px;height:30px;" bindtap="showImg" data-src="{{urlStr}}show/images?fileName={{wxUserAllInfo.lawyer.lszxp}}" mode="aspectFitll"/>
         </view>
 
         <view class="leftSty">证号:</view>
@@ -367,9 +389,9 @@
     </view>
 
     <!-- 底部按钮-->
-    <view class="buttomSty" wx:if="{{isEdit == 0}}">
+    <!-- <view class="buttomSty" wx:if="{{isEdit == 0}}">
         <button class="btnSty" formType="submit">提交</button>
-    </view>
+    </view> -->
     <!-- end 底部按钮-->
 
     </form>

@@ -9,7 +9,7 @@
         <view class="items">
           <view class="item">
             <view class="mustSty">*</view>
-            <text space="ensp"> 调解类型：</text>
+            <text space="ensp">调解类型：</text>
             <picker bindchange="bindCaseTypeChange" value="{{caseTypeIndex}}" range="{{caseTypeArray}}" range-key="{{'name'}}" name="tjlx">
               <view class="picker pickerSty">
                 {{caseTypeArray[caseTypeIndex].name}}
@@ -25,7 +25,7 @@
         <view class="items">
           <view class="item">
             <view class="mustSty">*</view>
-            <text space="ensp">案     由：</text>
+            <text space="ensp">案    由：</text>
             <picker bindchange="bindAyChange" value="{{ayIndex}}" range="{{ayArray}}" range-key="{{'name'}}" name="zzbh">
               <view class="picker pickerSty">
                 {{ayArray[ayIndex].name}}
@@ -41,7 +41,7 @@
         <view class="items">
           <view class="item">
             <view class="mustSty"></view>
-            <text space="ensp">标     的：</text>
+            <text space="ensp">标    的：</text>
             <input type="number" name="bd" placeholder="请输入标的" maxlength="10"/>
           </view>
         </view>
@@ -141,7 +141,8 @@
           <view class="item">
             <view class="mustSty">*</view>
             <text space="ensp">地    址：</text>
-            <input type="text" name="dz" value="{{sqrInfo.xzdxz}}" />
+            <!-- <input type="text" name="dz" value="{{sqrInfo.xzdxz}}" /> -->
+						<view class="textareaSty1 {{i.dz.length > 16 ? 'textareaSty2' :''}}">{{sqrInfo.xzdxz}}</view>
           </view>
         </view>
       </view>
@@ -183,7 +184,8 @@
             <view class="item">
               <view class="mustSty">*</view>
               <text space="ensp">{{i.dz}}：</text>
-              <input type="text" placeholder="请输入现住地址" name="bsqrdz{{bIndex}}" />
+							<textarea class="textareaSty1" name="bsqrdz{{bIndex}}"></textarea>
+              <!-- <input type="text" placeholder="请输入现住地址" name="bsqrdz{{bIndex}}" /> -->
             </view>
           </view>
 
@@ -230,7 +232,8 @@
             <view class="item">
               <view class="mustSty"></view>
               <text space="ensp">{{i.dz}}：</text>
-              <input type="text" placeholder="请输入现住地址" name="dsrdz{{dIndex}}" />
+              <!-- <input type="text" placeholder="请输入现住地址" name="dsrdz{{dIndex}}" /> -->
+							<textarea class="textareaSty1" name="dsrdz{{dIndex}}"></textarea>
             </view>
           </view>
           <view class="addViewSty">
@@ -243,12 +246,12 @@
 
       <view class="textSty">
         <view class="addSty" bindtap="clickAddPeople" data-rylx="1">添加被申请人</view>
-        <view class="addSty" bindtap="clickAddPeople" data-rylx="2">添加第三人</view>
+        <view class="addSty" bindtap="clickAddPeople" data-rylx="2" style="margin-left:5%;">添加第三人</view>
       </view>
 
 
       <view class="clsty">
-        材料上传:
+        材料上传：
         <view class='imgbox'>
 
           <block wx:for="{{clList}}" wx:key="index" wx:key="index" wx:for-item="i">
@@ -265,7 +268,7 @@
       </view>
       <view class="clsty">
         备注信息：
-        <textarea class="textareaSty" name="bz"></textarea>
+        <textarea class="textareaSty-bz" name="bz"></textarea>
       </view>
 
       <view class="btnSubmit">

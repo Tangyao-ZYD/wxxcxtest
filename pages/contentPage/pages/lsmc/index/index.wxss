@@ -39,6 +39,8 @@ page{
   font-size: 12px;
   text-align: center;
   padding-top:5%;
+	margin-left:-6%;
+
 }
 
 .bottom{

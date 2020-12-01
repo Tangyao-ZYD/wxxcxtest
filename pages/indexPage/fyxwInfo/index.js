@@ -76,7 +76,9 @@ Page({
   /**
    * 图片预览
    */
-  previewImageFun:function(e){s
+  previewImageFun:function(e){
+    var that = this;
+    var urlStr = that.data.urlStr;
     var fileName = e.currentTarget.dataset.index;
     if(fileName.length != 0){
       wx.previewImage({

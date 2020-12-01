@@ -74,9 +74,11 @@ Page({
     });
     //获取全局变量中的人员类型
     var rylx = getApp().globalData.wxUserInfo.rylx;
-    console.log(rylx)
     var arr = [];
-    arr = rylx.split(",");
+		if (rylx != null) {
+			arr = rylx.split(",");
+		}
+    
     for (var j in arr){
       if (arr[j] == "tjy") {
         that.setData({

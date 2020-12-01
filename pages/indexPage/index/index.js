@@ -12,22 +12,26 @@ Page({
     nickName:'',
     openIdIsExit:0,
     sfdl: '',
-		urlStr:""
+		urlStr:"",
+    offset: 0,
+    limit: 5,
   },
-  bindGetUserInfo: function (e) {
+	bindGetUserInfo: function (e) {
     console.log(e.detail.userInfo)
   },
   /***进入小程序  直接加载 触发该方法 检测登录状态 检测账号是否注册等相关操作 */
   onLoad: function (e) {
     var that = this;
-		var urlStrIng = "https://www.nbxwx.cn/SpringBootJT/";
+
+		// var urlStrIng = "https://www.thinkllwx.cn/SpringBootJT/";
+		var urlStrIng = "https://www.jtxwx.cn/SpringBootJT/";
 		getApp().globalData.urlStr = urlStrIng;
 		var urlStr = getApp().globalData.urlStr
 		that.setData({urlStr: urlStr})
     wx.login({
       success: function (r) {
         var code = r.code;//登录凭证
-        
+        // console.log("code:" + code);
         if (code != null && code != "") {
           //给 nickName 赋值
           //查询 用户的openId 根据 code
@@ -36,6 +40,7 @@ Page({
             data: {code:code},
             success: function (res) {
               //已注册 执行查询相对应的权限 并将用户的 openId保存下来 方便该页面其他方法中 调用
+              // console.log(res.data.data);
               that.setData({ openId: res.data.data });
               getApp().globalData.openId = res.data.data;
               //查询成功 通过oenid 查询 是否注册
@@ -90,9 +95,16 @@ Page({
                         }
                       });
                     }
-                    //查询新闻
+                    var news = {
+                      xwlx: 'wx_xwjj_xwlx_1',
+                      offset: 0,
+                      limit: 5,
+                    }
+
+                    //查询新闻 ?xwlx=wx_xwjj_xwlx_1
                     wx.request({
-											url: urlStr + 'xwjj/queryWxWxXwjjList?xwlx=wx_xwjj_xwlx_1',
+                      url: urlStr + 'xwjj/queryWxWxXwjjList',
+                      data: news,
                       success: function (r) {
                         var arr = r.data.data;
                         if (arr != null) {
@@ -193,9 +205,15 @@ Page({
                         }
                       });
                     }
+                    var news = {
+                      xwlx: 'wx_xwjj_xwlx_1',
+                      offset: 0,
+                      limit: 5,
+                    }
                     //查询新闻
                     wx.request({
-											url: that.data.urlStr + 'xwjj/queryWxWxXwjjList?xwlx=wx_xwjj_xwlx_1',
+                      url: that.data.urlStr + 'xwjj/queryWxWxXwjjList',
+                      data: news,
                       success: function (r) {
                         var arr = r.data.data;
                         if (arr != null) {
@@ -210,6 +228,7 @@ Page({
 
                       }
                     });
+
                   }
                 })
               } else {
@@ -353,15 +372,7 @@ Page({
       });
     }
   },
-  /**
-   * 点击新闻 查看新闻信息
-   */
-  queryNewInfo:function(e){
-    var id = e.currentTarget.id;
-    wx.navigateTo({
-      url: '../../../pages/indexPage/fyxwInfo/index?id='+id ,
-    });
-  },
+ 
   /**
    * 点击法治动态 查看动态信息
    */
@@ -378,7 +389,83 @@ Page({
     wx.navigateTo({
       url: "../../../pages/indexPage/map/index",
     })
-  }
+  },
+  
 
+  /**
+     * 点击新闻 查看新闻信息
+     */
+  queryNewInfo: function (e) {
+    var id = e.currentTarget.id;
+    var zylx = e.currentTarget.dataset.index;
+    var urlStr = this.data.urlStr;
+    if (zylx != 1) {
+      //跳转到 新闻详情页面
+      wx.navigateTo({
+        url: '../../../pages/indexPage/fyxwInfo/index?id=' + id,
+      });
+    } else {
+      wx.request({
+        url: urlStr + 'xwjj/queryWxXwjjByXwid?xwid=' + id,
+        success: function (r) {
+          //判断查询数据 是否有值
+          if (r.data.data.info != null) {
+            var zylx = r.data.data.info.zylx;//资源类型 0：文本内容 1：文件
+            //判断资源类型
+            var fileType = r.data.data.fileType;//文件类型
+            //下载文件
+            wx.downloadFile({
+              url: urlStr + 'load/fileDownLoad/' + fileType + '/' + r.data.data.info.nr,
+              success: function (res) {
+                var filePath = res.tempFilePath;
+                //打开文件
+                wx.openDocument({
+                  filePath: filePath,
+                  fileType: fileType,
+                  success: function (res) {
+                    console.log('打开文档成功')
+                  },
+                  fail: function (res) {
+                    console.log('fail')
+                  },
+                  complete: function (res) {
+                    console.log('complete')
+                  }
+                })
+              },
+              fail: function (res) {
+                console.log('fail1')
+                //wx.showModal({ title: 'fail11' });
+              },
+              complete: function (res) {
+                console.log('complete1')
+                //wx.showModal({ title: 'complete1' });
+              }
+            })
 
+          } else {
+            console.log("查询失败");
+          }
+        }
+      });
+    }
+
+  },
+  /**
+   * 智能问答
+   */
+  clickFunWeb: function (e) {
+    wx.navigateTo({
+      url: '../znwd/index',
+    })
+  },
+  /**
+   * 调解员信息
+   */
+  queryTjyInfo: function (e) {
+    wx.navigateTo({
+      url: '../../contentPage/pages/tjymc/index/index',
+    })
+  },
+	
 })

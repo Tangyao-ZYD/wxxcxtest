@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cl: "https://www.nbxwx.cn/SpringBootJT/show/images?fileName=addImg.png",
+    cl: "",
     array: ["请选择", "律师", "调解员", "法官"],
     toast1Hidden: true,
     modalHidden: true,
@@ -237,33 +237,43 @@ Page({
       fqr: wxUserAllInfo.basicinfo.jcid,
     }
     console.log(parame);
-    wx.request({
-      url: urlStr+'consultation/addConsulfo',
-      data: parame,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'POST',
-      success: function(res) {
-        if (res.data.state == 0) {
-          // 提示用户 申请完成，请等待审核
-          wx.showModal({
-            title: '提示',
-            content: '申请完成，请等待审核',
-            showCancel: false,
-            success: function(res) {
-              if (res.confirm) {
-                //申请完成  跳转到首页
-                wx.navigateTo({
-                  url: '../sqcg/sqcg',
-                })
-              }
-            }
-          })
-        }
 
-      }
-    })
+    wx.showModal({
+      title: '提示',
+      content: '确定提交申请',
+      showCancel: true,
+      success: function (res) {
+          if (res.confirm) {
+            wx.request({
+              url: urlStr+'consultation/addConsulfo',
+              data: parame,
+              header: {
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              method: 'POST',
+              success: function(res) {
+                if (res.data.state == 0) {
+                  // 提示用户 申请完成，请等待审核
+                  wx.showModal({
+                    title: '提示',
+                    content: '申请完成，请等待审核',
+                    showCancel: false,
+                    success: function(res) {
+                      if (res.confirm) {
+                        //申请完成  跳转到首页
+                        wx.navigateTo({
+                          url: '../sqcg/sqcg',
+                        })
+                      }
+                    }
+                  })
+                }
+              }
+            })
+          }
+        }
+     });
+    
 
   },
   formReset: function() {

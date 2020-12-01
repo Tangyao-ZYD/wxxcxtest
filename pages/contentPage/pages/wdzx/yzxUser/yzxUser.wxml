@@ -13,6 +13,7 @@
 
   <!-- 处理中 -->
   <view class="normalNewsBox {{showView?'viewShow':'viewHide'}}">
+   <scroll-view scroll-y="true" class="scrollSty" bindscrolltoupper="refresh" bindscrolltolower="loadMore" wx:if="{{null != items}}">
     <!-- 咨询列表 -->
     <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="i">
 			<wxs module="util">
@@ -33,12 +34,21 @@
       <view class="del" bindtap="clickFunInfo" data-index="{{item.id}}">详情</view>
     </view>
     <!-- end 咨询列表 -->
+    </scroll-view>
+    <!-- 暂无信息 -->
+    <view class="nullsty" wx:if="{{null == items}}" >暂无咨询信息</view>
+    
+    <!-- 加载更多 -->
+    <view class="bottom" hidden="{{hideBottom}}">
+      <view>{{loadMoreData}}</view>
+    </view>
   </view>
   <!--end 处理中-->
 
 
   <!-- 已完结 -->
   <view class="normalNewsBox {{showView?'viewHide':'viewShow'}}">
+  <scroll-view scroll-y="true" class="scrollSty" bindscrolltoupper="refresh" bindscrolltolower="loadMore"  wx:if="{{null != items}}" >
     <!-- 咨询列表 -->
     <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
 				<wxs module="util">
@@ -59,6 +69,15 @@
       <!-- <view class="del" bindtap="clickFunPj" data-index="{{index}}">详情</view> -->
     </view>
     <!-- end 咨询列表 -->
+    </scroll-view>
+
+    <!-- 暂无信息 -->
+    <view class="nullsty" wx:if="{{null == items}}" >暂无咨询信息</view>
+
+    <!-- 加载更多 -->
+    <view class="bottom" hidden="{{hideBottom}}">
+      <view>{{loadMoreData}}</view>
+    </view>
   </view>
   <!--end 已完结 -->
 </view>

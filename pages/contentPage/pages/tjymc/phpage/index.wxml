@@ -4,36 +4,39 @@
 
       <!-- 回复排行榜 -->
       <block wx:if="{{arr != null && tjydataIndex == 'hfph'}}" wx:for="{{arr}}" wx:for-item="a" wx:for-index="aIndex" wx:key="a">
-        <view class="item">
+        <view class="item blue-sty">
           <view class="pictureSty">
-            <image src="{{urlStr}}show/images?fileName={{a.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+            <image class="blue-img" src="{{urlStr}}show/images?fileName={{a.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
           </view>
           <view class="nameSty">{{a.xm}}</view>
           <view class="contentSty">{{a.lxdh}}</view>
+          <view class="pxSty">No.{{aIndex+1}}</view>
         </view>
       </block>
       <!-- 回复排行榜 -->
 
       <!-- 好评排行榜 -->
       <block wx:if="{{hpArr != null && tjydataIndex == 'hpph'}}" wx:for="{{hpArr}}" wx:for-item="h" wx:for-index="hIndex" wx:key="h">
-        <view class="item">
+        <view class="item blue-sty">
           <view class="pictureSty">
-            <image src="{{urlStr}}show/images?fileName={{h.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+            <image class="blue-img" src="{{urlStr}}show/images?fileName={{h.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
           </view>
           <view class="nameSty">{{h.xm}}</view>
           <view class="contentSty">{{h.lxdh}}</view>
+          <view class="pxSty">No.{{hIndex+1}}</view>
         </view>
       </block>
       <!--end 好评排行榜 -->
 
       <!-- 调解排行榜 -->
       <block wx:if="{{tjArr != null && tjydataIndex == 'tjph'}}" wx:for="{{tjArr}}" wx:for-item="t" wx:for-index="tIndex" wx:key="t">
-        <view class="item">
+        <view class="item blue-sty">
           <view class="pictureSty">
-            <image src="{{urlStr}}show/images?fileName={{t.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+            <image class="blue-img" src="{{urlStr}}show/images?fileName={{t.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
           </view>
           <view class="nameSty">{{t.xm}}</view>
           <view class="contentSty">{{t.lxdh}}</view>
+          <view class="pxSty">No.{{tIndex+1}}</view>
         </view>
       </block>
       <!--end 调解排行榜 -->
@@ -41,12 +44,13 @@
 
       <!-- 调解好评排行榜 -->
       <block wx:if="{{tjhpArr != null && tjydataIndex == 'tjhpph'}}" wx:for="{{tjhpArr}}" wx:for-item="j" wx:for-index="jIndex" wx:key="j">
-        <view class="item">
+        <view class="item blue-sty">
           <view class="pictureSty">
-            <image src="{{urlStr}}show/images?fileName={{j.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+            <image class="blue-img" src="{{urlStr}}show/images?fileName={{j.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
           </view>
           <view class="nameSty">{{j.xm}}</view>
           <view class="contentSty">{{j.lxdh}}</view>
+          <view class="pxSty">No.{{jIndex+1}}</view>
         </view>
       </block>
       <!--end 调解好评排行榜 -->

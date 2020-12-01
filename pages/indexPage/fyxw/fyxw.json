@@ -1,3 +1,4 @@
 {
-  
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
 }

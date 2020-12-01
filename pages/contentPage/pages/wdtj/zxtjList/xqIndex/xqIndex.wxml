@@ -1,5 +1,6 @@
 <view class='maxBox'>
-  <view class="test-sty" wx:if="{{isonLoad == 1}}">
+  
+  <view class="test-sty"  wx:if="{{isonLoad == 1}}">
     <view class="loading-sty">正在加载...</view>
   </view>
   <view class='box'>
@@ -68,6 +69,7 @@
             <view class="textareaItem">
               <text space="ensp">纠纷描述：</text>
               <view class="textareaSty" disabled="ture">{{details.jfms}}</view>
+						
             </view>
           </view>
         </view>
@@ -106,7 +108,8 @@
 
               <view class="item">
                 <text space="ensp">地   址：</text>
-                <input type="text" disabled="ture" value='{{i.dz}}' disabled="ture" />
+                <!-- <input type="hidden" disabled="ture" value='{{i.dz}}' disabled="ture" /> -->
+								<view class="textareaSty1 {{i.dz.length > 16 ? 'textareaSty2' :''}}">{{i.dz}}</view>
               </view>
             </view>
           </view>
@@ -168,9 +171,11 @@
           </view>
         </view>
         <!--end 审核信息 -->
-        <view class='sqtjSty' bindtap='arginFun' wx:if="{{details.shjg == 0 || details.tjjg==0}}">申请再次调解</view>
-
+        <!-- <view wx:if="{{lx == 0}}">
+          <view class='sqtjSty' bindtap='arginFun' wx:if="{{details.shjg == 0 || details.tjjg==0}}">申请再次调解</view>
+        </view> -->
       </view>
+			<!-- <view class='sqtjSty' bindtap='appletCheck' data-tjzt="{{details.tjzt}}">视频调解</view> -->
       <!-- end 个人信息 -->
 
       <!-- 调解 -->
@@ -257,23 +262,23 @@
               </view>
             </view>
             <!-- 材料上传 -->
-          
+
             <view class="clsty">
-               <label class='wsclStr'>文 书:</label>
-							 
+              <label class='wsclStr'>文 书:</label>
+
               <view class='imgbox'>
-                <block wx:for="{{clList}}" wx:key="index" wx:for-item="i">            
-                  	<view class='logoinfo'>                  
+                <block wx:for="{{clList}}" wx:key="index" wx:for-item="i">
+                  <view class='logoinfo'>
                     <image class='mrImg' name="clImg" src="{{urlStr}}show/images?fileName={{i.clmc}}" wx:if="{{urlStr.length > 0}}"></image>
-                    </view>
-                  </block>
-              
+                  </view>
+                </block>
+
                 <image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png' wx:if="{{urlStr.length > 0}}"></image>
-              
+
                 <image src='{{urlStr}}show/images?fileName=delImg.png' class='mrImg' bindtap='deleteImage' data-index="{{index}}" catchtap="deleteImg" wx:if="{{urlStr.length > 0}}"></image>
-                </view>
               </view>
-          
+            </view>
+
             <!-- end 材料上传 -->
 
             <!-- 底部按钮-->
@@ -305,7 +310,7 @@
     </view>
 
     <view wx:if="{{checkedId == 2}}" class="btnSty" bindtap="checkFun" data-index="2" data-tjbh="{{details.tjbh}}" data-tjzt="{{details.tjzt}}">
-      <image class='menuImg2' src='{{urlSty}}show/images?fileName=botbtn02_active.png' wx:if="{{urlStr.length > 0}}"></image>
+      <image class='menuImg2' src='{{urlStr}}show/images?fileName=botbtn02_active.png' wx:if="{{urlStr.length > 0}}"></image>
       <text>在线调解</text>
     </view>
 
@@ -320,20 +325,20 @@
       <!-- <text wx:if="{{usertype == 'sqr' && details.tjzt != 5}}">调解确认</text> wx:if="{{details.tjzt == 5}}" -->
       <text style="position: relative;left: -1%;">评价</text>
     </view>
-    <view wx:if="{{checkedId != 3 && lx == 0}}" class="btnSty" bindtap="checkFun" data-index="3">
+    <view wx:if="{{checkedId != 3 && lx == 0}}" class="btnSty" bindtap="checkFun" data-index="3" data-clr="{{details.clr}}" data-tjid="{{details.tjid}}" data-tjzt="{{details.tjzt}}">
       <image class='menuImg3' wx:if="{{checkedId!=3 && urlStr.length > 0}}" src='{{urlStr}}show/images?fileName=botbtn03.png'></image>
 
       <!-- <text wx:if="{{usertype == 'sqr' && details.tjzt != 5}}">调解确认</text> wx:if="{{details.tjzt == 5}}" -->
       <text style="position: relative;left: -1%;">评价</text>
     </view>
 
-    <view wx:if="{{checkedId == 3 && lx == 1}}" class="btnSty" bindtap="checkFun" data-index="3">
+    <view wx:if="{{checkedId == 3 && lx == 1}}" class="btnSty" bindtap="checkFun" data-index="3" data-clr="{{details.clr}}">
       <image class='menuImg3' src='{{urlStr}}show/images?fileName=botbtn03_active.png' wx:if="{{urlStr.length > 0}}"></image>
-      <text wx:if="{{details.tjjg == null}}">调解报结</text>
+      <text wx:if="{{details.tjjg == null}}">调解报结</text>`
       <text wx:if="{{details.tjjg == 0 || details.tjjg == 1}}" style="position: relative;left: -1%;">评价</text>
     </view>
 
-    <view wx:if="{{checkedId != 3 && lx == 1}}" class="btnSty" bindtap="checkFun" data-index="3">
+    <view wx:if="{{checkedId != 3 && lx == 1}}" class="btnSty" bindtap="checkFun" data-index="3" data-clr="{{details.clr}}">
       <image class='menuImg3' src='{{urlStr}}show/images?fileName=botbtn03.png' wx:if="{{urlStr.length > 0}}"></image>
       <text wx:if="{{details.tjjg == null}}">调解报结</text>
       <text wx:if="{{details.tjjg == 0 || details.tjjg == 1}}" style="position: relative;left: -1%;">评价</text>

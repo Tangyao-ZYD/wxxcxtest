@@ -1,54 +1,91 @@
-page{
+page {
   width: 100%;
   height: 100%;
 }
-.box{
+
+.box {
   width: 100%;
   height: 100%;
+  word-break: break-all;
 }
-.main{
+
+.main {
   width: 90%;
   height: 100%;
   margin: 0px 5%;
 }
-.topSty{
+
+.topSty {
   width: 100%;
-  height: 8%;
+  height: 10%;
   font-size: 16px;
   font-weight: 600;
 }
-.leftTitle{
+
+.tx-style {
+  float: left;
+  width: 80px;
+  height: 80px;
+  /* background: red; */
+  border-radius: 40px;
+}
+
+.tx-style image {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+}
+
+.leftTitle {
   width: 30%;
   float: left;
   text-align: left;
+  line-height: 80px;
+  margin-left: 5%;
 }
-.rightTitle{
-  width: 65%;
+
+.rightTitle {
+  width: 35%;
   float: right;
   font-size: 14px;
   font-weight: 500;
   color: lightskyblue;
   text-align: right;
-	position:relative;
-	top:40%;
-	left:-3%;
-
+  position: relative;
+  top: 40%;
+  left: -3%;
 }
 
+.rightSty1 {
+  width: 65%;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+  float: right;
+  font-size: 14px;
+}
 
+.InpSty {
+  width: 98%;
+  height: 50%;
+  line-height: 10px;
+  padding-left: 2%;
+}
 
+.textareaSty {
+  width: 98%;
+  height: 100%;
+  line-height: 20px;
+  padding-left: 2%;
+}
 
-
-
-
-
-.basicSty{
+.basicSty {
   width: 100%;
   height: auto;
   margin-top: 40px;
 }
 
-.leftSty{
+.leftSty {
   width: 30%;
   height: 40px;
   line-height: 40px;
@@ -57,7 +94,8 @@ page{
   margin-bottom: 10px;
   text-align: right;
 }
-.rightSty{
+
+.rightSty {
   width: 65%;
   height: 40px;
   line-height: 40px;
@@ -65,24 +103,25 @@ page{
   float: right;
   font-size: 14px;
 }
-.rightSty input{
+
+.rightSty input {
   width: 98%;
   height: 100%;
   line-height: 40px;
-  padding-left:2%;
+  /* padding-left:2%; */
 }
-.editSty{
-  border:1px solid #E0E0E0;
+
+.editSty {
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
-  padding-left:2%;
+  padding-left: 2%;
 }
 
-
-
-.buttomSty{
+.buttomSty {
   width: 100%;
 }
-.buttomSty button{
+
+.buttomSty button {
   width: 80px;
   height: 40px;
   float: right;
@@ -93,6 +132,124 @@ page{
   color: white;
   background: lightskyblue;
 }
-.mustIcon{
+
+.mustIcon {
   color: red;
 }
+
+.textareaSty1 {
+  /* width: 68.5%; */
+  height: 86%;
+  /* line-height:20px; *//* max-width: 66%;
+  max-height: 99%; *//* padding: 6px; */
+  position: relative;
+  /* top: 10px; */
+}
+
+.textareaSty2 {
+  width: 63.5%;
+  height: 86%;
+  /* max-width: 66%;
+  max-height: 99%; */
+  line-height: 20px;
+  position: relative;
+  top: 10px;
+  padding-left: 2%;
+}
+
+.textareaStyxx {
+  /* width: 63.5%; */
+  height: 86%;
+  line-height: 20px;
+  position: relative;
+  top: 10px;
+  /* padding-left: 2%; */
+}
+
+.hiddenPage {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+}
+.viewSty{
+  width: 100%;
+  height: 15px;
+  background:cornflowerblue;
+}
+.viewStyBtom{
+  width: 100%;
+  height: 20px;
+  margin-top:42%;
+  background:cornflowerblue;
+}
+
+.exitModel {
+  width: 80%;
+  height: 35%;
+  /* background: #e0e0e0; */
+  background:white;
+  margin: 360rpx 78rpx;
+  border-radius: 10rpx;
+  box-shadow: 1px 0px 3px 2px #a7a7a8;
+}
+
+.xjdzEditSty {
+  width: 145rpx;
+  height: 45%;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  float: left;
+  color: #000;
+  margin-top: 6%;
+}
+
+.xjdzEditStyInput {
+  width: 345rpx;
+  height: 40%;
+  float: left;
+  border: 1px solid gray;
+  padding: 2%;
+  margin-top: 6%;
+  margin-left: 3%;
+  border-radius: 6rpx;
+}
+
+.xjdzEditStyInput textarea {
+  width: 350rpx;
+  height: 160rpx;
+  font-size: 28rpx;
+  word-break: break-all;
+}
+
+.editBtnSty {
+  width: 100%;
+  height: 20%;
+  /* background: red; */
+}
+
+.soureSty {
+  width: 122rpx;
+  height: 70rpx;
+  float: left;
+  margin-left: 28%;
+  margin-top: 3%;
+  line-height: 70rpx;
+  font-size: 30rpx;
+}
+
+.cancelSty {
+  width: 122rpx;
+  height: 70rpx;
+  float: right;
+  margin-right: 9%;
+  margin-top: 3%;
+  line-height: 70rpx;
+  font-size: 30rpx;
+}
+
+/* ::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+} */

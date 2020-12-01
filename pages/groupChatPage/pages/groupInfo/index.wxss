@@ -215,7 +215,7 @@ page{
 .nameSty{
   width: 70px;
   height: 70px;
-  background-image: url('https://www.nbxwx.cn/SpringBootJT/show/images?fileName=namebg.png');
+  background-image: url('https://www.jtxwx.cn/SpringBootJT/show/images?fileName=namebg.png');
   background-size:100% 100%;
   border-radius: 35px;
   font-size: 14px;

@@ -119,7 +119,7 @@ position:relative;
 top:20px;
 width:50rpx;
 height:50rpx;
-src:"https://www.thinkllwx.cn/SpringBootJN/show/images?fileName=normal.png";
+src:"https://www.jtxwx.cn/SpringBootJN/show/images?fileName=normal.png";
 margin-left: 3px;
 
 }

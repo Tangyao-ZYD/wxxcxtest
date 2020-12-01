@@ -34,7 +34,9 @@ Page({
     lszxp:'',
 		disabledType:true,
 		disabledTypeXzdz:true,
-		urlStr:""
+		urlStr:"",
+    xzdxz:"",
+    isEdit:1
   },
 
   /**
@@ -65,11 +67,12 @@ Page({
       } else {
         //获取 个人信息 内容
         var wxUserAllInfo = getApp().globalData.wxUserAllInfo;
+				console.log(wxUserAllInfo);
         that.setData({
           wxUserAllInfo: wxUserAllInfo,
           sfzxp: wxUserAllInfo.basicinfo.sfzxp,
           sfzxpbm: wxUserAllInfo.basicinfo.sfzxpbm,
-
+          xzdxz: wxUserAllInfo.basicinfo.xzdxz
         });
 				//名族选择器下拉填充
         for (var i = 0; i < that.data.nation.length; i++) {
@@ -391,19 +394,18 @@ Page({
       }
     } else {
       //未注册 请注册
-      wx.showModal({
-        title: '提示',
-        content: "暂未注册，请到首页注册",
-        showCancel: false,
-        success: function(res) {
-          if (res.confirm) {
-            wx.switchTab({
-              url: '../index/index',
-            });
-          }
-        }
-      });
-
+      // wx.showModal({
+      //   title: '提示',
+      //   content: "暂未注册，请到首页注册",
+      //   showCancel: false,
+      //   success: function(res) {
+      //     if (res.confirm) {
+      //       wx.switchTab({
+      //         url: '../index/index',
+      //       });
+      //     }
+      //   }
+      // });
     }
 
 
@@ -413,9 +415,13 @@ Page({
    */
   clickFun: function() {
     var that = this;
+    console.log(123);
+    var xzdxz = that.data.xzdxz;
+    console.log(xzdxz);
     that.setData({
       isEdit: 0,
-			disabledTypeXzdz:false,
+      editTextarea: xzdxz
+			// disabledTypeXzdz:false,
     });
   },
   /**
@@ -542,8 +548,7 @@ Page({
 
     
     //获取 户籍所在地 现居住地址
-    var hjszdxz = formData.hjszdxz;
-
+    // var hjszdxz = formData.hjszdxz;
     //现居住地地址 详情
     var xzdxz = formData.xzdxz;
 
@@ -579,13 +584,15 @@ Page({
         "openId": wxUserAllInfo.basicinfo.openId,
         "xm": xm,
         "xb": xb,
+        "zh": wxUserAllInfo.basicinfo.zh,
+        "mm": wxUserAllInfo.basicinfo.mm,
         "sfzh": sfzh,
         "sfzqx": sfzqx,
         "sfzxp":sfzxp,
         "sfzxpbm":sfzxpbm,
         "csrq": csrq,
         "mz": mz,
-        "hjszdxz": hjszdxz,
+				"hjszdxz": wxUserAllInfo.basicinfo.hjszdxz,
         "xzdxz": xzdxz,
 				"rylx": wxUserAllInfo.basicinfo.rylx,
         "lxdh": lxdh
@@ -612,10 +619,14 @@ Page({
               showCancel: false,
               success: function (res) {
                 if (res.confirm) {
-									that.setData({ disabledTypeXzdz:true})
+									that.setData({ 
+                    disabledTypeXzdz:true,
+                    xzdxz: xzdxz
+                    
+                    })
                   //个人信息修改完成
                   wx.switchTab({
-                    url: 'grxx/index',
+                    url: '../grxx/index',
                   });
                 }
               }
@@ -644,6 +655,9 @@ Page({
     var that = this;
     //判断是否注册 审核通过
     var isRegister = getApp().globalData.isRegister;
+    //获取 个人信息 内容
+    var wxUserAllInfo = getApp().globalData.wxUserAllInfo; 
+
     if (isRegister != 1) {
         //审核未通过
         wx.showModal({
@@ -658,7 +672,105 @@ Page({
             }
           }
         });
+      }else{
+        console.log(wxUserAllInfo);
+        that.setData({
+          wxUserAllInfo: wxUserAllInfo,
+          sfzxp: wxUserAllInfo.basicinfo.sfzxp,
+          sfzxpbm: wxUserAllInfo.basicinfo.sfzxpbm,
+          xzdxz: wxUserAllInfo.basicinfo.xzdxz
+        });
       }
     
+  },
+  /**
+   * 修改操作
+   */
+  soureFun:function(e){
+    var that = this;
+    var formData = e.detail.value;
+    var xzdxz = formData.xzdxz
+    //获取 个人信息 内容
+    var wxUserAllInfo = getApp().globalData.wxUserAllInfo;
+    var parame = {
+      "jcid": wxUserAllInfo.basicinfo.jcid,
+      "provinceXz": wxUserAllInfo.basicinfo.provinceXz,
+      "cityXz": wxUserAllInfo.basicinfo.cityXz,
+      "districtXz": wxUserAllInfo.basicinfo.districtXz,
+      "provinceHj": wxUserAllInfo.basicinfo.provinceHj,
+      "cityHj": wxUserAllInfo.basicinfo.cityHj,
+      "districtHj": wxUserAllInfo.basicinfo.districtHj,
+      "openId": wxUserAllInfo.basicinfo.openId,
+      "xm": wxUserAllInfo.basicinfo.xm,
+      "xb": wxUserAllInfo.basicinfo.xb,
+      "zh": wxUserAllInfo.basicinfo.zh,
+      "mm": wxUserAllInfo.basicinfo.mm,
+      "sfzh": wxUserAllInfo.basicinfo.sfzh,
+      "sfzqx": wxUserAllInfo.basicinfo.sfzqx,
+      "sfzxp": wxUserAllInfo.basicinfo.sfzxp,
+      "sfzxpbm": wxUserAllInfo.basicinfo.sfzxpbm,
+      "csrq": wxUserAllInfo.basicinfo.csrq,
+      "mz": wxUserAllInfo.basicinfo.mz,
+      "hjszdxz": wxUserAllInfo.basicinfo.hjszdxz,
+      "xzdxz": xzdxz,
+      "rylx": wxUserAllInfo.basicinfo.rylx,
+      "lxdh": wxUserAllInfo.basicinfo.lxdh
+    };
+    console.log(parame);
+    if (xzdxz == "" || null == xzdxz) {
+      wx.showModal({
+        title: '提示',
+        content: "现居住地地址不能为空",
+        showCancel: false
+      });
+      return;
+    }
+    /**
+     * 执行修改操作
+     */
+    wx.request({
+      url: that.data.urlStr + 'register/updatePersonalInfo',
+      data:parame,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      success: function (r) {
+        if (r.statusCode == 200) {
+          that.setData({
+            isEdit: 1
+          })
+          //提示用户 个人信息修改完成
+          wx.showModal({
+            title: '提示',
+            content: '个人信息修改完成',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                that.setData({
+                  // disabledTypeXzdz: true,
+                  xzdxz: xzdxz
+                })
+                //个人信息修改完成
+                wx.switchTab({
+                  url: '../grxx/index',
+                });
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+  /**
+   * 修改操作取消
+   */
+  cancelFun:function(){
+    var that = this;
+    var xzdxz = that.data.xzdxz;
+    that.setData({
+      isEdit:1,
+      editTextarea: xzdxz
+    });
   }
 })

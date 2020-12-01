@@ -5,28 +5,19 @@
     <image class="topImgSty" src="{{urlStr}}show/images?fileName=banner1.jpg" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
  
 
-      <view class='propose' bindtap="clickFunPropose" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry'}}">
-      <image src="{{urlStr}}show/images?fileName=icon01.png" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+      <view class='propose' bindtap="clickFunPropose" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry' && urlStr.length>0}}" style="background-image: url('{{urlStr}}show/images?fileName=btnZx01.png');background-size:100% 100%; border:none; color:white;" plain="false">
         <view>调解申请</view>
       </view>
 
-      <view class="propose" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry'}}" bindtap="tjListFun">
-        <image src="{{urlStr}}show/images?fileName=icon02.png" mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"></image>
+      <view class="propose" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry' && urlStr.length>0}}" bindtap="tjListFun" style="background-image: url('{{urlStr}}show/images?fileName=btnZx02.png');background-size:100% 100%; border:none; color:white;" plain="false">
         <view>我的调解</view>
       </view>
 
-      <view class="fw-propose" wx:if="{{rylx=='ls' || rylx=='tjy' || rylx=='zfry'}}" bindtap="tjListFun">
-        <image src="{{urlStr}}show/images?fileName=icon02.png" mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"></image>
+      <view class="posLeftSty" wx:if="{{(rylx=='ls' || rylx=='tjy' || rylx=='zfry')&& urlStr.length>0}}" bindtap="tjListFun" style="background-image: url('{{urlStr}}show/images?fileName=btnZx02.png');background-size:100% 100%; border:none; color:white;" plain="false">
         <view>我的调解</view>
       </view>
-
-      <!-- <view class="propose" bindtap="scbzFun" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry'}}">
-        <image src="https://www.thinkllwx.cn/SpringBootJN/show/images?fileName=icon03.png" mode="aspectFitll" ></image>
-        <view>速裁保障</view>
-      </view> -->
-
   </view>
-<!-- <canvas canvas-id="canvas" bindtap='change'></canvas> -->
+
   <view class='contentbottom'>
     <view class="contentSty">
       <text decode='true'>

@@ -5,6 +5,7 @@ page{
 .box{
   width: 100%;
   height: 100%;
+  /* background: rgb(255, 255, 235); */
 }
 .main{
   width: 90%;
@@ -20,22 +21,44 @@ page{
 }
 .item{
   width: 100%;
-  height: 90px;
   margin-top:2%;
-  line-height: 90px;
-  background:#fbfbfb; 
+  border-radius:5px; 
+  /* background:hsla(32, 100%, 61%, 0.911); 
+  background:rgba(255, 204, 110, 0.973);  */
   /* background:gray;  */
+  background:linear-gradient(to right, rgb(240, 247, 255),rgb(0, 151, 252));
+}
+.red-sty{
+  height: 90px;
+  line-height: 90px;
+  /* background: linear-gradient(to right, #fff6c1,rgb(255, 84, 4)); */
+}
+.blue-sty{
+  height: 70px;
+  line-height: 70px;
+  /* background:linear-gradient(to right, rgb(240, 247, 255),rgb(0, 151, 252)); */
 }
 .pictureSty{
   width: 60px;
   height: 90%;
   float: left;
   margin: 1.2%
-
 }
-.pictureSty image{
-  width: 100%;
-  height: 100%;
+/* .pictureSty image{
+  width: 60px;
+  height: 60px;
+  border-radius:30px; 
+} */
+.red-img{
+  width: 80px;
+  height: 80px;
+  border-radius:40px;
+}
+.blue-img{
+  width: 60px;
+  height: 60px;
+  border-radius:30px;
+  margin-left: 15%;
 }
 .nameSty{
   width: 20%;
@@ -47,4 +70,9 @@ page{
 .contentSty{
   height: 100%;
   float: left;
+}
+.pxSty{
+  height: 100%;
+  float: right;
+  margin-right: 10px;
 }

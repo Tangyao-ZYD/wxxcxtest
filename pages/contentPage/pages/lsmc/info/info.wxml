@@ -4,7 +4,7 @@
     <view class="topSty">
       <view class="topBox">
         <view class="txSty">
-          <image wx:if="{{lsInfo.tx != null && lsInfo.tx!= ''}}" src="{{urlStr}}show/images?fileName={{lsInfo.tx}}" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/>
+          <image wx:if="{{lsInfo.tx != null && lsInfo.tx!= ''  && urlStr.length > 0}}" src="{{urlStr}}show/images?fileName={{lsInfo.tx}}" mode="aspectFitll"/>
           <image wx:if="{{lsInfo.tx == null || lsInfo.tx== ''}}" src="../../../../../images/userImg.jpg" mode="aspectFitll"/>
         </view>
         <view class="xmSty">{{lsInfo.xm}}</view>
@@ -14,7 +14,7 @@
 
     <view class="textBodySty">
        <view class="textTopSty">
-        <view class="imagesViewSty"><image src="{{urlStr}}show/images?fileName=eval.png" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/></view>
+        <view class="imagesViewSty"><image src="{{urlStr}}show/images?fileName=content.png" mode="aspectFitll" wx:if="{{urlStr.length > 0}}"/></view>
         <view class="l-evalist" wx:if="{{jjxx != null}}">
           <view class="{{curHdIndex >'0'? 'iconActive' : 'icon'}}" data-id="1"></view>
           <view class="{{curHdIndex >'1'? 'iconActive' : 'icon'}}" data-id="2"></view>
@@ -33,7 +33,7 @@
        <!-- 简介内容 wx:if="{{jjxx != null}}"-->
        <view class="pjnrSty">
 
-        <textarea  maxlength="300" disabled="true">简介信息简介信息简介信息简介信息简介信息简介信息简介信息简介信息简介信息简介信息</textarea>
+        <textarea  maxlength="300" disabled="true">暂无简介</textarea>
 
         <!-- <textarea wx:if="{{jjxx == null}}" maxlength="300" auto-focus="true"></textarea> -->
 

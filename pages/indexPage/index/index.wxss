@@ -41,12 +41,12 @@
    float: right;
    font-size: 14px;
    color: white;
-   margin-left: 80%;
+   margin-left: 78%;
    border: none;
-   padding-left: 2.9%;
+   /* padding-left: 2.9%; */
    text-align: center;
    line-height:42px;
-
+   letter-spacing:9rpx;
  }
  .topSty image{
    width: 100%;
@@ -77,8 +77,8 @@
   font-size: 12px;
 }
 .menu_image{
-  width:55%;
-  height: 48%; 
+  width:47px;
+  height: 39px; 
   margin: 0 16%;
   margin-bottom: 7%;
 }

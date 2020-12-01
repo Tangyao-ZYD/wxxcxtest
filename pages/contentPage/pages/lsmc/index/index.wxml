@@ -12,8 +12,7 @@
         </view>
       </block>   
     </view>
- 
-    <view class="bottom" bindtap="loadMoreFun" wx:if="{{arr.length >20}}">
+    <view class="bottom" bindtap="loadMoreFun" wx:if="{{arr.length >= 20}}">
       点击查看更多 >>>
     </view>
   </view>

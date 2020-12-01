@@ -1,10 +1,10 @@
 <view class='box'>
   <view class="topSty">
-     <image src="../../../images/banner.jpg" mode="aspectFitll"/> 
+     <image src="../../../images/banner.png" mode="aspectFitll"/> 
   </view>
   <!-- 菜单 -->
   <view class="menusBody">
-    <!-- 法治金堂 -->
+    <!-- 法治金堂  -->
     <view class="menu">
       <view class="menuTitle">
         <view class="menuTitleIco">
@@ -15,17 +15,17 @@
       <view class="hrSty"></view>
 
       <view class="items">
-        <view class="item" bindtap="clickFun" data-id="wx_xwjj_xwlx_3" data-index="wx_juris_zsfs_2">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_1.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+        <!-- <view class="item" bindtap="clickFun" data-id="wx_xwjj_xwlx_3" data-index="wx_juris_zsfs_2">
+            <view class="itemIco"><image src="../../../images/icons1.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
             <view class="itemText">法治动态</view>
-        </view>
+        </view> -->
         <view class="item" bindtap="clickFun" data-id="wx_xwjj_xwlx_1" data-index="wx_juris_zsfs_2">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_2.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
-            <view class="itemText">新闻动态</view>
+            <view class="itemIco"><image src="../../../images/icons2.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemText">法治新闻</view>
         </view>
         <view class="item" bindtap="clickFun" data-id="wx_xwjj_xwlx_2" data-index="wx_juris_zsfs_2">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_3.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
-            <view class="itemText">政策法规</view>
+            <!-- <view class="itemIco"><image src="../../../images/icons3.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemText">政策法规</view> -->
           </view>
 
       </view>
@@ -48,17 +48,22 @@
       </view>
       <view class="hrSty"></view>
       <view class="items">
-        <view class="item" bindtap="clickFun" data-id="wx_xxfz_gndm_2" data-index="wx_juris_zsfs_3">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_4.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+        <!-- <view class="item" bindtap="clickFun" data-id="wx_xxfz_gndm_2" data-index="wx_juris_zsfs_3">
+            <view class="itemIco"><image src="../../../images/qx_1.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
             <view class="itemText">政府规划</view>
-        </view>
-        <view class="item" bindtap="clickFun" data-id="wx_xxfz_gndm_3" data-index="wx_juris_zsfs_3">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_5.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+        </view> -->
+        <!-- <view class="item" bindtap="clickFun" data-id="wx_xxfz_gndm_3" data-index="wx_juris_zsfs_3">
+            <view class="itemIco"><image src="../../../images/icons4.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
             <view class="itemText">招商引资</view>
-         </view>
+         </view> -->
         <view class="item" bindtap="clickFun" data-id="wx_xxfz_gndm_1" data-index="wx_juris_zsfs_3">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_6.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemIco"><image src="../../../images/icons5.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
             <view class="itemText">案例推送</view>
+         </view>
+
+         <view class="item" bindtap="clickFun" data-id="wx_xxfz_gndm_4" data-index="wx_juris_zsfs_3">
+            <view class="itemIco"><image src="../../../images/icons3.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemText">政策法规</view>
          </view>
       </view>
     </view>
@@ -79,12 +84,12 @@
       <view class="hrSty"></view>
       <view class="items">
       <view class="item" bindtap="clickFunTest3" data-id="0" data-index="0">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_7.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemIco"><image src="../../../images/qx_2.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
             <view class="itemText">人工咨询</view>
       </view>
-      <view class="item" bindtap="clickFun" data-id="0" data-index="0">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_8.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
-            <view class="itemText">智能回答</view>
+      <view class="item" bindtap="clickFunWeb">
+            <view class="itemIco"><image src="../../../images/qx_3.png" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemText">智能问答</view>
       </view>  
         
       </view>
@@ -107,24 +112,24 @@
       <view class="items">
 
         <view class="item" bindtap="clickFunTest" >
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_9.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemIco"><image src="../../../images/qx_4.png" mode="aspectFitll"/></view>
             <view class="itemText">律师信息</view>
         </view>
-        <view class="item" bindtap="clickFunTest2" data-index="hfph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_10.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+        <!-- <view class="item" bindtap="clickFunTest2" data-index="hfph">
+            <view class="itemIco"><image src="../../../images/qx_5.png" mode="aspectFitll"/></view>
             <view class="itemText">回复排行</view>
-        </view>
-        <view class="item" bindtap="clickFunTest2" data-index="hpph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_11.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
-            <view class="itemText">好评排行</view>
-        </view>
+        </view> -->
         <view class="item" bindtap="clickFunTest2" data-index="tjph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_12.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+            <view class="itemIco"><image src="../../../images/qx_7.png" mode="aspectFitll"/></view>
             <view class="itemText">调解排行</view>
         </view>
-        <view class="item" bindtap="clickFunTest2" data-index="tjhpph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_13.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+        <!-- <view class="item" bindtap="clickFunTest2" data-index="tjhpph">
+            <view class="itemIco"><image src="../../../images/qx_8.png" mode="aspectFitll"/></view>
             <view class="itemText">调解好评排行</view>
+        </view> -->
+        <view class="item" bindtap="clickFunTest2" data-index="hpph">
+            <view class="itemIco"><image src="../../../images/qx_6.png" mode="aspectFitll"/></view>
+            <view class="itemText">好评排行</view>
         </view>
       </view>
     </view>
@@ -144,33 +149,27 @@
       </view>
       <view class="hrSty"></view>
       <view class="items">
-
-        <!-- <block  wx:for="{{sfgkMenus}}" wx:for-item="s" wx:for-index="sIndex" wx:key="s">
-          <view class="item" bindtap="clickFun" data-id="{{s.qxbm}}" data-index="{{s.zsfs}}">
-            <view class="itemIco"><image src="https://www.thinkllwx.cn/spring-boot/show/images?fileName={{s.qxtb}}" mode="aspectFitll"/></view>
-            <view class="itemText">{{s.qxmc}}</view>
-          </view>
-        </block> -->
-       <view class="item" bindtap="queryTjyInfo" data-id="{{s.qxbm}}" data-index="{{s.zsfs}}">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_9.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+       <view class="item" bindtap="queryTjyInfo">
+            <view class="itemIco"><image src="../../../images/qx_4.png" mode="aspectFitll"/></view>
             <view class="itemText">调解员信息</view>
         </view>
-        <view class="item" bindtap="clickFunTestTjy" data-index="hfph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_10.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
-            <view class="itemText">咨询回复排行</view>
-        </view>
-        <view class="item" bindtap="clickFunTestTjy" data-index="hpph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_11.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
-            <view class="itemText">咨询好评排行</view>
-        </view>
+        <!-- <view class="item" bindtap="clickFunTestTjy" data-index="hfph">
+            <view class="itemIco"><image src="../../../images/qx_5.png" mode="aspectFitll"/></view>
+            <view class="itemText">回复排行</view>
+        </view> -->
         <view class="item" bindtap="clickFunTestTjy" data-index="tjph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_12.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
-            <view class="itemText">调解数量排行</view>
+            <view class="itemIco"><image src="../../../images/qx_7.png" mode="aspectFitll"/></view>
+            <view class="itemText">调解排行</view>
         </view>
-        <view class="item" bindtap="clickFunTestTjy" data-index="tjhpph">
-            <view class="itemIco"><image src="{{urlStr}}show/imageSlt?fileName=qxtb_13.jpg&width=29&height=28" mode="aspectFitll" wx:if="{{urlStr.length>0}}"/></view>
+        <!-- <view class="item" bindtap="clickFunTestTjy" data-index="tjhpph">
+            <view class="itemIco"><image src="../../../images/qx_8.png" mode="aspectFitll"/></view>
             <view class="itemText">调解好评排行</view>
+        </view> -->
+        <view class="item" bindtap="clickFunTestTjy" data-index="hpph">
+            <view class="itemIco"><image src="../../../images/qx_6.png" mode="aspectFitll"/></view>
+            <view class="itemText">好评排行</view>
         </view>
+        
         
         
       </view>

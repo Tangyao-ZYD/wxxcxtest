@@ -11,24 +11,51 @@ Page({
     userInfo:'',
     zxid:'',
     hfInfo:[],
-    scrollTop: 9999
+    scrollTop: 9999,
+		gtlx:0
   },
   onLoad: function(options) {
     var that = this;
     var urlStr = getApp().globalData.urlStr;
-    that.setData({ urlStr: urlStr });
+		var rylx = getApp().globalData.wxUserInfo.rylx;
+		//获取人员类型
+		var r = rylx;
+		var arr = [];
+		if (rylx != null) {
+			arr = r.split(",");
+		}
+
+    that.setData({ 
+			urlStr: urlStr,
+		});
+
+		//设置人员类型（0：用户端人员，1：服务端人员）
+		if (rylx != "ls" && rylx != "tjy" && rylx != "zfry") {
+			that.setData({
+				gtlx: 1
+			});
+		} else {
+			that.setData({
+				gtlx: 2
+			});
+		}
+
+
     //查询该咨询信息的回复信息
     that.setData({
       zxid: options.zxid,
       jcid: getApp().globalData.wxUserInfo.jcid
     });
+
 		//修改回复信息sfyd (是否已读)
 		wx.request({
 			url: urlStr+'reply/sfydUpdate',
 			data: {
-				zxid: options.zxid
+				zxid: options.zxid,
+				jcid: getApp().globalData.wxUserInfo.jcid
 			},
 			success: function (res) {
+				console.log("是否已读修改成功")
 			}
 		})
 
@@ -37,7 +64,6 @@ Page({
       url: urlStr+'consultation/queryConsulfoById',
       data: { id: options.zxid},
       success: function(res) {
-        console.log(res);
         if(res.data.data!=null){
           that.setData({
             hfInfo: res.data.data.hfInfo,
@@ -83,7 +109,8 @@ Page({
     var formData = e.detail.value;
 
     var zxid = that.data.zxid;
-    var gtlx = 1;
+
+		var gtlx = that.data.gtlx;
     var xxlx = 1;
     var nr = formData.nr;
 		var cjr = that.data.jcid;
@@ -141,7 +168,6 @@ Page({
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'], // 可以指定来源是相册(album)还是相机(camera)，
         success: function (res) {
-          console.log(res)
           var tempFilePaths = res.tempFilePaths;
           var tPath = res.tempFilePaths[0];
           //执行上传
@@ -155,16 +181,14 @@ Page({
             success: function (r) {
               //对上传图片 返回值 进行数据转换
               r.data = JSON.parse(r.data);
-              console.log(r.data);
               //上传成功
               if (r.data.data != null && r.data.data != 'undifind'){
                 var zxid = that.data.zxid;
-                var gtlx = 1;
+								var gtlx = that.data.gtlx;
                 var xxlx = 2;
                 var nr = r.data.data;
                 var cjr = that.data.jcid;
                 var parame = { zxid: zxid, gtlx: gtlx, xxlx: xxlx, nr: nr, cjr: cjr };
-                console.log(parame);
                 wx.request({
                   url: urlStr+'reply/addReplyInfo',
                   header: {

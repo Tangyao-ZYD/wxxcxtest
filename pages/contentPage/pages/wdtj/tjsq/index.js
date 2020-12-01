@@ -46,6 +46,7 @@ Page({
     displaySqr: 0,
     clList: [],
     clmcName: '',
+		dzXq:''
   },
 
   /**
@@ -60,9 +61,10 @@ Page({
     var enterprise = getApp().globalData.wxUserAllInfo.enterprise;
     that.setData({
       sqrInfo: userInfo,
-      enterprise: enterprise
+      enterprise: enterprise,
+			dzXq: userInfo.xzdxz
     });
-
+		console.log("-----" + userInfo.xzdxz);
     // console.log(userInfo);
     // console.log(getApp().globalData.wxUserAllInfo.enterprise);
     var caseTypeArray = that.data.caseTypeArray;
@@ -428,10 +430,11 @@ Page({
       });
       return;
     }
+		console.log("dz + " + this.data.dzXq);
     var sqr = {};
-    // console.log(this.data.rylx);
+    console.log("rylx + "+this.data.rylx);
     if (this.data.rylx == 1) {
-
+			
       sqr = {
         ssdw: 1,
         lx: this.data.rylx,
@@ -440,20 +443,21 @@ Page({
         // xb: formData.xb,
         xb: 1,
         sfzhm: formData.sfzhm,
-        dz: formData.dz,
+				dz: this.data.dzXq,
         lxdh: formData.lxdh
       }
+			
     } else {
       if (null != formData.mc && formData.mc != "") {
         sqr = {
           ssdw: 1,
-          lx: formData.lx,
+          lx: this.data.rylx,
           mc: formData.mc,
           fddbr: formData.fddbr,
           // xb: formData.xb,
           xb: 1,
           sfzhm: formData.sfzhm,
-          dz: formData.dz,
+					dz: this.data.dzXq,
           lxdh: formData.lxdh
         }
       } else {
@@ -576,30 +580,40 @@ Page({
       "cyrList": ry
     };
     // console.log(tj)
-    wx.request({
-      url: urlStr+'mediate/applyTj',
-      data: tj,
-      method: 'POST',
-      success: function(res) {
-        // console.log(res);
-        if (res.data.state == 0) {
-          // 提示用户 申请完成，请等待审核
-          wx.showModal({
-            title: '提示',
-            content: '申请完成，请等待审核',
-            showCancel: false,
-            success: function(res) {
-              if (res.confirm) {
-                //申请完成  跳转到我的调解列表页面
-                wx.navigateTo({
-                  url: '../zxtjList/wdtj/index',
-                })
+    wx.showModal({
+      title: '提示',
+      content: '确定提交申请',
+      showCancel: true,
+      success: function (res) {
+          if (res.confirm) {
+            wx.request({
+              url: urlStr + 'mediate/applyTj',
+              data: tj,
+              method: 'POST',
+              success: function (res) {
+                // console.log(res);
+                if (res.data.state == 0) {
+                  // 提示用户 申请完成，请等待审核
+                  wx.showModal({
+                    title: '提示',
+                    content: '申请完成，请等待审核',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        //申请完成  跳转到我的调解列表页面
+                        wx.navigateTo({
+                          url: '../zxtjList/wdtj/index',
+                        })
+                      }
+                    }
+                  });
+                }
               }
-            }
-          });
-        }
+            });
+          }
       }
-    });
+    });
+    
   },
   /**
     * 渲染

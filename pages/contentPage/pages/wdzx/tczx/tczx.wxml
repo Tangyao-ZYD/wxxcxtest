@@ -38,15 +38,16 @@
 			<!-- 材料上传 -->
 			<view class="clsty">
 			 <text space="ensp" class='textSty1'>材料上传: </text>
-        <view class='imgbox'>
+       
+        <scroll-view scroll-y class='imgbox'>
 						<block wx:for="{{clList}}" wx:item-index="cIndex" wx:key="index">
 							<view class='logoinfo'>
 								<image class='mrImg' name="clImg" src='{{urlStr}}show/images?fileName={{item}}' wx:if="{{urlStr.length > 0}}"></image>
 							</view>
 						</block>
-						<image bindtap="upimg" class='mrImg' src='https://www.nbxwx.cn/SpringBootJT/show/images?fileName=addImg.png'></image>
+						<image bindtap="upimg" class='mrImg' src='{{urlStr}}show/images?fileName=addImg.png' wx:if = "{{urlStr.length > 0}}"></image>
             <image src='{{urlStr}}show/images?fileName=delImg.png' class='mrImg' bindtap='deleteImage' data-index="{{cIndex}}" catchtap="deleteImg" wx:if="{{urlStr.length > 0}}"></image>
-					</view>
+					</scroll-view>
           
 				</view>
 			<!-- end 材料上传 -->
@@ -70,7 +71,7 @@
 
 				<!-- 提交 -->
 			 <view class="btnSubmit">
-        <button class="btn-compl" formType="submit" style="background-image: url('https://www.nbxwx.cn/SpringBootJT/show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false">提交</button>
+        <button class="btn-compl" formType="submit" style="background-image: url('{{urlStr}}show/images?fileName=btnbg.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if = "{{urlStr.length > 0}}">提交</button>
       </view>
 			<!--end 提交 -->
 		</form>

@@ -139,6 +139,13 @@ Page({
                 clrInfo: res.data.data.clrMap.mediator,
                 clrInfo_basicInfo: res.data.data.clrMap.basic
               });
+            } else if (res.data.data.clrMap.lawyer != null){
+              
+              that.setData({
+                clrInfo: res.data.data.clrMap.lawyer,
+                clrInfo_basicInfo: res.data.data.clrMap.basic
+              });
+              console.log(that.data.clrInfo.tx);
             }else{
               that.setData({
                 clrInfo: null
@@ -149,6 +156,7 @@ Page({
               clrInfo: null
             });
           }
+					
           //调解详情
           that.setData({
             details: res.data.data,
@@ -158,6 +166,7 @@ Page({
             tjjg: res.data.data.tjjg,
             tjbh: res.data.data.tjbh
           });
+
           if (res.data.data.sqr == jcid) {
             // console.log("我是申请人");
             that.setData({
@@ -308,10 +317,36 @@ Page({
 
 		});
 	},
+	//小程序跳小程序
+	appletCheck: function (e) {
+		var that = this;
+		var lx = that.data.lx;
+		var tjzt = e.currentTarget.dataset.tjzt;
+		var tjbh = this.data.tjbh;
+		var jcid = getApp().globalData.wxUserInfo.jcid;
+		var xm = getApp().globalData.wxUserInfo.xm;//姓名
+		var parame = {
+			tjzt: tjzt,
+			sf: lx,
+			tjbh: tjbh,
+			jcid: jcid,
+			userName: xm
+		}
+		wx.navigateToMiniProgram({
+      appId: 'wxc50b09fb1c085e41',
+			path: 'pages/index/index?tjzt=' + tjzt + '&sf=' + lx + '&jcid=' + jcid + '&tjbh=' + tjbh +'&userName=' + xm,
+			envVersion: 'develop',
+			success(res) {
+				console.log(res)
+				console.log("小程序与小程序之间跳转")
+			}
+		})
+	},
   /**
    * 标题点击事件
    */
   checkFun: function(e) {
+
     //切换选中样式
     var checkedId = e.currentTarget.dataset.index;
     var that = this;
@@ -321,12 +356,11 @@ Page({
     var tjjg = that.data.tjjg;
     var sfqrbj = that.data.sfqrbj; //是否参与人办结
     var tjid = that.data.tjid;
-    // console.log(tjid+"--------======------");
     var clr = e.currentTarget.dataset.clr;
     var tjzt = e.currentTarget.dataset.tjzt;
     var tjbh = this.data.tjbh;
-    // console.log("tjbh" + tjbh)
-    var tjzt = e.currentTarget.dataset.tjzt;
+		var jcid = getApp().globalData.wxUserInfo.jcid;
+		var xm = getApp().globalData.wxUserInfo.xm;//姓名
     //详情
     if (checkedId == 1) {
       that.setData({
@@ -345,6 +379,7 @@ Page({
             showCancel: false,
             success: function(res) {
               if (res.confirm) {
+								
                 that.setData({
                   checkedId: 1
                 });
@@ -355,6 +390,8 @@ Page({
           that.setData({
             checkedId: 2
           });
+
+
         }
       } else if (tjfs == 1) {
         // console.log(that.data.jcid);
@@ -476,7 +513,7 @@ Page({
           // console.log("服务端已报结，请评价");
           //内部评价   或者 外部评价
           wx.navigateTo({
-            url: '../pj/pj?tjid=' + tjid + '&clr=' + clr
+            url: '../pj/pj?tjid=' + tjid + '&clr=' + clr+"&pjlx=2"
           })
         }else{
           // console.log("服务端未报结")
@@ -491,7 +528,7 @@ Page({
           // console.log(sfqrbj);
           console.log("用户端已确认办结！");
           wx.navigateTo({
-            url: '../pj/pj?tjid=' + tjid + '&clr=' + clr
+            url: '../pj/pj?tjid=' + tjid + '&clr=' + clr + "&pjlx=2"
           });
         } else {
           // console.log("调解暂未结束")
@@ -541,6 +578,7 @@ Page({
 
     var lx = that.data.lx;
     var tjid = that.data.tjid;
+		var tjbh = that.data.tjbh;
     // drawPic(that);//随机验证码
     //用户确认提交
     if (that.data.lx == 0) {
@@ -622,8 +660,11 @@ Page({
         clList: that.data.clList,
         sfzctj: 0,
         id: tjid,
-        tjzt: 5
+        tjzt: 5,
+				tjbh:tjbh,
+				tjfs:that.data.tjfs
       };
+
       //提交
       wx.request({
         url: urlStr+'mediate/completeTj',
@@ -785,7 +826,8 @@ Page({
       url: '../../../wdzx/zxGrxx/zxGrxx?xm=' + basic.xm + '&lxdh=' + basic.lxdh + '&jl=' + clrInfo.jl + '&tx=' + clrInfo.tx,
     })
 
-  }
+  },
+	
 
 })
 

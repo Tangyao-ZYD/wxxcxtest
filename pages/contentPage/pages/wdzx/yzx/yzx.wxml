@@ -1,57 +1,77 @@
 <view class='box'>
   <view class='topTitle'>
-    <view id='handle' bindtap="onChangeShowState" data-id = "2" class="{{showView?'fontActionSty':'fontSty'}}">
-      <image src='{{urlStr}}show/images?fileName=iing.png' mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"></image>
+    <view id='handle' bindtap="onChangeShowState" data-id="2" class="{{showView?'fontActionSty':'fontSty'}}">
+      <image src='{{urlStr}}show/images?fileName=iing.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
       <text>未完成</text>
     </view>
-    <view id='topEnd' bindtap="onChangeShowState"  data-id = "3" class="{{showView?'fontSty':'fontActionSty'}}">
-      <image src='{{urlStr}}show/images?fileName=over.png' mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"></image>
-       <text>已完成</text> 
+    <view id='topEnd' bindtap="onChangeShowState" data-id="3" class="{{showView?'fontSty':'fontActionSty'}}">
+      <image src='{{urlStr}}show/images?fileName=over.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+      <text>已完成</text>
     </view>
   </view>
 
 
-<!--未完成 -->
-<view class="normalNewsBox {{showView?'viewShow':'viewHide'}}">
-   <!-- 咨询列表 -->
-  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}"  wx:key="">
-       <view class="content" bindtap="clickFunContent" data-id="{{item.id}}">{{item.zxzt}}</view>
+  <!--未完成 -->
+  <view class="normalNewsBox {{showView?'viewShow':'viewHide'}}">
+
+  <scroll-view scroll-y="true" class="scrollSty" bindscrolltoupper="refresh" bindscrolltolower="loadMore" wx:if="{{null != items}}">
+    <!-- 咨询列表 -->
+    <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
+      <view class="content" bindtap="clickFunContent" data-id="{{item.id}}">{{item.zxzt}}
+				 <view class="xqstr" wx:if="{{item.count>0}}">
+          <image src='{{urlStr}}show/images?fileName=email.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+        </view>
+      </view>
       <!--评价 catchtap="del" -->
       <view class="del" data-id="{{item.id}}" bindtap="commissionFun">完结</view>
       <view class="del greenColor" bindtap="clickFunInfo" data-index="{{item.id}}">详情</view>
+    </view>
+    <!-- end 咨询列表 -->
+    </scroll-view>
+    <!-- 暂无信息 -->
+    <view class="nullsty" wx:if="{{null == items}}" >暂无咨询信息</view>
+    <!-- 加载更多 -->
+    <view class="bottom" hidden="{{hideBottom}}">
+      <view>{{loadMoreData}}</view>
+    </view>
   </view>
-  <!-- end 咨询列表 -->
-</view>
-<!--end 未完成 -->    
+  <!--end 未完成 -->
 
-<!-- 已完成 -->
-<view class="normalNewsBox {{showView?'viewHide':'viewShow'}}">
-  <!-- 咨询列表 -->
-  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove"  wx:for="{{items}}"  wx:key="">
-				<wxs module="util">
-					var sub = function(val) {
-						return val.substring(0, 20)
-					}
-					module.exports.sub = sub;
-				</wxs>
-       <view class="content" bindtap="clickFunContent" data-id="{{item.id}}">{{item.zxzt}}
-			 <label class='zxztStr' wx:if = "{{item.zxzt.length > 20 }}">...</label>
+  <!-- 已完成 -->
+  <view class="normalNewsBox {{showView?'viewHide':'viewShow'}}">
+  <scroll-view scroll-y="true" class="scrollSty" bindscrolltoupper="refresh" bindscrolltolower="loadMore" wx:if="{{null != items}}" >
+    <!-- 咨询列表 -->
+    <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
+      <wxs module="util">
+        var sub = function(val) {
+          return val.substring(0, 20)
+        }
+        module.exports.sub = sub;
+      </wxs>
+      <view class="content" bindtap="clickFunContent" data-id="{{item.id}}">{{item.zxzt}}
+        <label class='zxztStr' wx:if="{{item.zxzt.length > 20 }}">...</label>
         <!-- 已有处理人 -->
-      <view class="dealWith">
-          <image src='{{urlStr}}show/images?fileName=rhead.png'  wx:if="{{urlStr.length > 0}}"></image>
+        <view class="dealWith">
+          <image src='{{urlStr}}show/images?fileName=rhead.png' wx:if="{{urlStr.length > 0}}"></image>
+        </view>
       </view>
-      </view>
-      
-     
+
+
       <view class="del" bindtap="clickFunInfo" data-index="{{item.id}}">详情</view>
       <!--end 已有处理人 -->
 
+    </view>
+    <!-- end 咨询列表 -->
+    </scroll-view>
+    <!-- 暂无信息 -->
+    <view class="nullsty" wx:if="{{null == items}}" >暂无咨询信息</view>
+        <!-- 加载更多 -->
+        <view class="bottom" hidden="{{hideBottom}}">
+          <view>{{loadMoreData}}</view>
+        </view>
+
+
   </view>
-  <!-- end 咨询列表 -->
-
-
- 
-</view>
-<!--end  已完成 -->   
+  <!--end  已完成 -->
 
 </view>

@@ -23,7 +23,7 @@ Page({
     wghyTypeIndex: 0,
     dbjbForPickerIndex: 0,
     openId: '',
-    nickName: '',
+    // nickName: '',
     parameForBasicinfo: {},
     frsfzxpImgName_z: {},
     frsfzxpImgName_f: {},
@@ -52,7 +52,7 @@ Page({
 			wts:wts,
 			zjzp:zjzp,
       openId: getApp().globalData.openId,
-      nickName: getApp().globalData.nickName,
+      // nickName: getApp().globalData.nickName,
       parameForBasicinfo: options.parameForBasicinfo,
       idcardInfo: options.idcardInfo,
 			urlStr: urlStr

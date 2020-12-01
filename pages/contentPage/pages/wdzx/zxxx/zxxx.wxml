@@ -14,15 +14,17 @@
     <text class='nameXm'>{{zxInfo.clrxm}}</text>
     <!-- 星星 -->
     <view class='xxImg'>
-      <block wx:for="{{stars}}">
-        <image class="star-image" style="left: {{item*30}}rpx" src="{{item}}">
-        </image>
+      <block wx:for="{{stars}}" wx:key="s">
+        <image class="star-image" style="left: {{item*30}}rpx" src="{{item}}"></image>
       </block>
     </view>
   </view>
 
-  <view class='contentRight'>
+  <view class='contentRight' wx:if="{{pjxxInfo.pjnr != null}}">
     {{pjxxInfo.pjnr}}
+  </view>
+  <view class='contentRight' wx:if="{{pjxxInfo.pjnr == null}}">
+    暂无评价信息
   </view>
 </view>
 

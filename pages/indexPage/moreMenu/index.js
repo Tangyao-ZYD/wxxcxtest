@@ -5,6 +5,7 @@ Page({
    */
 	data: {
 		urlStr: "",
+    webview:false,
 	},
 
   /**
@@ -147,9 +148,29 @@ Page({
 
 	//咨询服务
 	clickFunTest3: function (e) {
-		wx.navigateTo({
-			url: '../../contentPage/pages/wdzx/index/index',
-		})
+		var that = this;
+		//判断是否注册 审核通过
+		var isRegister = getApp().globalData.isRegister;
+		if (isRegister != 1) {
+			//审核未通过
+			wx.showModal({
+				title: '提示',
+				content: "未登录，请登录",
+				showCancel: false,
+				success: function (res) {
+					if (res.confirm) {
+						wx.switchTab({
+							url: '../index/index',
+						});
+					}
+				}
+			});
+		}else{
+			wx.navigateTo({
+				url: '../../contentPage/pages/wdzx/index/index',
+			})
+		}
+		
 	},
 
   /**
@@ -167,7 +188,13 @@ Page({
 		wx.navigateTo({
 			url: '../manageGroup/index'
 		})
-	}
-
-
+	},
+  /**
+   * 智能问答
+   */
+  clickFunWeb :function(e){
+   wx.navigateTo({
+     url: '../znwd/index',
+   })
+  }
 })

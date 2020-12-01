@@ -102,7 +102,7 @@ page{
   height: 100%;
   line-height: 35px;
   float: left;
-  margin-left: 2%;
+  margin-left: 4%;
 }
 
 .textareaSty {
@@ -117,7 +117,7 @@ page{
 }
 .clsty{
 width: 99.5%;
-  height: 150px;
+  height: 100px;
   margin-bottom: 10px;
   /* border: 1px solid #eee; */
 }
@@ -135,11 +135,11 @@ width: 99.5%;
 }
 
 .imgbox {
- 	width:72%;
+ 	width:69%;
 	height:90%;
 	float:right;
 	position:relative;
-	top:-11%;
+	/* top:-11%; */
 }
 .btnSubmit {
   width: 96%;

@@ -1,12 +1,17 @@
 <!-- 咨询功能介绍 -->
 <view class="topSty">
-      <image src="{{urlStr}}show/images?fileName=bannerZx.png" mode="aspectFitll"  wx:if="{{urlStr.length > 0}}"/>  
-     
-     <view class='propose' bindtap="clickFunPropose"  style="background-image: url('{{urlStr}}show/images?fileName=btnZx01.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry' && urlStr.length > 0}}">提出咨询</view>
-     <view class="propose {{rylx=='ls' || rylx=='tjy' || rylx=='zfry' ? 'posLeftSty':''}}" bindtap="clickFunYzx" style="background-image: url('{{urlStr}}show/images?fileName=btnZx02.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{urlStr.length > 0}}">我的咨询</view>
+  <image src="{{urlStr}}show/images?fileName=bannerZx.png" mode="aspectFitll" wx:if="{{urlStr.length > 0}}" />
+
+  <view class='propose' bindtap="clickFunPropose" style="background-image: url('{{urlStr}}show/images?fileName=btnZx01.png');background-size:100% 100%; border:none; color:white;" plain="false" wx:if="{{rylx!='ls' && rylx!='tjy' && rylx!='zfry' && urlStr.length > 0}}">提出咨询</view>
+  <view class="propose {{rylx=='ls' || rylx=='tjy' || rylx=='zfry' ? 'posLeftSty':''}}" bindtap="clickFunYzx" style="background-image: url('{{urlStr}}show/images?fileName=btnZx02.png');background-size:100% 100%; border:none; color:white;" plain="false"
+    wx:if="{{urlStr.length > 0}}">我的咨询</view>
 </view>
 
 <view class='contentbottom'>
-  <image src='{{urlStr}}show/images?fileName=zxindex.png'  wx:if="{{urlStr.length > 0}}"></image>
+  <!-- <image src='{{urlStr}}show/images?fileName=zxindex.png' wx:if="{{urlStr.length > 0}}"></image> -->
+ <view class="contentSty">
+      <text decode='true'>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您有任何法律上的疑问或者诉讼上的困惑，首先我们建议您可以通过“智能问答”功能进行自主查询。如果无法解决您的问题，则也可以直接通过在线咨询提出您的问题，您的疑问会有专业的律师人员或法院人员为您进行解答。
+      </text>
+    </view>
 </view>
-

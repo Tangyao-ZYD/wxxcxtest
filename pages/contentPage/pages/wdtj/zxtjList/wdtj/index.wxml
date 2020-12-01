@@ -18,7 +18,7 @@
 
 
     <view class="bodyBox">
-      <scroll-view scroll-y class="scrollSty">
+      <scroll-view scroll-y="true" class="scrollSty" bindscrolltoupper="refresh" bindscrolltolower="loadMore" wx:if="{{null != items}}">
         <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="i">
           <view class="content" bindtap="clickFunContent" data-index="{{item.shjg}}" data-id="{{item.id}}">
             <view>调解编号：{{item.tjbh}}</view>
@@ -26,21 +26,27 @@
               <image class="timeImg" src="{{urlStr}}show/images?fileName=time.png"></image>
               <view class="timeSty">{{item.sqrqStr}}</view>
             </view>
-            <view class="xqfwd" wx:if="{{item.clr != null && lx == 0 }}">
-              <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
-            </view>
-
+						
             <view class="xq" wx:if="{{item.clr != null && lx == 1 && item.tjzt != 5}}">
               <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
             </view>
 
           
-            <view class="xqfwd" wx:if="{{item.clr != null && lx == 1 && item.tjzt == 5}}">
+            <view class="xqfwd {{item.shjg == '0' ? 'xq':''}}" wx:if="{{item.clr != null && lx == 1 && item.tjzt == 5}}">
+              <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+						</view>
+
+						<view class="xqfwd {{item.shjg == '0' ? 'xq':''}}" wx:if="{{item.clr != null && lx == 0 && item.tjzt == 5}}">
+              <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
+            </view>
+						
+
+						<view class="xqfwd {{item.shjg == '0' ? 'xq':''}}" wx:if="{{item.clr != null && lx == 0 && item.tjzt != 5}}">
               <image src='{{urlStr}}show/images?fileName=head.png' mode="aspectFitll" wx:if="{{urlStr.length > 0}}"></image>
             </view>
 
           </view>
-          <!-- 详情 -->
+          <!-- 详情  style='position:relative;left:'-->
           <view class="del" bindtap="xqClickFun" data-id="{{item.id}}">详情</view>
           <view class="del backOrange" bindtap="zbClickFun" data-id="{{item.id}}" data-tjbh="{{item.tjbh}}" wx:if="{{lx == 1 && item.tjzt!=5}}">转办</view>
           <!-- 评价 -->
@@ -51,6 +57,13 @@
 
         </view>
       </scroll-view>
+      <!-- 暂无信息 -->
+      <view class="nullsty" wx:if="{{null == items}}" >暂无调解信息</view>
+       <view class="bottom" hidden="{{hideBottom}}">
+        <view>{{loadMoreData}}</view>
+        <!-- <view>{{refreshTime}}</view> -->
+      </view>
+
     </view>
   </view>
 </view>

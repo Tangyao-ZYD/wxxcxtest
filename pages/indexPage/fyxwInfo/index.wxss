@@ -71,7 +71,7 @@ color: transparent;
 .pictureStr{
   width: 90%;
   height: 240px;
-  margin: 2% 5%;
+  margin: 2% 0%;
 }
 
 /** 隐藏 滚动条*/

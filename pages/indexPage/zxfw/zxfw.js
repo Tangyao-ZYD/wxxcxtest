@@ -19,18 +19,18 @@ Page({
     var isRegister = getApp().globalData.isRegister;
     if (isRegister != 1) {
       //审核未通过
-      wx.showModal({
-        title: '提示',
-        content: "未登录，请登录",
-        showCancel: false,
-        success: function (res) {
-          if (res.confirm) {
-            wx.switchTab({
-              url: '../index/index',
-            });
-          }
-        }
-      });
+      // wx.showModal({
+      //   title: '提示',
+      //   content: "未登录，请登录",
+      //   showCancel: false,
+      //   success: function (res) {
+      //     if (res.confirm) {
+      //       wx.switchTab({
+      //         url: '../index/index',
+      //       });
+      //     }
+      //   }
+      // });
     }
   },
   /**
@@ -46,6 +46,23 @@ Page({
    * 监听页面显示
    */
   onShow: function (e) {
-    this.onLoad();
+    var that = this;
+    //判断是否注册 审核通过
+    var isRegister = getApp().globalData.isRegister;
+    if (isRegister != 1) {
+      //审核未通过
+      wx.showModal({
+        title: '提示',
+        content: "未登录，请登录",
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../index/index',
+            });
+          }
+        }
+      });
+    }
   }
 })
